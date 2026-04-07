@@ -1,0 +1,17 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.badge {
+  @include card-surface;
+  padding: 20px;
+
+  &__value {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  &__label {
+    color: $color-text-muted;
+  }
+}

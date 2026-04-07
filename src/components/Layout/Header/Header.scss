@@ -1,0 +1,216 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(18px);
+  background: rgba(7, 9, 15, 0.74);
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__brand-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    background: $gradient-hero;
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+
+  &__brand-copy {
+    display: grid;
+    gap: 2px;
+    font-size: 14px;
+    color: $color-text-muted;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__link,
+  &__mobile-link,
+  &__chip {
+    color: $color-text-muted;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+
+    &:hover,
+    &--active {
+      color: $color-text;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__burger {
+    display: none;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 1px solid $color-border;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: $color-text;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    &--active {
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__mobile {
+    position: fixed;
+    inset: 89px 0 auto;
+    max-height: calc(100vh - 89px);
+    overflow-y: auto;
+    background: rgba(7, 9, 15, 0.98);
+    border-bottom: 1px solid $color-border;
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+    &--open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+
+  &__mobile-inner {
+    padding: 18px 0 28px;
+    display: grid;
+    gap: 24px;
+  }
+
+  &__mobile-nav {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__mobile-link {
+    @include card-surface;
+    padding: 18px 20px;
+    font-size: 18px;
+    font-weight: 700;
+
+    &--active {
+      border-color: rgba(253, 58, 69, 0.45);
+      color: $color-text;
+    }
+  }
+
+  &__mobile-group {
+    display: grid;
+    gap: 14px;
+  }
+
+  &__mobile-title {
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__mobile-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__chip {
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid $color-border;
+    background: rgba(255,255,255,0.03);
+
+    &:hover {
+      border-color: rgba(253, 58, 69, 0.45);
+      background: rgba(253, 58, 69, 0.08);
+    }
+  }
+
+  &__mobile-cta {
+    .button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @include media-down(980px) {
+    &__nav,
+    &__actions {
+      display: none;
+    }
+
+    &__burger {
+      display: inline-flex;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  @include media-down(640px) {
+    &__inner {
+      min-height: 78px;
+      gap: 12px;
+    }
+
+    &__brand-copy span {
+      display: none;
+    }
+
+    &__mobile {
+      inset: 79px 0 auto;
+      max-height: calc(100vh - 79px);
+    }
+  }
+}

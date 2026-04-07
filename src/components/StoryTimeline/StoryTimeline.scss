@@ -1,0 +1,53 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.story-timeline {
+  @include section-spacing;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  &__item {
+    @include card-surface;
+    padding: 28px;
+  }
+
+  &__year {
+    margin-bottom: 20px;
+    color: $color-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 24px;
+  }
+
+  &__text {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.8;
+  }
+
+  @include media-down(940px) {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.story-timeline {
+  @include media-down(640px) {
+    &__item {
+      padding: 22px;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  padding: 72px 0 56px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  &__content {
+    display: grid;
+    gap: 24px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 0.95;
+  }
+
+  &__description {
+    margin: 0;
+    max-width: 640px;
+    color: $color-text-muted;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__arena-card {
+    @include card-surface;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -30% auto auto -15%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(253, 58, 69, 0.18);
+      filter: blur(36px);
+    }
+  }
+
+  &__arena-label {
+    margin-bottom: 10px;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__arena-title {
+    margin-bottom: 16px;
+    font-size: 34px;
+    font-weight: 800;
+  }
+
+  &__arena-copy {
+    margin-bottom: 32px;
+    color: $color-text-muted;
+    line-height: 1.8;
+  }
+
+  &__stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  &__stat {
+    padding: 18px;
+    border-radius: $radius-sm;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid $color-border;
+
+    strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    span {
+      color: $color-text-muted;
+    }
+  }
+
+  @include media-down(940px) {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+.hero {
+  @include media-down(640px) {
+    padding: 36px 0 28px;
+
+    &__content {
+      gap: 18px;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    &__actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    &__arena-card {
+      padding: 24px;
+    }
+
+    &__arena-title {
+      font-size: 28px;
+    }
+
+    &__arena-copy {
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    &__stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

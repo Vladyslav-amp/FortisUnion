@@ -1,0 +1,44 @@
+@use '../../../styles/variables' as *;
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 40px;
+
+  &--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__eyebrow {
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: $color-primary;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  &__title {
+    margin: 0 0 16px;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1;
+  }
+
+  &__description {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-heading__description {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}

@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.stats-strip {
+  padding: 18px 0;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  &__item {
+    @include card-surface;
+    padding: 18px 20px;
+
+    strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 24px;
+    }
+
+    span {
+      color: $color-text-muted;
+    }
+  }
+
+  @include media-down(940px) {
+    &__inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include media-down(580px) {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+}

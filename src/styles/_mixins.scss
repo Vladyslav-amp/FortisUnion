@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+@mixin container {
+  width: min(calc(100% - 40px), $container-width);
+  margin-inline: auto;
+}
+
+@mixin section-spacing {
+  padding: 96px 0;
+}
+
+@mixin card-surface {
+  background: rgba(16, 19, 29, 0.92);
+  border: 1px solid $color-border;
+  box-shadow: $shadow-soft;
+  border-radius: $radius-md;
+}
+
+@mixin hover-lift {
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(253, 58, 69, 0.45);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
