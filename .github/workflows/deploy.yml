@@ -9,10 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./PMMA-PROMO-TEMPLATE
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
