@@ -9,7 +9,7 @@ function JoinPromotion() {
           <span className="join-promotion__eyebrow">Dla zawodników i sponsorów</span>
           <h2 className="join-promotion__title">Buduj roster, partnerstwa i zasięgi w jednym miejscu</h2>
           <p className="join-promotion__text">
-            Ten blok możesz wykorzystać jako formularz zgłoszeniowy, sekcję sponsorską
+            sekcję sponsorską
             albo call to action dla klubów, które chcą wejść do twojej organizacji.
           </p>
         </div>

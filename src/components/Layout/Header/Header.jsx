@@ -40,7 +40,7 @@ function Header() {
           <span className="header__brand-mark">{organization.mark}</span>
           <span className="header__brand-copy">
             <strong>{organization.name}</strong>
-            <span>{organization.city} • PMMA Promotion</span>
+            <span>{organization.city} • MMA Promotion</span>
           </span>
         </NavLink>
 

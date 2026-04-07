@@ -9,7 +9,7 @@ function MediaGallery() {
         <SectionHeading
           eyebrow="Media"
           title="Wideo, backstage i highlighty budują wartość promocji"
-          description="Sekcja pod shorts, YouTube, backstage, foto relacje i partnerów medialnych."
+          description="Shorts, YouTube, backstage, foto relacje i partnerów medialnych."
         />
         <div className="media-gallery__grid">
           {mediaGallery.map((item) => (
