@@ -19,23 +19,17 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build
-        run: npm run build
+        run: node node_modules/vite/bin/vite.js build
 
       - name: Verify secrets
         run: |
-          if [ -z "${{ secrets.VPS_HOST }}" ]; then
-            echo "VPS_HOST is empty"
-            exit 1
-          fi
-
-          if [ -z "${{ secrets.VPS_USER }}" ]; then
-            echo "VPS_USER is empty"
-            exit 1
-          fi
-
+          test -n "${{ secrets.VPS_HOST }}" || (echo "VPS_HOST is empty" && exit 1)
+          test -n "${{ secrets.VPS_PORT }}" || (echo "VPS_PORT is empty" && exit 1)
+          test -n "${{ secrets.VPS_USER }}" || (echo "VPS_USER is empty" && exit 1)
+          test -n "${{ secrets.VPS_SSH_KEY }}" || (echo "VPS_SSH_KEY is empty" && exit 1)
           echo "Secrets OK"
 
       - name: Setup SSH key
@@ -47,27 +41,30 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p "${{ secrets.VPS_PORT }}" -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Test SSH connection
         run: |
-          ssh -o StrictHostKeyChecking=no \
+          ssh -p "${{ secrets.VPS_PORT }}" \
           ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
           "echo Connected"
 
       - name: Create target directory
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          ssh -p "${{ secrets.VPS_PORT }}" \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
           "mkdir -p /var/www/fortisunion"
 
       - name: Deploy files
         run: |
           rsync -avz --delete \
+          -e "ssh -p ${{ secrets.VPS_PORT }}" \
           dist/ \
           ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/fortisunion/
 
       - name: Reload nginx
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          ssh -p "${{ secrets.VPS_PORT }}" \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
           "sudo systemctl reload nginx"
