@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -18,35 +17,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit --no-fund
+      - name: Clean install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build (force)
+        run: node node_modules/vite/bin/vite.js build
 
-      - name: Setup SSH key
+      - name: SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-      - name: Add server to known_hosts
+      - name: Known hosts
         run: |
           mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          ssh-keyscan -p "${{ secrets.VPS_PORT }}" -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy files
+      - name: Deploy
         run: |
-          rsync -avz --delete \
-          -e "ssh -p ${{ secrets.VPS_PORT }}" \
-          dist/ \
-          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/fortisunion/
+          rsync -avz --delete dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/fortisunion/
 
       - name: Reload nginx
         run: |
-          ssh -p "${{ secrets.VPS_PORT }}" \
-          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-          "sudo systemctl reload nginx"
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "sudo systemctl reload nginx"
