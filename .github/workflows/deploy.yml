@@ -18,28 +18,56 @@ jobs:
         with:
           node-version: 20
 
-      - name: Clean install
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify secrets
         run: |
-          rm -rf node_modules package-lock.json
-          npm install
+          if [ -z "${{ secrets.VPS_HOST }}" ]; then
+            echo "VPS_HOST is empty"
+            exit 1
+          fi
 
-      - name: Build (force)
-        run: node node_modules/vite/bin/vite.js build
+          if [ -z "${{ secrets.VPS_USER }}" ]; then
+            echo "VPS_USER is empty"
+            exit 1
+          fi
 
-      - name: SSH
+          echo "Secrets OK"
+
+      - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-      - name: Known hosts
+      - name: Add server to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
-      - name: Deploy
+      - name: Test SSH connection
         run: |
-          rsync -avz --delete dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/fortisunion/
+          ssh -o StrictHostKeyChecking=no \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          "echo Connected"
+
+      - name: Create target directory
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          "mkdir -p /var/www/fortisunion"
+
+      - name: Deploy files
+        run: |
+          rsync -avz --delete \
+          dist/ \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/fortisunion/
 
       - name: Reload nginx
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "sudo systemctl reload nginx"
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          "sudo systemctl reload nginx"
