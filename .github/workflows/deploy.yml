@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -17,20 +18,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Build
-        run: node node_modules/vite/bin/vite.js build
-
-      - name: Verify secrets
-        run: |
-          test -n "${{ secrets.VPS_HOST }}" || (echo "VPS_HOST is empty" && exit 1)
-          test -n "${{ secrets.VPS_PORT }}" || (echo "VPS_PORT is empty" && exit 1)
-          test -n "${{ secrets.VPS_USER }}" || (echo "VPS_USER is empty" && exit 1)
-          test -n "${{ secrets.VPS_SSH_KEY }}" || (echo "VPS_SSH_KEY is empty" && exit 1)
-          echo "Secrets OK"
+        run: npm run build
 
       - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
@@ -43,18 +37,6 @@ jobs:
           chmod 700 ~/.ssh
           ssh-keyscan -p "${{ secrets.VPS_PORT }}" -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-
-      - name: Test SSH connection
-        run: |
-          ssh -p "${{ secrets.VPS_PORT }}" \
-          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-          "echo Connected"
-
-      - name: Create target directory
-        run: |
-          ssh -p "${{ secrets.VPS_PORT }}" \
-          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-          "mkdir -p /var/www/fortisunion"
 
       - name: Deploy files
         run: |
