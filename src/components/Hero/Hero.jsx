@@ -1,24 +1,33 @@
-
-import { motion } from 'framer-motion';
-import Button from '../UI/Button/Button';
-import Tag from '../UI/Tag/Tag';
-import { heroHighlights, organization } from '../../data/siteData';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Button from '../UI/Button';
+import Tag from '../UI/Tag';
+import { fighters } from '../../data/siteData';
 import './Hero.scss';
 
 function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeFighter = fighters[activeIndex];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % fighters.length);
+    }, 4200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <section className="hero">
       <div className="container hero__inner">
         <div className="hero__content">
-          <Tag>{organization.name} • {organization.city}</Tag>
-          <h1 className="hero__title">Promuj zawodników jak marka premium, nie jak zwykły klub.</h1>
+          <Tag>Fortis Union</Tag>
+          <h1 className="hero__title">Budujemy gwiazdy. Promujemy charakter.</h1>
           <p className="hero__description">
-            {organization.name} to nowoczesny szablon pod promocję czterech fighterów, turniejów PMMA,
-            bloga, mediów i strony, która wygląda jak duża organizacja.
+            Sport to coś więcej niż wyniki. To charakter, determinacja i historia stojąca za każdym sukcesem. Pokazujemy pełny potencjał zawodników, budując ich obecność w świecie sportu i biznesu.
           </p>
           <div className="hero__actions">
-            <Button href="#fighters" label="Poznaj zawodników" />
-            <Button href="#events" label="Zobacz turnieje" variant="secondary" />
+            <Button href="#fighters" label="Zobacz zawodników" />
           </div>
         </div>
 
@@ -28,18 +37,61 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="hero__arena-card">
-            <div className="hero__arena-label">Sezon 2026</div>
-            <div className="hero__arena-title">FortisUnion — fight culture from Gdańsk</div>
-            <div className="hero__arena-copy">
-              Cztery osobowości. Cztery historie. Jedna organizacja, która buduje zasięg, emocje i eventy.
+          <div className="hero__spotlight-card" aria-live="polite">
+            <div className="hero__spotlight-top">
+              <span>Fighter spotlight</span>
+              <strong>0{activeFighter.id}</strong>
             </div>
-            <div className="hero__stats-grid">
-              {heroHighlights.map((item) => (
-                <div className="hero__stat" key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
+
+            <AnimatePresence mode="wait">
+              <motion.article
+                className="hero__featured-fighter"
+                key={activeFighter.id}
+                initial={{ opacity: 0, x: 28 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -28 }}
+                transition={{ duration: 0.38 }}
+              >
+                <img src={activeFighter.image} alt={activeFighter.name} className="hero__featured-image" />
+                <div className="hero__featured-overlay" />
+                <div className="hero__featured-copy">
+                  <span>{activeFighter.style}</span>
+                  <h2>{activeFighter.name}</h2>
+                  <strong>“{activeFighter.nickname}”</strong>
+                  <p>{activeFighter.shortStory}</p>
+                  <dl className="hero__featured-stats">
+                    <div>
+                      <dt>Rekord</dt>
+                      <dd>{activeFighter.record}</dd>
+                    </div>
+                    <div>
+                      <dt>Wzrost</dt>
+                      <dd>{activeFighter.height}</dd>
+                    </div>
+                    <div>
+                      <dt>Waga</dt>
+                      <dd>{activeFighter.weight}</dd>
+                    </div>
+                    <div>
+                      <dt>Styl</dt>
+                      <dd>{activeFighter.style}</dd>
+                    </div>
+                  </dl>
                 </div>
+              </motion.article>
+            </AnimatePresence>
+
+            <div className="hero__fighter-tabs" aria-label="Wybór zawodnika w hero">
+              {fighters.map((fighter, index) => (
+                <button
+                  className={`hero__fighter-tab${index === activeIndex ? ' hero__fighter-tab--active' : ''}`}
+                  type="button"
+                  key={fighter.id}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <img src={fighter.image} alt="" />
+                  <span>{fighter.name}</span>
+                </button>
               ))}
             </div>
           </div>

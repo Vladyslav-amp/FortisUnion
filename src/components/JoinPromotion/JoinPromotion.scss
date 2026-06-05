@@ -49,16 +49,3 @@
     }
   }
 }
-.join-promotion {
-  @include media-down(640px) {
-    &__inner {
-      padding: 24px;
-    }
-
-    &__actions {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-  }
-}

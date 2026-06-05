@@ -1,23 +1,21 @@
 import Hero from '../components/Hero/Hero';
-import FightersGrid from '../components/FightersGrid/FightersGrid';
-import FighterSpotlight from '../components/FighterSpotlight/FighterSpotlight';
-import StoryTimeline from '../components/StoryTimeline/StoryTimeline';
-import StatsStrip from '../components/StatsStrip/StatsStrip';
-import EventsPreview from '../components/EventsPreview/EventsPreview';
-import MediaGallery from '../components/MediaGallery/MediaGallery';
-import BlogPreview from '../components/BlogPreview/BlogPreview';
-import JoinPromotion from '../components/JoinPromotion/JoinPromotion';
-import Newsletter from '../components/Newsletter/Newsletter';
+import FightersGrid from '../components/FightersGrid';
+import FighterSpotlight from '../components/FighterSpotlight';
+import PromoHighlights from '../components/PromoHighlights';
+import StatsStrip from '../components/StatsStrip';
+import MediaGallery from '../components/MediaGallery';
+import BlogPreview from '../components/BlogPreview';
+import JoinPromotion from '../components/JoinPromotion';
+import Newsletter from '../components/Newsletter';
 
 function HomePage() {
   return (
     <>
       <Hero />
+      <PromoHighlights />
       <StatsStrip />
       <FightersGrid />
       <FighterSpotlight />
-      <StoryTimeline />
-      <EventsPreview />
       <MediaGallery />
       <BlogPreview />
       <JoinPromotion />

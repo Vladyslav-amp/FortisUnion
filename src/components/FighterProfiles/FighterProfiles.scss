@@ -49,21 +49,6 @@
     line-height: 1.8;
   }
 
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-  }
-
-  &__link {
-    color: $color-accent;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
   &__info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -90,38 +75,8 @@
 
   @include media-down(980px) {
     &__card,
-  
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-  }
-
-  &__link {
-    color: $color-accent;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  &__info-grid {
+    &__info-grid {
       grid-template-columns: 1fr;
-    }
-  }
-}
-.fighter-profiles {
-  @include media-down(640px) {
-    &__content {
-      padding: 20px;
-    }
-
-    &__name {
-      font-size: 30px;
-    }
-
-    &__image {
-      min-height: 300px;
     }
   }
 }

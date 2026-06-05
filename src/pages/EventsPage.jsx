@@ -1,6 +1,6 @@
-import PageHero from '../components/PageHero/PageHero';
-import EventCards from '../components/EventCards/EventCards';
-import Newsletter from '../components/Newsletter/Newsletter';
+import PageHero from '../components/PageHero';
+import EventCards from '../components/EventCards';
+import Newsletter from '../components/Newsletter';
 
 function EventsPage() {
   return (

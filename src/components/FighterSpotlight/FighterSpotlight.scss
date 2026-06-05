@@ -3,33 +3,55 @@
 
 .fighter-spotlight {
   @include section-spacing;
+  position: relative;
 
   &__grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.95fr 1.05fr;
     gap: 32px;
-    align-items: center;
+    align-items: stretch;
   }
 
   &__visual,
   &__content {
-    @include card-surface;
-    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(224, 190, 126, 0.18);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.024));
+    box-shadow: $shadow-soft;
+  }
+
+  &__visual {
+    padding: 14px;
+  }
+
+  &__content {
+    padding: clamp(28px, 4vw, 54px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__image {
     width: 100%;
-    min-height: 520px;
+    height: 100%;
+    min-height: 560px;
     object-fit: cover;
-    border-radius: $radius-md;
+    border-radius: 26px;
+    filter: grayscale(0.75) contrast(1.12);
   }
 
   &__quote {
-    margin: 24px 0;
-    padding-left: 20px;
-    border-left: 3px solid $color-primary;
-    font-size: 22px;
-    line-height: 1.6;
+    margin: 26px 0;
+    padding: 20px 22px;
+    border-left: 3px solid $color-gold;
+    background: rgba(224, 190, 126, 0.06);
+    color: $color-text;
+    font-family: $font-display;
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1.12;
+    text-transform: uppercase;
   }
 
   &__badges {
@@ -45,23 +67,6 @@
 
     &__badges {
       grid-template-columns: 1fr;
-    }
-  }
-}
-.fighter-spotlight {
-  @include media-down(640px) {
-    &__visual,
-    &__content {
-      padding: 18px;
-    }
-
-    &__image {
-      min-height: 340px;
-    }
-
-    &__quote {
-      font-size: 18px;
-      line-height: 1.5;
     }
   }
 }

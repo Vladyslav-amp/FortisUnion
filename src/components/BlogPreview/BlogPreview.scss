@@ -52,14 +52,3 @@
     }
   }
 }
-.blog-preview {
-  @include media-down(640px) {
-    &__body {
-      padding: 20px;
-    }
-
-    &__title {
-      font-size: 24px;
-    }
-  }
-}

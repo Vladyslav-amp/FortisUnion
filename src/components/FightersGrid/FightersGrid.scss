@@ -6,48 +6,94 @@
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
   }
 
   &__card {
-    @include card-surface;
-    @include hover-lift;
+    position: relative;
     overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(224, 190, 126, 0.18);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+      $color-surface;
+    box-shadow: $shadow-soft;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: rgba(224, 190, 126, 0.46);
+      box-shadow: 0 34px 110px rgba(0, 0, 0, 0.62), 0 0 46px rgba(224, 190, 126, 0.1);
+    }
   }
 
   &__media {
     position: relative;
-    min-height: 340px;
+    height: 430px;
+    overflow: hidden;
+  }
+
+  &__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.88));
   }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1);
+    filter: grayscale(1) contrast(1.15);
+    transform: scale(1.02);
     transition: filter 0.35s ease, transform 0.35s ease;
   }
 
   &__card:hover &__image {
-    filter: grayscale(0);
-    transform: scale(1.03);
+    filter: grayscale(0) contrast(1.05);
+    transform: scale(1.08);
   }
 
   &__index {
     position: absolute;
-    right: 22px;
-    bottom: 18px;
-    font-size: 52px;
+    z-index: 2;
+    right: 18px;
+    top: 18px;
+    font-family: $font-display;
+    font-size: 54px;
     font-weight: 800;
-    color: rgba(255,255,255,0.14);
+    color: rgba(224, 190, 126, 0.18);
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 2;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 12px;
+
+    span {
+      color: $color-text-muted;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    strong {
+      color: $color-gold;
+      font-family: $font-display;
+      font-size: 34px;
+    }
   }
 
   &__body {
-    padding: 24px;
+    padding: 22px;
   }
 
   &__meta,
@@ -60,69 +106,64 @@
 
   &__name {
     margin: 18px 0 6px;
-    font-size: 32px;
+    font-family: $font-display;
+    font-size: 34px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
   }
 
-  &__nickname,
+  &__style,
   &__record {
-    color: $color-primary;
-    font-weight: 700;
+    color: $color-gold;
+    font-weight: 800;
+  }
+
+  &__style {
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
   }
 
   &__story {
+    min-height: 104px;
     color: $color-text-muted;
-    line-height: 1.8;
+    line-height: 1.75;
   }
 
   &__stats {
     margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
     div {
       display: grid;
-      gap: 6px;
+      gap: 5px;
     }
 
     strong {
+      font-family: $font-display;
       font-size: 28px;
     }
 
     span {
       color: $color-text-muted;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
   }
 
-  @include media-down(940px) {
+  @include media-down(1180px) {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include media-down(680px) {
     &__list {
       grid-template-columns: 1fr;
-    }
-  }
-}
-.fighters-grid {
-  @include media-down(640px) {
-    &__media {
-      min-height: 280px;
-    }
-
-    &__body {
-      padding: 20px;
-    }
-
-    &__meta,
-    &__stats {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    &__name {
-      font-size: 28px;
-    }
-
-    &__stats {
-      gap: 12px;
-
-      div {
-        width: 100%;
-      }
     }
   }
 }

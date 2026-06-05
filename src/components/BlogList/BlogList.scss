@@ -51,14 +51,3 @@
     }
   }
 }
-.blog-list {
-  @include media-down(640px) {
-    &__content {
-      padding: 20px;
-    }
-
-    &__title {
-      font-size: 26px;
-    }
-  }
-}

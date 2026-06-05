@@ -52,14 +52,3 @@
     }
   }
 }
-.events-preview {
-  @include media-down(640px) {
-    &__card {
-      padding: 22px;
-    }
-
-    &__title {
-      font-size: 26px;
-    }
-  }
-}

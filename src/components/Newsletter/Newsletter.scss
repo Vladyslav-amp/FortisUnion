@@ -62,20 +62,3 @@
     }
   }
 }
-.newsletter {
-  @include media-down(640px) {
-    padding: 0 0 72px;
-
-    &__inner {
-      padding: 22px;
-    }
-
-    &__title {
-      font-size: 26px;
-    }
-
-    &__button {
-      min-height: 50px;
-    }
-  }
-}

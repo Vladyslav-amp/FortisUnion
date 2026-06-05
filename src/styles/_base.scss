@@ -1,6 +1,7 @@
 @use 'variables' as *;
 @use 'mixins' as *;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap');
 
 :root {
   color-scheme: dark;
@@ -12,18 +13,30 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 104px;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   font-family: $font-base;
   color: $color-text;
   background:
-    radial-gradient(circle at top left, rgba(253, 58, 69, 0.14), transparent 32%),
-    radial-gradient(circle at top right, rgba(75, 139, 255, 0.14), transparent 26%),
-    $color-background;
+    radial-gradient(circle at 16% 4%, rgba(224, 190, 126, 0.18), transparent 26%),
+    radial-gradient(circle at 84% 10%, rgba(216, 23, 38, 0.18), transparent 28%),
+    linear-gradient(135deg, #030304 0%, #09090b 48%, #050506 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at top, #000, transparent 68%);
 }
 
 a {
@@ -52,10 +65,4 @@ textarea {
 
 .site-shell__main {
   overflow: hidden;
-}
-
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 92px;
-  }
 }

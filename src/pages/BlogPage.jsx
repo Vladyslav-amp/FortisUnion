@@ -1,6 +1,6 @@
-import PageHero from '../components/PageHero/PageHero';
-import BlogList from '../components/BlogList/BlogList';
-import Newsletter from '../components/Newsletter/Newsletter';
+import PageHero from '../components/PageHero';
+import BlogList from '../components/BlogList';
+import Newsletter from '../components/Newsletter';
 
 function BlogPage() {
   return (
