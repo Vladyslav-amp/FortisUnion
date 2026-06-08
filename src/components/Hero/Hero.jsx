@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Button from '../UI/Button';
-import Tag from '../UI/Tag';
+import Button from '../UI/Button/Button';
 import { fighters } from '../../data/siteData';
 import './Hero.scss';
 
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeFighter = fighters[activeIndex];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -17,15 +18,24 @@ function Hero() {
     return () => window.clearInterval(timer);
   }, []);
 
+  const goToFighter = () => {
+    navigate(`/fighters/${activeFighter.id}`);
+  };
+
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <div className="container hero__inner">
         <div className="hero__content">
-          <Tag>Fortis Union</Tag>
-          <h1 className="hero__title">Budujemy gwiazdy. Promujemy charakter.</h1>
+          <h1 className="hero__title">
+            Budujemy gwiazdy. Promujemy charakter.
+          </h1>
+
           <p className="hero__description">
-            Sport to coś więcej niż wyniki. To charakter, determinacja i historia stojąca za każdym sukcesem. Pokazujemy pełny potencjał zawodników, budując ich obecność w świecie sportu i biznesu.
+            Sport to coś więcej niż wyniki. To charakter, determinacja i
+            historia stojąca za każdym sukcesem. Pokazujemy pełny potencjał
+            zawodników, budując ich obecność w świecie sportu i biznesu.
           </p>
+
           <div className="hero__actions">
             <Button href="#fighters" label="Zobacz zawodników" />
           </div>
@@ -47,31 +57,50 @@ function Hero() {
               <motion.article
                 className="hero__featured-fighter"
                 key={activeFighter.id}
+                onClick={goToFighter}
+                role="button"
+                tabIndex={0}
+                style={{ cursor: 'pointer' }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    goToFighter();
+                  }
+                }}
                 initial={{ opacity: 0, x: 28 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -28 }}
                 transition={{ duration: 0.38 }}
               >
-                <img src={activeFighter.image} alt={activeFighter.name} className="hero__featured-image" />
+                <img
+                  src={activeFighter.image}
+                  alt={activeFighter.name}
+                  className="hero__featured-image"
+                />
+
                 <div className="hero__featured-overlay" />
+
                 <div className="hero__featured-copy">
                   <span>{activeFighter.style}</span>
                   <h2>{activeFighter.name}</h2>
                   <strong>“{activeFighter.nickname}”</strong>
                   <p>{activeFighter.shortStory}</p>
+
                   <dl className="hero__featured-stats">
                     <div>
                       <dt>Rekord</dt>
                       <dd>{activeFighter.record}</dd>
                     </div>
+
                     <div>
                       <dt>Wzrost</dt>
                       <dd>{activeFighter.height}</dd>
                     </div>
+
                     <div>
                       <dt>Waga</dt>
                       <dd>{activeFighter.weight}</dd>
                     </div>
+
                     <div>
                       <dt>Styl</dt>
                       <dd>{activeFighter.style}</dd>
@@ -81,10 +110,15 @@ function Hero() {
               </motion.article>
             </AnimatePresence>
 
-            <div className="hero__fighter-tabs" aria-label="Wybór zawodnika w hero">
+            <div
+              className="hero__fighter-tabs"
+              aria-label="Wybór zawodnika w hero"
+            >
               {fighters.map((fighter, index) => (
                 <button
-                  className={`hero__fighter-tab${index === activeIndex ? ' hero__fighter-tab--active' : ''}`}
+                  className={`hero__fighter-tab${
+                    index === activeIndex ? ' hero__fighter-tab--active' : ''
+                  }`}
                   type="button"
                   key={fighter.id}
                   onClick={() => setActiveIndex(index)}

@@ -1,6 +1,6 @@
 import PageHero from '../components/PageHero';
 import BlogList from '../components/BlogList';
-import Newsletter from '../components/Newsletter';
+import Contact from '../components/Contact/Contact';
 
 function BlogPage() {
   return (
@@ -11,7 +11,7 @@ function BlogPage() {
         description="Content jest przygotowany pod SEO, social proof i budowanie napięcia przed wydarzeniami."
       />
       <BlogList />
-      <Newsletter />
+      <Contact />
     </>
   );
 }

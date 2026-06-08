@@ -3,6 +3,16 @@
 
 .blog-preview {
   @include section-spacing;
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(238, 193, 58, 0.08),
+      transparent 30%),
+    linear-gradient(135deg,
+      #060606 0%,
+      #15120a 100%);
+
+  // border-top: 1px solid rgba(238, 193, 58, 0.08);
+
 
   &__grid {
     display: grid;
@@ -13,6 +23,9 @@
   &__card {
     @include card-surface;
     overflow: hidden;
+    display: flex;
+  flex-direction: column;
+  height: 100%;
   }
 
   &__image {
@@ -23,6 +36,9 @@
 
   &__body {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   &__category {
@@ -33,16 +49,25 @@
   &__title {
     margin: 12px 0;
     font-size: 28px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   &__excerpt {
     color: $color-text-muted;
     line-height: 1.8;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   &__link {
     display: inline-flex;
-    margin-top: 10px;
+    margin-top: auto;
     font-weight: 700;
   }
 

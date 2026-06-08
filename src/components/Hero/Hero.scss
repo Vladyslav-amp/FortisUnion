@@ -4,20 +4,20 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 74px);
+  // min-height: calc(100vh - 74px);
   display: grid;
   align-items: center;
-  padding: clamp(38px, 5vw, 64px) 0 clamp(34px, 5vw, 56px);
+  padding-block: 64px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+  & {
     background:
-      linear-gradient(90deg, rgba(5, 5, 6, 0.88), rgba(5, 5, 6, 0.32)),
-      radial-gradient(circle at 78% 18%, rgba(224, 190, 126, 0.18), transparent 34%),
-      radial-gradient(circle at 64% 74%, rgba(216, 23, 38, 0.18), transparent 32%);
-    pointer-events: none;
+      radial-gradient(circle at 12% 20%,
+        rgba(238, 193, 58, 0.14),
+        transparent 62%),
+      linear-gradient(135deg,
+        #030304 0%,
+        #09090b 55%,
+        #050506 100%);
   }
 
   &__inner {
@@ -137,7 +137,7 @@
     display: grid;
     gap: 12px;
 
-    > span {
+    >span {
       color: $color-gold;
       font-size: 12px;
       font-weight: 900;

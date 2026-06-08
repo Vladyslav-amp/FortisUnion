@@ -4,17 +4,26 @@ import HomePage from './pages/HomePage';
 import FightersPage from './pages/FightersPage';
 import EventsPage from './pages/EventsPage';
 import BlogPage from './pages/BlogPage';
+import FighterDetailsPage from './pages/FighterDetailsPage';
+import ScrollToTop from './components/Helper/ScrollToTop';
+import BlogDetailsPage from './pages/BlogDetailsPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="fighters" element={<FightersPage />} />
-        <Route path="events" element={<EventsPage />} />
-        <Route path="blog" element={<BlogPage />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="fighters" element={<FightersPage />} />
+          <Route path="fighters/:id" element={<FighterDetailsPage />} />
+          <Route path="events" element={<EventsPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="blog/:id" element={<BlogDetailsPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

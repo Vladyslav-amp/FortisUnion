@@ -1,6 +1,5 @@
 import PageHero from '../components/PageHero';
-import FighterProfiles from '../components/FighterProfiles';
-import JoinPromotion from '../components/JoinPromotion';
+import FighterProfiles from '../components/FighterProfiles/FighterProfiles';
 
 function FightersPage() {
   return (
@@ -11,7 +10,6 @@ function FightersPage() {
         description="Każdy profil możesz rozwinąć o sponsorów, historię kariery, statystyki, media i galerię zdjęć."
       />
       <FighterProfiles />
-      <JoinPromotion />
     </>
   );
 }

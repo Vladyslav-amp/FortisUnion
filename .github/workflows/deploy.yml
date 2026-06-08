@@ -17,14 +17,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
-      - name: Clean install
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Build (force)
-        run: node node_modules/vite/bin/vite.js build
+      - name: Build
+        run: npm run build
 
       - name: SSH
         uses: webfactory/ssh-agent@v0.9.0

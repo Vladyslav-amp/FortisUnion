@@ -4,6 +4,8 @@
 .blog-list {
   @include section-spacing;
 
+
+  
   &__grid {
     display: grid;
     gap: 24px;

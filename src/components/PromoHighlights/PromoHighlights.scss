@@ -3,11 +3,16 @@
 
 .promo-highlights {
   position: relative;
-  padding: 18px 0 30px;
+  padding: 50px 0 50px;
   background:
-    linear-gradient(180deg, rgba(5, 5, 6, 0.92), rgba(10, 10, 12, 0.98));
-  border-top: 1px solid rgba(224, 190, 126, 0.13);
-  border-bottom: 1px solid rgba(224, 190, 126, 0.1);
+    linear-gradient(
+      180deg,
+      #070708 0%,
+      #101012 100%
+    );
+
+  border-top: 1px solid rgba(238, 193, 58, 0.08);
+  border-bottom: 1px solid rgba(238, 193, 58, 0.08);
 
   &__inner {
     display: grid;

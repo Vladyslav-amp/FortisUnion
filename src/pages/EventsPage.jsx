@@ -1,6 +1,6 @@
 import PageHero from '../components/PageHero';
 import EventCards from '../components/EventCards';
-import Newsletter from '../components/Newsletter';
+import Contact from '../components/Contact/Contact';
 
 function EventsPage() {
   return (
@@ -11,7 +11,7 @@ function EventsPage() {
         description="Szablon nadaje się do gali, ligi, sezonu lub serii turniejów w różnych miastach."
       />
       <EventCards />
-      <Newsletter />
+      <Contact />
     </>
   );
 }

@@ -13,6 +13,7 @@ export const fighters = [
     height: '183 cm',
     reach: '188 cm',
     weight: '90 kg',
+    experience: '20 lat',
     image: placeholderImage,
     shortStory: 'Fighter budowany jako twarz agresywnego pressingu, mocnych wejść i highlightów pod social media.',
     longStory:
@@ -74,16 +75,9 @@ export const featuredFighter = fighters[0];
 
 export const heroHighlights = [
   { value: '4', label: 'promowanych zawodników' },
-  { value: '48', label: 'materiałów premium' },
-  { value: '4', label: 'osobne historie' },
-  { value: '24/7', label: 'obecność medialna' },
-];
-
-export const statsStrip = [
-  { value: '150k+', label: 'docelowy zasięg kampanii' },
-  { value: '12+', label: 'planowanych publikacji' },
-  { value: '4', label: 'premium profile fighterów' },
-  { value: '1', label: 'premium brand fighterów' },
+  { value: '100%', label: 'indywidualne podejście' },
+  { value: '24/7', label: 'obsługa medialna' },
+  { value: '360°', label: 'rozwój kariery zawodnika' },
 ];
 
 export const journeySteps = [

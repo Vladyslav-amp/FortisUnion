@@ -1,4 +1,4 @@
-import SectionHeading from '../Layout/SectionHeading';
+import SectionHeading from '../Layout/SectionHeading/SectionHeading';
 import { mediaGallery } from '../../data/siteData';
 import './MediaGallery.scss';
 
