@@ -4,7 +4,7 @@ import './Contact.scss';
 const validators = {
   name: /^[A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż\s'-]{2,60}$/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-  phone: /^(\+48\s?)?(\d{3}\s?\d{3}\s?\d{3})$/,
+  phone: /^\+48\s\d{3}\s\d{3}\s\d{3}$/,
   message: /^.{10,1000}$/s,
 };
 
@@ -12,7 +12,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    phone: '+48',
     message: '',
   });
 
@@ -23,14 +23,14 @@ function Contact() {
   const validateField = (name, value) => {
     const trimmedValue = value.trim();
 
-    if (!trimmedValue) {
+    if (!trimmedValue || trimmedValue === '+48') {
       return 'To pole jest wymagane';
     }
 
     if (!validators[name].test(trimmedValue)) {
       if (name === 'name') return 'Podaj poprawne imię i nazwisko';
       if (name === 'email') return 'Podaj poprawny adres e-mail';
-      if (name === 'phone') return 'Podaj poprawny numer telefonu, np. +48 123 456 789';
+      if (name === 'phone') return 'Podaj numer w formacie +48 123 456 789';
       if (name === 'message') return 'Wiadomość musi mieć od 10 do 1000 znaków';
     }
 
@@ -49,12 +49,49 @@ function Contact() {
     });
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
+  };
+
+  const formatPhoneNumber = (value) => {
+    const digits = value
+      .replace(/\D/g, '')
+      .replace(/^48/, '')
+      .slice(0, 9);
+
+    let formatted = '+48';
+
+    if (digits.length > 0) {
+      formatted += ` ${digits.slice(0, 3)}`;
+    }
+
+    if (digits.length > 3) {
+      formatted += ` ${digits.slice(3, 6)}`;
+    }
+
+    if (digits.length > 6) {
+      formatted += ` ${digits.slice(6, 9)}`;
+    }
+
+    return formatted;
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    if (name === 'phone') {
+      setFormData((prev) => ({
+        ...prev,
+        phone: formatPhoneNumber(value),
+      }));
+
+      setErrors((prev) => ({
+        ...prev,
+        phone: '',
+      }));
+
+      setStatus('');
+      return;
+    }
 
     setFormData((prev) => ({
       ...prev,
@@ -91,7 +128,7 @@ function Contact() {
     setStatus('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,12 +148,14 @@ function Contact() {
       }
 
       setStatus('Wiadomość została wysłana. Odezwijemy się jak najszybciej.');
+
       setFormData({
         name: '',
         email: '',
-        phone: '',
+        phone: '+48',
         message: '',
       });
+
       setErrors({});
     } catch (error) {
       setStatus(error.message || 'Wystąpił błąd podczas wysyłania wiadomości.');
@@ -183,10 +222,11 @@ function Contact() {
               className={`contact__input${errors.phone ? ' contact__input--error' : ''}`}
               type="tel"
               name="phone"
-              placeholder="Telefon, np. +48 123 456 789"
+              placeholder="+48 123 456 789"
               value={formData.phone}
               onChange={handleChange}
               onBlur={handleBlur}
+              maxLength={15}
             />
             {errors.phone && <span className="contact__error">{errors.phone}</span>}
           </div>

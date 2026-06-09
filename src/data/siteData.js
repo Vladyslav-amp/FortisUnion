@@ -1,4 +1,8 @@
-const placeholderImage = 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80';
+const sergeyTrener = '/fighters/trener.png';
+const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
+const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
+const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
+const ivanFighter1 = '/fighters/Ivan/1.webp';
 const placeholderImageAlt = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80';
 const placeholderImageThird = 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80';
 const placeholderImageFourth = 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1200&q=80';
@@ -6,69 +10,255 @@ const placeholderImageFourth = 'https://images.unsplash.com/photo-1519861531473-
 export const fighters = [
   {
     id: 1,
-    name: 'Adrian Nowak',
-    nickname: 'The Pressure',
-    style: 'Striker / Boxing',
-    record: '12-1',
-    height: '183 cm',
-    reach: '188 cm',
-    weight: '90 kg',
-    experience: '20 lat',
-    image: placeholderImage,
-    shortStory: 'Fighter budowany jako twarz agresywnego pressingu, mocnych wejść i highlightów pod social media.',
+    name: 'Siergiej Szymański',
+    nickname: 'Mistrz Muay Thai',
+    style: 'Muay Thai / Kickboxing',
+    record: '20-7',
+    experience: '20+ lat',
+    image: sergeyTrener,
+    citizenship: 'Republika Białoruś',
+
+    shortStory:
+      'Trener Muay Thai i kickboxingu, mistrz sportu w Muay Thai oraz mistrz sportu klasy międzynarodowej w kickboxingu. Wielokrotny medalista mistrzostw świata, Europy i Białorusi.',
+
     longStory:
-      'Adrian to przykład zawodnika, którego możesz prowadzić jak osobną markę: mocne wejścia, charakterystyczne wypowiedzi, szybkie akcje i materiały pod sponsorów. W tym miejscu podmienisz historię, klub, trenerów, osiągnięcia i najważniejsze walki.',
-    quote: 'Każde wejście do klatki to performance i statement.',
-    stats: { ko: '7', submissions: '1', fights: '13' },
+      'Siergiej Szymański to doświadczony trener oraz były zawodnik sportów walki. Pracował jako trener w klubach na Białorusi, w Rosji oraz we Włoszech. Prowadził treningi indywidualne i grupowe dla dzieci oraz dorosłych. Absolwent Białoruskiego Państwowego Uniwersytetu Kultury Fizycznej. Swoje umiejętności rozwijał również podczas staży szkoleniowych w Tajlandii w renomowanym gymie Chuwattana. W trakcie kariery zdobywał medale mistrzostw świata, Europy oraz tytuły mistrza Białorusi w Muay Thai i kickboxingu.',
+
+    quote:
+      'Doświadczenie zdobywa się latami, ale mistrzostwo buduje się każdego dnia na treningu.',
+
+    stats: {
+      ko: 'Brak danych',
+      submissions: 'Brak danych',
+      fights: 'Brak danych'
+    },
+
+    titles: [
+      'Mistrz Sportu w Muay Thai',
+      'Międzynarodowy Mistrz Sportu w Kickboxingu'
+    ],
+
+    education: {
+      university: 'Białoruski Państwowy Uniwersytet Kultury Fizycznej',
+      graduationYear: '2015',
+      faculty: 'Sportowo-Pedagogiczny Wydział Sportów Masowych'
+    },
+
+    achievements: {
+      muayThai: [
+        '1999 – zwycięzca ligi Kitek (Moskwa)',
+        '1999, 2000 – dwukrotny mistrz Białorusi',
+        '2001 – brązowy medalista Mistrzostw Świata (Tajlandia)'
+      ],
+      kickboxing: [
+        '1999 – srebrny medalista Mistrzostw Świata (Włochy)',
+        '2000 – mistrz Białorusi',
+        '2000 – mistrz Europy',
+        '2002 – wicemistrz Europy WAKO',
+        '2002 – zawodowy mistrz WKN Intercontinental'
+      ]
+    }
   },
+
   {
     id: 2,
-    name: 'Maks Zieliński',
-    nickname: 'Silent Grip',
-    style: 'BJJ / Grappling',
-    record: '10-2',
-    height: '178 cm',
-    reach: '181 cm',
-    weight: '90 kg',
-    image: placeholderImageAlt,
-    shortStory: 'Cichy, techniczny specjalista od kontroli — idealny kontrast do bardziej agresywnych osobowości rosteru.',
+    name: 'Aliaksei Dziarnou',
+    nickname: 'Technik',
+    style: 'Boks',
+    record: 'Brak danych',
+    height: 'Brak danych',
+    reach: 'Brak danych',
+    weight: '75–80 kg',
+    experience: '267+ Walk',
+    image: alekseyFighter1,
+
+    shortStory:
+      'Mistrz Sportu Republiki Białorusi, mistrz Republiki Białorusi oraz bardzo doświadczony zawodnik z dorobkiem 267 walk w karierze.',
+
     longStory:
-      'Tutaj wstaw pełny bio zawodnika. Możesz dodać klub, trenerów, specjalizację i kluczowe walki.',
-    quote: 'Nie muszę krzyczeć. Wystarczy, że wygrywam.',
-    stats: { ko: '2', submissions: '5', fights: '12' },
+      'Aliaksei Dziarnou to białoruski bokser specjalizujący się w kategorii wagowej 75–80 kg. Posiada tytuł Mistrza Sportu Republiki Białorusi oraz tytuł Mistrza Republiki Białorusi. W swojej karierze stoczył 267 walk, wielokrotnie zwyciężał w międzynarodowych turniejach, między innymi w Estonii, Litwie i Tadżykistanie, a także brał udział w mistrzostwach świata i Europy. To zawodnik bardzo doświadczony, wyróżniający się wysoką kulturą bokserską.',
+
+    quote:
+      'Boks to nie tylko siła, ale przede wszystkim technika, timing i doświadczenie.',
+
+    stats: {
+      ko: 'Brak danych',
+      submissions: '0',
+      fights: '267'
+    },
+
+    titles: [
+      'Mistrz Sportu Republiki Białorusi',
+      'Mistrz Republiki Białorusi'
+    ],
+
+    achievements: {
+      boxing: [
+        '267 walk w karierze',
+        'Wielokrotny zwycięzca międzynarodowych turniejów',
+        'Uczestnik mistrzostw świata',
+        'Uczestnik mistrzostw Europy',
+        'Zwycięstwa turniejowe w Estonii, Litwie, Tadżykistanie i innych krajach'
+      ]
+    },
+
+    nationality: 'Republika Białorusi',
+    age: '29 lat',
+
+    gallery: [
+      alekseyFighter2
+    ],
+
+    videos: [
+      {
+        title: 'Trening / highlights',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
   },
+
   {
     id: 3,
-    name: 'Kamil Wrona',
-    nickname: 'North Storm',
-    style: 'Wrestling',
-    record: '9-0',
-    weight: '90 kg',
-    height: '186 cm',
-    reach: '190 cm',
-    image: placeholderImageThird,
-    shortStory: 'Niepokonany prospekt premium: chłodny, atletyczny i gotowy do komunikacji jako przyszły mistrz.',
+    name: 'Tsemur Fatakhau',
+    nickname: 'Twardy',
+    style: 'Boks / Walki na gołe pięści',
+    record: '2–0',
+    recordLabel: 'Boks zawodowy',
+
+    recordDouble: '3–2',
+    recordDoubleLabel: 'Gołe pięści',
+    height: 'Brak danych',
+    reach: 'Brak danych',
+    weight: '77 kg',
+    experience: '280+ walk',
+    image: tsemurFighter1,
+
+    shortStory:
+      'Mistrz Sportu Republiki Białorusi, medalista mistrzostw Europy oraz bardzo doświadczony zawodnik z dorobkiem ponad 280 walk.',
+
     longStory:
-      'W tym miejscu możesz opisać pochodzenie, sukcesy juniorskie, ambicje i cele na najbliższy sezon.',
-    quote: 'Presja? To moje naturalne środowisko.',
-    stats: { ko: '3', submissions: '3', fights: '9' },
+      'Tsemur Fatakhau to zawodnik z Republiki Białorusi specjalizujący się w boksie oraz walkach na gołe pięści. Posiada tytuł Mistrza Sportu Republiki Białorusi, jest medalistą mistrzostw Europy oraz wielokrotnym zwycięzcą i medalistą mistrzostw Białorusi oraz turniejów międzynarodowych. W karierze stoczył ponad 280 walk, a dodatkowo posiada doświadczenie w boksie zawodowym oraz walkach na gołe pięści. To twardy, wszechstronny i doświadczony zawodnik, który dobrze odnajduje się w różnych formułach walki.',
+
+    quote:
+      'Prawdziwe doświadczenie pokazuje się wtedy, gdy zmienia się formuła walki.',
+
+    stats: {
+      ko: 'Brak danych',
+      submissions: '0',
+      fights: '280+'
+    },
+
+    titles: [
+      'Mistrz Sportu Republiki Białorusi',
+      'Medalista mistrzostw Europy'
+    ],
+
+    achievements: {
+      boxing: [
+        'Ponad 280 walk w karierze',
+        'Medalista mistrzostw Europy',
+        'Wielokrotny zwycięzca i medalista mistrzostw Białorusi',
+        'Wielokrotny zwycięzca i medalista turniejów międzynarodowych',
+        'Boks zawodowy: 2–0'
+      ],
+      bareKnuckle: [
+        'Walki na gołe pięści: 3–2',
+        'Doświadczenie w różnych formułach walki'
+      ]
+    },
+
+    nationality: 'Republika Białorusi',
+    age: '31 lat',
+
+    gallery: [
+    ],
+
+    videos: [
+      {
+        title: 'Trening / highlights',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
   },
+
   {
     id: 4,
-    name: 'Filip Domański',
-    nickname: 'Voltage',
-    style: 'Kickboxing / Muay Thai',
-    record: '14-3',
-    height: '180 cm',
-    weight: '90 kg',
-    reach: '184 cm',
-    image: placeholderImageFourth,
-    shortStory: 'Najbardziej elektryczny profil w rosterze — dynamiczny striker przygotowany pod highlight reels i kampanie sponsorów.',
+    name: 'Artur Felker',
+    nickname: 'Puncher',
+    style: 'Puncher / Low Kick',
+
+    record: '15–7–2',
+    recordLabel: 'Rekord',
+
+    height: null,
+    reach: null,
+    weight: null,
+
+    experience: '20+ walk',
+    image: placeholderImageAlt,
+
+    shortStory:
+      'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
+
     longStory:
-      'Tu możesz dodać pełną historię, charakter, cytaty i elementy budujące rozpoznawalność.',
-    quote: 'Widowisko ma być tak mocne, żeby widz zapamiętał je po pierwszej rundzie.',
-    stats: { ko: '8', submissions: '0', fights: '17' },
+      'Artur Felker to polski zawodnik specjalizujący się w ofensywnym stylu opartym na mocnym uderzeniu oraz technikach low kick. Posiada rekord 15–7–2 i ma za sobą ponad 20 walk stoczonych w Tajlandii. Występował w renomowanych organizacjach, takich jak Muay Hardcore, Super Champ oraz Rajadamnern World Series. Trenował i reprezentował Phuket Fight Club, mierząc się z rywalami wysokiego poziomu. Jest także mistrzem stadionu Sinbi Boxing Stadium. To zawodnik widowiskowy, twardy i zdeterminowany, który chętnie podejmuje walkę w ofensywie.',
+
+    quote:
+      'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
+
+    stats: {
+      fights: '24+'
+    },
+
+    titles: [
+      'Mistrz stadionu Sinbi Boxing Stadium'
+    ],
+
+    achievements: {
+      muayThai: [
+        'Ponad 20 walk w Tajlandii',
+        'Występy w organizacji Muay Hardcore',
+        'Występy w organizacji Super Champ',
+        'Występy w Rajadamnern World Series',
+        'Trenował i reprezentował Phuket Fight Club',
+        'Doświadczenie w walkach z rywalami wysokiego poziomu',
+        'Mistrz stadionu Sinbi Boxing Stadium'
+      ]
+    },
+
+    nationality: 'Polska',
+    age: '31 lat',
+
+    gallery: [
+
+    ],
+
+    videos: [
+      {
+        title: 'Trening / highlights',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
   },
+
+  // {
+  //   id: 5,
+  //   name: 'Ivan Akhmatov',
+
+  //   image: ivanFighter1,
+
+
+  //   gallery: [
+
+  //   ],
+
+  //   videos: [
+  //     {
+  //       title: 'Trening / highlights',
+  //       url: 'https://www.youtube.com/embed/VIDEO_ID'
+  //     }
+  //   ]
+  // },
 ];
 
 export const featuredFighter = fighters[0];
@@ -141,7 +331,7 @@ export const blogPosts = [
     date: '10 kwietnia 2026',
     title: 'Jak zbudować narrację zawodnika, żeby przyciągał sponsorów',
     excerpt: 'Przykładowy wpis o tym, jak opakować historię fightera, aby zwiększać wartość medialną i sprzedażową.',
-    image: placeholderImage,
+    image: sergeyTrener,
   },
   {
     id: 2,

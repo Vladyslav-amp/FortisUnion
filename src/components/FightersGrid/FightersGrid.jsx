@@ -14,62 +14,64 @@ function FightersGrid() {
         />
 
         <div className="fighters-grid__list">
-          {fighters.map((fighter) => (
-            <Link
-              key={fighter.id}
-              to={`/fighters/${fighter.id}`}
-              className="fighters-grid__card-link"
-            >
-              <article className="fighters-grid__card">
-                <div className="fighters-grid__media">
-                  <img
-                    src={fighter.image}
-                    alt={fighter.name}
-                    className="fighters-grid__image"
-                  />
+          {fighters
+            .filter((fighter) => fighter.id !== 1)
+            .map((fighter) => (
+              <Link
+                key={fighter.id}
+                to={`/fighters/${fighter.id}`}
+                className="fighters-grid__card-link"
+              >
+                <article className="fighters-grid__card">
+                  <div className="fighters-grid__media">
+                    <img
+                      src={fighter.image}
+                      alt={fighter.name}
+                      className="fighters-grid__image"
+                    />
 
-                  <span className="fighters-grid__index">
-                    0{fighter.id}
-                  </span>
+                    <span className="fighters-grid__index">
+                      0{fighter.id}
+                    </span>
 
-                  <div className="fighters-grid__overlay">
-                    <strong>{fighter.record}</strong>
-                  </div>
-                </div>
-
-                <div className="fighters-grid__body">
-                  <h3 className="fighters-grid__name">
-                    {fighter.name}
-                  </h3>
-
-                  <p className="fighters-grid__style">
-                    {fighter.style}
-                  </p>
-
-                  <p className="fighters-grid__story">
-                    {fighter.shortStory}
-                  </p>
-
-                  <div className="fighters-grid__stats">
-                    <div>
-                      <strong>{fighter.stats.ko}</strong>
-                      <span>KO/TKO</span>
-                    </div>
-
-                    <div>
-                      <strong>{fighter.stats.submissions}</strong>
-                      <span>Poddania</span>
-                    </div>
-
-                    <div>
-                      <strong>{fighter.stats.fights}</strong>
-                      <span>Walki</span>
+                    <div className="fighters-grid__overlay">
+                      <strong>{fighter.record}</strong>
                     </div>
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
+
+                  <div className="fighters-grid__body">
+                    <h3 className="fighters-grid__name">
+                      {fighter.name}
+                    </h3>
+
+                    <p className="fighters-grid__style">
+                      {fighter.style}
+                    </p>
+
+                    <p className="fighters-grid__story">
+                      {fighter.shortStory}
+                    </p>
+
+                    <div className="fighters-grid__stats">
+                      <div>
+                        <strong>{fighter.stats.ko}</strong>
+                        <span>KO/TKO</span>
+                      </div>
+
+                      <div>
+                        <strong>{fighter.stats.submissions}</strong>
+                        <span>Poddania</span>
+                      </div>
+
+                      <div>
+                        <strong>{fighter.stats.fights}</strong>
+                        <span>Walki</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
         </div>
       </div>
     </section>

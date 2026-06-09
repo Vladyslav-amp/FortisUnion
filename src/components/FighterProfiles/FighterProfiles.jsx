@@ -2,71 +2,129 @@ import { useNavigate } from 'react-router-dom';
 import { fighters } from '../../data/siteData';
 import './FighterProfiles.scss';
 
+const hasValue = (value) =>
+  value !== undefined &&
+  value !== null &&
+  value !== '' &&
+  value !== 'Brak danych' &&
+  value !== '-' &&
+  value !== 'N/A';
+
 function FighterProfiles() {
   const navigate = useNavigate();
 
   return (
     <section className="fighter-profiles" id="fighters">
       <div className="container fighter-profiles__list">
-        {fighters.map((fighter) => (
-          <article
-            className="fighter-profiles__card"
-            key={fighter.id}
-            onClick={() => navigate(`/fighters/${fighter.id}`)}
-            role="button"
-            tabIndex={0}
-            style={{ cursor: 'pointer' }}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                navigate(`/fighters/${fighter.id}`);
-              }
-            }}
-          >
-            <img
-              src={fighter.image}
-              alt={fighter.name}
-              className="fighter-profiles__image"
-            />
+        {fighters.map((fighter) => {
+          const infoItems = [
+            hasValue(fighter.record) && {
+              value: fighter.record,
+              label: fighter.recordLabel || 'Rekord',
+            },
 
-            <div className="fighter-profiles__content">
-              <div className="fighter-profiles__headline">
-                <h2 className="fighter-profiles__name">
-                  {fighter.name}
-                </h2>
+            hasValue(fighter.recordDouble) && {
+              value: fighter.recordDouble,
+              label: fighter.recordDoubleLabel || 'Drugi rekord',
+            },
 
-                <span className="fighter-profiles__nickname">
-                  {fighter.nickname}
-                </span>
+            hasValue(fighter.citizenship || fighter.nationality) && {
+              value:
+                fighter.flag
+                  ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
+                  : fighter.citizenship || fighter.nationality,
+              label: 'Obywatelstwo',
+            },
+
+            hasValue(fighter.stats?.fights) && {
+              value: fighter.stats.fights,
+              label: 'Walki',
+            },
+
+            hasValue(fighter.age) && {
+              value: fighter.age,
+              label: 'Wiek',
+            },
+
+            hasValue(fighter.height) && {
+              value: fighter.height,
+              label: 'Wzrost',
+            },
+
+            hasValue(fighter.weight) && {
+              value: fighter.weight,
+              label: 'Waga',
+            },
+
+            hasValue(fighter.reach) && {
+              value: fighter.reach,
+              label: 'Zasięg',
+            },
+
+            hasValue(fighter.experience) && {
+              value: fighter.experience,
+              label: 'Doświadczenie',
+            },
+
+            hasValue(fighter.style) && {
+              value: fighter.style,
+              label: 'Styl',
+            },
+          ].filter(Boolean);
+
+          return (
+            <article
+              className="fighter-profiles__card"
+              key={fighter.id}
+              onClick={() => navigate(`/fighters/${fighter.id}`)}
+              role="button"
+              tabIndex={0}
+              style={{ cursor: 'pointer' }}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  navigate(`/fighters/${fighter.id}`);
+                }
+              }}
+            >
+              <img
+                src={fighter.image}
+                alt={fighter.name}
+                className="fighter-profiles__image"
+              />
+
+              <div className="fighter-profiles__content">
+                <div className="fighter-profiles__headline">
+                  <h2 className="fighter-profiles__name">
+                    {fighter.name}
+                  </h2>
+
+                  {hasValue(fighter.nickname) && (
+                    <span className="fighter-profiles__nickname">
+                      {fighter.nickname}
+                    </span>
+                  )}
+                </div>
+
+                {hasValue(fighter.longStory) && (
+                  <p className="fighter-profiles__story">
+                    {fighter.longStory}
+                  </p>
+                )}
+
+                {infoItems.length > 0 && (
+                  <div className="fighter-profiles__info-grid">
+                    {infoItems.map((item) => (
+                      <div key={`${item.label}-${item.value}`}>
+                        <strong>{item.value}</strong>
+                        <span>{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-
-              <p className="fighter-profiles__story">
-                {fighter.longStory}
-              </p>
-
-              <div className="fighter-profiles__info-grid">
-                <div>
-                  <strong>{fighter.record}</strong>
-                  <span>Rekord</span>
-                </div>
-
-                <div>
-                  <strong>{fighter.height}</strong>
-                  <span>Wzrost</span>
-                </div>
-
-                <div>
-                  <strong>{fighter.reach}</strong>
-                  <span>Zasięg</span>
-                </div>
-
-                <div>
-                  <strong>{fighter.style}</strong>
-                  <span>Styl</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

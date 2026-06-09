@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import FightersPage from './pages/FightersPage';
 import EventsPage from './pages/EventsPage';
 import BlogPage from './pages/BlogPage';
-import FighterDetailsPage from './pages/FighterDetailsPage';
+import FighterDetailsPage from './pages/FighterDetailsPage/FighterDetailsPage';
 import ScrollToTop from './components/Helper/ScrollToTop';
 import BlogDetailsPage from './pages/BlogDetailsPage';
 
