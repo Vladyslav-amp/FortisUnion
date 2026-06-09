@@ -183,7 +183,7 @@ export const fighters = [
 
   {
     id: 4,
-    name: 'Artur Felker',
+    name: 'Artur Felkner',
     nickname: 'Puncher',
     style: 'Puncher / Low Kick',
 
@@ -201,7 +201,7 @@ export const fighters = [
       'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
 
     longStory:
-      'Artur Felker to polski zawodnik specjalizujący się w ofensywnym stylu opartym na mocnym uderzeniu oraz technikach low kick. Posiada rekord 15–7–2 i ma za sobą ponad 20 walk stoczonych w Tajlandii. Występował w renomowanych organizacjach, takich jak Muay Hardcore, Super Champ oraz Rajadamnern World Series. Trenował i reprezentował Phuket Fight Club, mierząc się z rywalami wysokiego poziomu. Jest także mistrzem stadionu Sinbi Boxing Stadium. To zawodnik widowiskowy, twardy i zdeterminowany, który chętnie podejmuje walkę w ofensywie.',
+      'Artur Felkner to polski zawodnik specjalizujący się w ofensywnym stylu opartym na mocnym uderzeniu oraz technikach low kick. Posiada rekord 15–7–2 i ma za sobą ponad 20 walk stoczonych w Tajlandii. Występował w renomowanych organizacjach, takich jak Muay Hardcore, Super Champ oraz Rajadamnern World Series. Trenował i reprezentował Phuket Fight Club, mierząc się z rywalami wysokiego poziomu. Jest także mistrzem stadionu Sinbi Boxing Stadium. To zawodnik widowiskowy, twardy i zdeterminowany, który chętnie podejmuje walkę w ofensywie.',
 
     quote:
       'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
