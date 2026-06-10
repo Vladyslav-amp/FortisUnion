@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './Contact.scss';
+import { HiOutlineMail, HiOutlinePhone } from 'react-icons/hi';
+import { FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const validators = {
   name: /^[A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż\s'-]{2,60}$/,
@@ -12,7 +14,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '+48',
+    phone: '+48 ',
     message: '',
   });
 
@@ -62,6 +64,8 @@ function Contact() {
 
     if (digits.length > 0) {
       formatted += ` ${digits.slice(0, 3)}`;
+    } else {
+      formatted += ' ';
     }
 
     if (digits.length > 3) {
@@ -152,7 +156,7 @@ function Contact() {
       setFormData({
         name: '',
         email: '',
-        phone: '+48',
+        phone: '+48 ',
         message: '',
       });
 
@@ -181,11 +185,41 @@ function Contact() {
 
           <div className="contact__details">
             <a href="mailto:kontakt@fortisunion.pl" className="contact__link">
-              kontakt@fortisunion.pl
+              <span className="contact__icon">
+                <HiOutlineMail />
+              </span>
+              <span>kontakt@fortisunion.pl</span>
             </a>
 
             <a href="tel:+48123456789" className="contact__link">
-              +48 123 456 789
+              <span className="contact__icon">
+                <HiOutlinePhone />
+              </span>
+              <span>+48 123 456 789</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/fortis.union?igsh=enk5Z3dpdmVhdGFt"
+              className="contact__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="contact__icon">
+                <FaInstagram />
+              </span>
+              <span>fortisunion</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@FortisUnion-G"
+              className="contact__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="contact__icon">
+                <FaYoutube />
+              </span>
+              <span>Fortis Union</span>
             </a>
           </div>
         </div>
@@ -231,7 +265,7 @@ function Contact() {
             {errors.phone && <span className="contact__error">{errors.phone}</span>}
           </div>
 
-          <div className="contact__field">
+          <div className="contact__field contact__field--message">
             <textarea
               className={`contact__textarea${errors.message ? ' contact__textarea--error' : ''}`}
               name="message"
@@ -244,7 +278,7 @@ function Contact() {
             {errors.message && <span className="contact__error">{errors.message}</span>}
           </div>
 
-          <button className="contact__button" type="submit" disabled={isSending}>
+          <button className="contact__button button--secondary" type="submit" disabled={isSending}>
             {isSending ? 'Wysyłanie...' : 'Wyślij wiadomość'}
           </button>
 

@@ -6,7 +6,9 @@ import logo from '../../../../public/logo.png';
 const menuItems = [
   { label: 'Start', to: '/' },
   { label: 'Zawodnicy', to: '/fighters' },
-  { label: 'Historie', to: '/blog' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Partnerzy', to: '/#partners' },
+  { label: 'O Nas', to: '/#about' },
 ];
 
 function Header() {

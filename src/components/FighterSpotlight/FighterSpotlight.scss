@@ -2,7 +2,8 @@
 @use '../../styles/mixins' as *;
 
 .fighter-spotlight {
-  @include section-spacing;
+  // @include section-spacing;
+  padding: 64px 0;
   position: relative;
 
   background:

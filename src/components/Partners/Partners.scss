@@ -1,0 +1,124 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.partners {
+  padding: 64px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 10%,
+      rgba(238, 193, 58, 0.10),
+      transparent 34%),
+    linear-gradient(135deg,
+      #100e08 0%,
+      #080809 48%,
+      #050506 100%);
+
+  border-top: 1px solid rgba(238, 193, 58, 0.1);
+  border-bottom: 1px solid rgba(238, 193, 58, 0.1);
+
+  &__header {
+    margin-bottom: 28px;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: $color-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-family: $font-display;
+    max-width: 720px;
+    margin: 0;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1;
+  }
+
+  &__slider {
+    background: transparent;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+    overflow: hidden;
+
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, $color-background, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(270deg, $color-background, transparent);
+    }
+  }
+
+  &__track {
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    animation: partners-scroll 24s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__item {
+    @include card-surface;
+    border: 1px solid rgba(224, 190, 126, 0.18);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.024));
+    box-shadow: $shadow-soft;
+    width: 220px;
+    height: 110px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img {
+      max-width: 100%;
+      max-height: 100px;
+      object-fit: contain;
+      // filter: grayscale(1) opacity(0.75);
+      transition: filter 0.25s ease, transform 0.25s ease;
+    }
+
+    &:hover img {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.05);
+    }
+  }
+
+  @include media-down(700px) {
+    padding: 64px 0;
+
+    &__item {
+      width: 180px;
+      height: 96px;
+    }
+
+    &__slider {
+
+      &::before,
+      &::after {
+        width: 70px;
+      }
+    }
+  }
+}
+
+@keyframes partners-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
+}

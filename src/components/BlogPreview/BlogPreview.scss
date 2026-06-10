@@ -24,8 +24,8 @@
     @include card-surface;
     overflow: hidden;
     display: flex;
-  flex-direction: column;
-  height: 100%;
+    flex-direction: column;
+    height: 100%;
   }
 
   &__image {
@@ -42,7 +42,7 @@
   }
 
   &__category {
-    color: $color-primary;
+    color: $color-gold;
     font-weight: 700;
   }
 
@@ -69,6 +69,7 @@
     display: inline-flex;
     margin-top: auto;
     font-weight: 700;
+    color: $color-gold;
   }
 
   @include media-down(980px) {

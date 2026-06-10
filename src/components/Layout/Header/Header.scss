@@ -80,8 +80,13 @@
 
     &:hover,
     &--active {
-      color: $color-text;
-      background: rgba(224, 190, 126, 0.12);
+      color: $color-gold;
+    }
+
+    &--active {
+      &:hover {
+        color: $color-text;
+      }
     }
   }
 

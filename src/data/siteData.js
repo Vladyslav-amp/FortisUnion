@@ -3,6 +3,7 @@ const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
 const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
 const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
 const ivanFighter1 = '/fighters/Ivan/1.webp';
+const logo = '/logo.png';
 const placeholderImageAlt = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80';
 const placeholderImageThird = 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80';
 const placeholderImageFourth = 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1200&q=80';
@@ -319,9 +320,9 @@ export const events = [
 ];
 
 export const mediaGallery = [
-  { id: 1, title: 'Fight camp diary', text: 'Dziennik przygotowań i klimat wysokiego poziomu.', image: placeholderImageAlt },
-  { id: 2, title: 'Open workout', text: 'Treści pod social i partnerów marki.', image: placeholderImageThird },
-  { id: 3, title: 'Backstage stories', text: 'Materiały zakulisowe budujące przywiązanie fanów.', image: placeholderImageFourth },
+  { id: 1, title: 'Fight camp diary', text: 'Dziennik przygotowań i klimat wysokiego poziomu.', image: logo },
+  { id: 2, title: 'Open workout', text: 'Treści pod social i partnerów marki.', image: logo },
+  { id: 3, title: 'Backstage stories', text: 'Materiały zakulisowe budujące przywiązanie fanów.', image: logo },
 ];
 
 export const blogPosts = [
