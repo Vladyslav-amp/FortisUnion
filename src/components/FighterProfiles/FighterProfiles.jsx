@@ -64,10 +64,9 @@ function FighterProfiles() {
             },
 
             hasValue(fighter.citizenship || fighter.nationality) && {
-              value:
-                fighter.flag
-                  ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
-                  : fighter.citizenship || fighter.nationality,
+              value: fighter.flag
+                ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
+                : fighter.citizenship || fighter.nationality,
               label: 'Obywatelstwo',
             },
           ].filter(Boolean);
@@ -79,18 +78,26 @@ function FighterProfiles() {
               onClick={() => navigate(`/fighters/${fighter.id}`)}
               role="button"
               tabIndex={0}
-              style={{ cursor: 'pointer' }}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
                   navigate(`/fighters/${fighter.id}`);
                 }
               }}
             >
-              <img
-                src={fighter.image}
-                alt={fighter.name}
-                className="fighter-profiles__image"
-              />
+              <div className="fighter-profiles__image-wrap">
+                <img
+                  src={fighter.image}
+                  alt={fighter.name}
+                  className="fighter-profiles__image"
+                />
+
+                {hasValue(fighter.style) && (
+                  <span className="fighter-profiles__style-badge">
+                    {fighter.style}
+                  </span>
+                )}
+              </div>
 
               <div className="fighter-profiles__content">
                 <div className="fighter-profiles__headline">

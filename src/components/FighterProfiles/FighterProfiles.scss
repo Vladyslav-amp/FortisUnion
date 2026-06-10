@@ -2,8 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .fighter-profiles {
-  // @include section-spacing;
-  padding: 30px 0 64px 0;
+  padding: 30px 0 64px;
 
   &__list {
     display: grid;
@@ -12,9 +11,28 @@
 
   &__card {
     @include card-surface;
+
     display: grid;
     grid-template-columns: 340px 1fr;
     overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(224, 190, 126, 0.28);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+    }
+  }
+
+  &__image-wrap {
+    position: relative;
+    min-height: 380px;
+    overflow: hidden;
+    background: #090909;
   }
 
   &__image {
@@ -22,6 +40,29 @@
     height: 100%;
     min-height: 380px;
     object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  &__card:hover &__image {
+    transform: scale(1.04);
+  }
+
+  &__style-badge {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    max-width: calc(100% - 32px);
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(8, 8, 8, 0.78);
+    border: 1px solid rgba(224, 190, 126, 0.24);
+    color: $color-gold;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
   }
 
   &__content {
@@ -37,7 +78,8 @@
 
   &__name {
     margin: 0;
-    font-size: 40px;
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1;
   }
 
   &__nickname {
@@ -46,38 +88,175 @@
   }
 
   &__story {
+    margin: 18px 0 0;
     color: $color-text-muted;
     line-height: 1.8;
   }
 
   &__info-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
     margin-top: 24px;
 
     div {
-      padding: 18px;
+      min-height: 94px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
       border-radius: $radius-sm;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid $color-border;
     }
 
     strong {
       display: block;
       margin-bottom: 8px;
-      font-size: 24px;
+      color: $color-gold;
+      font-size: 22px;
+      line-height: 1.1;
+      word-break: break-word;
     }
 
     span {
+      margin-top: auto;
       color: $color-text-muted;
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
   }
 
   @include media-down(980px) {
-    &__card,
+    &__card {
+      grid-template-columns: 280px 1fr;
+    }
+
+    &__image-wrap,
+    &__image {
+      min-height: 330px;
+    }
+
     &__info-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include media-down(700px) {
+    padding: 24px 0 48px;
+
+    &__list {
+      gap: 18px;
+    }
+
+    &__card {
       grid-template-columns: 1fr;
+      border-radius: 26px;
+    }
+
+    &__image-wrap {
+      min-height: auto;
+      height: clamp(280px, 76vw, 400px);
+      border-radius: 0;
+      background:
+        radial-gradient(circle at center, rgba(224, 190, 126, 0.08), transparent 60%),
+        #050505;
+    }
+
+    &__image {
+      min-height: 0;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      padding: 10px;
+    }
+
+    &__card:hover &__image {
+      transform: none;
+    }
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__headline {
+      display: block;
+    }
+
+    &__name {
+      font-size: clamp(28px, 8vw, 36px);
+      line-height: 0.95;
+    }
+
+    &__nickname {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    &__story {
+      display: -webkit-box;
+      margin-top: 14px;
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    &__info-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+
+      div {
+        min-height: 78px;
+        padding: 13px;
+        border-radius: 16px;
+      }
+
+      strong {
+        font-size: 18px;
+      }
+
+      span {
+        font-size: 10px;
+      }
+    }
+
+    &__style-badge {
+      left: 14px;
+      bottom: 14px;
+      padding: 7px 10px;
+      font-size: 10px;
+    }
+  }
+
+  @include media-down(420px) {
+    &__image-wrap {
+      height: 320px;
+    }
+
+    &__content {
+      padding: 18px;
+    }
+
+    &__story {
+      -webkit-line-clamp: 3;
+    }
+
+    &__info-grid {
+      grid-template-columns: 1fr 1fr;
+
+      div {
+        min-height: 72px;
+      }
+
+      strong {
+        font-size: 17px;
+      }
     }
   }
 }
