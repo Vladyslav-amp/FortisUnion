@@ -1,8 +1,23 @@
 const sergeyTrener = '/fighters/trener.png';
+
 const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
 const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
+const alekseyFighter3 = '/fighters/Aleksey/3.jpg';
+const alekseyFighter4 = '/fighters/Aleksey/4.jpg';
+const alekseyFighter5 = '/fighters/Aleksey/1.mp4';
+
 const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
+
 const ivanFighter1 = '/fighters/Ivan/1.webp';
+
+const arturFighter1 = '/fighters/Artur/1.jpg';
+
+const olegFighter1 = '/fighters/Oleg/1.webp';
+
+const alexFighter1 = '/fighters/Alex/1.jpg';
+
+const yuryFighter1 = '/fighters/Yury/1.jpg';
+
 const logo = '/logo.png';
 const placeholderImageAlt = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80';
 const placeholderImageThird = 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80';
@@ -67,7 +82,7 @@ export const fighters = [
     nickname: 'Technik',
     style: 'Boks',
     record: 'Brak danych',
-    height: 'Brak danych',
+    height: '173',
     reach: 'Brak danych',
     weight: '75–80 kg',
     experience: '267+ Walk',
@@ -83,7 +98,7 @@ export const fighters = [
       'Boks to nie tylko siła, ale przede wszystkim technika, timing i doświadczenie.',
 
     stats: {
-      ko: 'Brak danych',
+      ko: '0',
       submissions: '0',
       fights: '267'
     },
@@ -107,14 +122,26 @@ export const fighters = [
     age: '29 lat',
 
     gallery: [
-      alekseyFighter2
+      alekseyFighter2,
+      alekseyFighter3,
+      alekseyFighter4
     ],
 
     videos: [
       {
-        title: 'Trening / highlights',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
+        title: 'Walka / highlights',
+        url: 'https://www.youtube.com/embed/-YkXwtOu7zs?start=4844'
+      },
+
+      {
+        title: 'Walka / highlights',
+        url: '/fighters/Aleksey/1.mp4'
+      },
+
+      {
+        title: 'Walka / highlights',
+        url: '/fighters/Aleksey/2.mp4'
+      },
     ]
   },
 
@@ -144,7 +171,7 @@ export const fighters = [
       'Prawdziwe doświadczenie pokazuje się wtedy, gdy zmienia się formuła walki.',
 
     stats: {
-      ko: 'Brak danych',
+      ko: '0',
       submissions: '0',
       fights: '280+'
     },
@@ -196,7 +223,7 @@ export const fighters = [
     weight: null,
 
     experience: '20+ walk',
-    image: placeholderImageAlt,
+    image: arturFighter1,
 
     shortStory:
       'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
@@ -208,6 +235,8 @@ export const fighters = [
       'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
 
     stats: {
+      ko: '0',
+      submissions: '0',
       fights: '24+'
     },
 
@@ -241,6 +270,210 @@ export const fighters = [
       }
     ]
   },
+
+  {
+    id: 5,
+    name: 'Oleh Lakutin',
+    nickname: 'Universal',
+
+    style: 'K-1 / Kickboxing',
+
+    record: 'Brak danych',
+
+    height: null,
+    reach: null,
+    weight: 'do 90 kg',
+
+    experience: 'Wieloletnie doświadczenie w sportach walki',
+    image: olegFighter1,
+
+    shortStory:
+      'Wszechstronny zawodnik z Ukrainy, posiadający doświadczenie w sportach uderzanych, chwytanych oraz przygotowaniu siłowym i wytrzymałościowym.',
+
+    longStory:
+      'Oleh Lakutin to zawodnik reprezentujący Ukrainę, specjalizujący się w formule K-1 i kickboxingu. Posiada doświadczenie treningowe zdobywane w boksie, K-1, judo oraz MMA. Jego przygotowanie opiera się zarówno na sportach uderzanych, jak i zapasach, dzięki czemu wypracował uniwersalną bazę zawodniczą. Przez lata rozwijał również przygotowanie siłowe, kondycyjne i wytrzymałościowe, uczestnicząc między innymi w zawodach oraz treningach długodystansowych.',
+
+    quote:
+      'Wszechstronność daje przewagę niezależnie od formuły walki.',
+
+    stats: {
+      ko: '0',
+      submissions: '0',
+      fights: '0'
+    },
+
+    titles: [
+      'Doświadczony zawodnik K-1 i kickboxingu',
+      'Praktyk sportów uderzanych oraz chwytanych'
+    ],
+
+    achievements: {
+      kickboxing: [
+        'Doświadczenie treningowe w K-1',
+        'Doświadczenie treningowe w kickboxingu',
+        'Budowanie uniwersalnej bazy zawodniczej (uderzenia + zapasy)',
+        'Wysoki poziom przygotowania siłowego i kondycyjnego'
+      ],
+
+      combatSports: [
+        'Doświadczenie treningowe w boksie',
+        'Doświadczenie treningowe w judo',
+        'Doświadczenie treningowe w MMA',
+        'Praktyczna baza w dyscyplinach uderzanych i zapaśniczych'
+      ],
+
+      endurance: [
+        'Wieloletnie doświadczenie w treningu siłowym',
+        'Doświadczenie w treningu wytrzymałościowym',
+        'Udział w dystansach maratońskich'
+      ]
+    },
+
+    nationality: 'Ukraina',
+    flag: '🇺🇦',
+    age: '29 lat',
+
+    gallery: [
+    ],
+
+    videos: [
+      {
+        title: 'Trening K-1',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
+  },
+
+  {
+    id: 6,
+    name: 'Aliaksandr Liatas',
+    nickname: 'Champion',
+
+    style: 'K-1 / Muay Thai',
+
+    record: '5-3',
+    recordLabel: 'Rekord',
+
+    height: null,
+    reach: null,
+    weight: '68–71 kg',
+
+    experience: '8 walk zawodowych i turniejowych',
+    image: alexFighter1,
+
+    shortStory:
+      '5-krotny mistrz Republiki Białorusi w kickboxingu, posiadający doświadczenie w walkach turniejowych oraz rywalizacji na poziomie krajowym.',
+
+    longStory:
+      'Aliaksandr Liatas to zawodnik z Republiki Białorusi specjalizujący się w formule K-1 oraz Muay Thai. W swojej karierze stoczył 8 walk, odnosząc 5 zwycięstw i ponosząc 3 porażki. Jest 5-krotnym mistrzem Republiki Białorusi w kickboxingu oraz uczestnikiem licznych walk i turniejów. Posiada doświadczenie startowe, dobrze rozwiniętą bazę techniczną oraz praktykę w sportach uderzanych. Regularnie przygotowywał się do rywalizacji sportowej na poziomie krajowym.',
+
+    quote:
+      'Technika i regularność budują przewagę, zanim zabrzmi pierwszy gong.',
+
+    stats: {
+      ko: '0',
+      submissions: '0',
+      fights: '8'
+    },
+
+    titles: [
+      '5-krotny Mistrz Republiki Białorusi w kickboxingu'
+    ],
+
+    achievements: {
+      kickboxing: [
+        '5-krotny Mistrz Republiki Białorusi w kickboxingu',
+        'Uczestnik walk i turniejów w formule kickboxingu',
+        'Potwierdzone doświadczenie startowe',
+        'Doświadczenie w przygotowaniu do rywalizacji sportowej'
+      ],
+
+      muayThai: [
+        'Praktyka i doświadczenie w formule Muay Thai',
+        'Silna baza techniczna w sportach uderzanych'
+      ]
+    },
+
+    nationality: 'Białoruś',
+    flag: '🇧🇾',
+    age: '27 lat',
+
+    gallery: [
+    ],
+
+    videos: [
+      {
+        title: 'Walka / highlights',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
+  },
+
+  {
+    id: 7,
+    name: 'Yury Kryvulka',
+    nickname: null,
+
+    style: 'MMA',
+
+    record: 'Brak danych',
+
+    recordDouble: '2-1',
+    recordDoubleLabel: 'Gołe pięści',
+
+    height: null,
+    reach: null,
+    weight: '70 kg',
+
+    experience: 'Doświadczenie w walkach kontaktowych',
+    image: yuryFighter1,
+
+    shortStory:
+      'Zawodnik MMA kategorii 70 kg oraz reprezentant pierwszego składu Fortis Union, rozwijający swoją karierę w sportach walki.',
+
+    longStory:
+      'Yury Kryvulka to zawodnik z Republiki Białorusi specjalizujący się w formule MMA. Rywalizuje w kategorii wagowej 70 kg i posiada doświadczenie zdobywane w walkach kontaktowych. Dodatkowo występował w walkach na gołe pięści, gdzie wypracował rekord 2 zwycięstw i 1 porażki. Jest reprezentantem pierwszego składu Fortis Union i konsekwentnie rozwija swój profil sportowy.',
+
+    quote:
+      'Każda walka to kolejny krok w rozwoju zawodnika.',
+
+    stats: {
+      ko: '0',
+      submissions: '0',
+      fights: '0'
+    },
+
+    titles: [
+      'Reprezentant pierwszego składu Fortis Union'
+    ],
+
+    achievements: {
+      mma: [
+        'Zawodnik MMA kategorii 70 kg',
+        'Doświadczenie w walkach kontaktowych',
+        'Aktywny rozwój kariery sportowej'
+      ],
+
+      bareKnuckle: [
+        'Rekord walk na gołe pięści: 2-1'
+      ]
+    },
+
+    nationality: 'Białoruś',
+    flag: '🇧🇾',
+    age: '32 lata',
+
+    gallery: [
+
+    ],
+
+    videos: [
+      {
+        title: 'MMA / Highlights',
+        url: 'https://www.youtube.com/embed/VIDEO_ID'
+      }
+    ]
+  }
 
   // {
   //   id: 5,

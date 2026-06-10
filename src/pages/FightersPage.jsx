@@ -1,4 +1,4 @@
-import PageHero from '../components/PageHero';
+import PageHero from '../components/PageHero/PageHero';
 import FighterProfiles from '../components/FighterProfiles/FighterProfiles';
 
 function FightersPage() {
@@ -6,8 +6,8 @@ function FightersPage() {
     <>
       <PageHero
         eyebrow="Zawodnicy"
-        title="Promocja czterech charakterów zbudowana jak premium roster"
-        description="Każdy profil możesz rozwinąć o sponsorów, historię kariery, statystyki, media i galerię zdjęć."
+        title="Poznaj zawodników Fortis Union"
+        description="Doświadczenie, osiągnięcia i charakter. Każdy profil zawiera historię kariery, rekordy, multimedia oraz najważniejsze sukcesy sportowe."
       />
       <FighterProfiles />
     </>

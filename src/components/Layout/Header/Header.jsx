@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi';
 import Button from '../../UI/Button/Button';
 import './Header.scss';
 import logo from '../../../../public/logo.png';
@@ -13,8 +15,15 @@ const menuItems = [
 
 function Header() {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const handleLogoClick = () => {
+    closeMenu();
+
     if (location.pathname === '/') {
       window.scrollTo({
         top: 0,
@@ -23,6 +32,18 @@ function Header() {
       });
     }
   };
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="header">
@@ -60,6 +81,39 @@ function Header() {
         <div className="header__actions">
           <Button href="#contact" label="Kontakt" variant="secondary" />
         </div>
+
+        <button
+          type="button"
+          className="header__burger"
+          onClick={() => setIsMenuOpen((current) => !current)}
+          aria-label={isMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <HiOutlineX /> : <HiOutlineMenuAlt3 />}
+        </button>
+      </div>
+
+      <div
+        className={`header__mobile${isMenuOpen ? ' header__mobile--open' : ''}`}
+      >
+        <nav className="header__mobile-nav" aria-label="Menu mobilne">
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `header__mobile-link${
+                  isActive ? ' header__mobile-link--active' : ''
+                }`
+              }
+              onClick={closeMenu}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+
+          <Button href="#contact" label="Kontakt" variant="secondary" />
+        </nav>
       </div>
     </header>
   );

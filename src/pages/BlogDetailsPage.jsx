@@ -52,6 +52,7 @@ function BlogDetailsPage() {
 
             <button
               type="button"
+              className='button'
               onClick={() => navigate('/blog')}
               style={{ marginTop: '32px' }}
             >

@@ -1,14 +1,24 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .fighter-details {
   min-height: 100vh;
   padding: 120px 0 80px;
   background:
-    radial-gradient(circle at top left, rgba(255, 0, 0, 0.18), transparent 35%),
-    linear-gradient(135deg, #070707 0%, #151515 55%, #050505 100%);
-  color: #fff;
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.32) 45%,
+      rgba(0, 0, 0, 0.42) 100%),
+    radial-gradient(circle at 14% 30%,
+      rgba(238, 193, 58, 0.16),
+      transparent 42%);
 
   &__back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 32px;
-    padding: 12px 20px;
+    padding: 12px 20px 12px 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 999px;
     background: transparent;
@@ -17,7 +27,7 @@
     transition: 0.3s ease;
 
     &:hover {
-      background: #fff;
+      background: $color-gold;
       color: #000;
     }
   }
@@ -52,7 +62,7 @@
     bottom: 24px;
     padding: 10px 18px;
     border-radius: 999px;
-    background: #e10600;
+    background: $color-gold;
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;
@@ -63,13 +73,13 @@
   &__content {
     padding: 40px;
     border-radius: 28px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(16px);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(224, 190, 126, 0.18);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.024));
+    box-shadow: $shadow-soft;
   }
 
   &__eyebrow {
-    color: #e10600;
+    color: $color-gold;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.16em;
@@ -100,8 +110,8 @@
   &__quote {
     margin: 32px 0;
     padding: 24px 28px;
-    border-left: 4px solid #e10600;
-    background: rgba(225, 6, 0, 0.12);
+    border-left: 4px solid $color-gold;
+    background: rgba(236, 193, 58, 0.12);
     color: #fff;
     font-size: 22px;
     font-weight: 700;
@@ -109,10 +119,11 @@
   }
 
   &__media-strip {
-    display: flex;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
     margin: 0 0 36px;
-    padding-bottom: 12px;
+    padding-block: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
 
@@ -127,12 +138,12 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 999px;
-      background: rgba(225, 6, 0, 0.65);
+      background: rgba(236, 193, 58, 0.65);
     }
   }
 
   &__media-item {
-    flex: 0 0 180px;
+    min-width: 180px;
     height: 120px;
     position: relative;
     overflow: hidden;
@@ -145,7 +156,7 @@
 
     &:hover {
       transform: translateY(-4px);
-      border-color: #e10600;
+      border-color: $color-gold;
     }
 
     img {
@@ -160,28 +171,40 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       padding: 14px;
       color: #fff;
+      border: none;
       background:
-        radial-gradient(circle at center, rgba(225, 6, 0, 0.28), transparent 55%),
-        #101010;
-
-      span {
-        width: 42px;
-        height: 42px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: #e10600;
-        font-size: 18px;
-      }
+        linear-gradient(135deg,
+          rgba(236, 193, 58, 0.22),
+          rgba(0, 0, 0, 0.92));
 
       strong {
         font-size: 13px;
         line-height: 1.3;
         text-align: center;
       }
+    }
+  }
+
+  &__video-preview {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: $color-gold;
+    box-shadow:
+      0 0 20px rgba(236, 193, 58, 0.15),
+      0 0 40px rgba(236, 193, 58, 0.15);
+
+    svg {
+      width: 14px;
+      height: 14px;
+      color: #fff;
+      margin-left: 2px;
     }
   }
 
@@ -194,13 +217,13 @@
     div {
       padding: 22px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.08);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.024));
     }
 
     strong {
       display: block;
       margin-bottom: 8px;
-      color: #fff;
+      color: $color-gold;
       font-size: 24px;
     }
 
@@ -225,7 +248,7 @@
 
     h3 {
       margin: 22px 0 12px;
-      color: #e10600;
+      color: $color-gold;
       font-size: 18px;
       text-transform: uppercase;
     }
@@ -265,7 +288,7 @@
     height: 48px;
     border: 0;
     border-radius: 50%;
-    background: #e10600;
+    background: $color-gold;
     color: #fff;
     font-size: 34px;
     line-height: 1;
@@ -278,17 +301,25 @@
     z-index: 1001;
     width: 56px;
     height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 0;
     border-radius: 50%;
-    background: rgba(225, 6, 0, 0.95);
+    background: rgba(236, 193, 58, 0.95);
     color: #fff;
-    font-size: 30px;
     cursor: pointer;
     transform: translateY(-50%);
     transition: 0.25s ease;
 
+    svg {
+      width: 22px;
+      height: 22px;
+      color: #fff;
+    }
+
     &:hover {
-      background: #ff1f19;
+      background: $color-gold;
       transform: translateY(-50%) scale(1.08);
     }
 
@@ -313,12 +344,16 @@
       border-radius: 22px;
     }
 
+    video,
     iframe {
       width: 100%;
       aspect-ratio: 16 / 9;
+      display: block;
       border: 0;
       border-radius: 22px;
       background: #000;
+      filter: none;
+      opacity: 1;
     }
   }
 
@@ -357,6 +392,10 @@
       height: 460px;
     }
 
+    &__media-strip {
+      display: flex;
+    }
+
     &__info-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -364,7 +403,11 @@
     &__lightbox-arrow {
       width: 46px;
       height: 46px;
-      font-size: 24px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
 
       &--left {
         left: 14px;
@@ -400,9 +443,23 @@
       font-size: 18px;
     }
 
+    &__media-strip {
+      display: flex;
+    }
+
     &__media-item {
-      flex-basis: 150px;
+      min-width: 150px;
       height: 100px;
+    }
+
+    &__video-preview {
+      width: 44px;
+      height: 44px;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
     }
 
     &__info-grid {

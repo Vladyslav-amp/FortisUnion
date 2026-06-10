@@ -1,4 +1,4 @@
-import PageHero from '../components/PageHero';
+import PageHero from '../components/PageHero/PageHero';
 import BlogList from '../components/BlogList';
 import Contact from '../components/Contact/Contact';
 
@@ -7,8 +7,8 @@ function BlogPage() {
     <>
       <PageHero
         eyebrow="Blog"
-        title="Artykuły, relacje, zapowiedzi i opowieści o drodze zawodników"
-        description="Content jest przygotowany pod SEO, social proof i budowanie napięcia przed wydarzeniami."
+        title="Aktualności ze świata Fortis Union"
+        description="Relacje z wydarzeń, sukcesy zawodników, zapowiedzi walk oraz najważniejsze informacje z życia naszego zespołu."
       />
       <BlogList />
       <Contact />

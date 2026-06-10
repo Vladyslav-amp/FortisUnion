@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
+import { FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa';
+import { HiOutlineChevronLeft } from 'react-icons/hi2';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fighters } from '../../data/siteData';
 import '../../components/FighterProfiles/FighterProfiles.scss';
@@ -11,6 +13,9 @@ const hasValue = (value) =>
   value !== 'Brak danych' &&
   value !== '-' &&
   value !== 'N/A';
+
+const isLocalVideo = (src) =>
+  typeof src === 'string' && src.toLowerCase().endsWith('.mp4');
 
 function FighterDetailsPage() {
   const { id } = useParams();
@@ -58,11 +63,6 @@ function FighterDetailsPage() {
         label: 'Walki',
       },
 
-      hasValue(fighter.citizenship || fighter.nationality) && {
-        value: fighter.citizenship || fighter.nationality,
-        label: 'Obywatelstwo',
-      },
-
       hasValue(fighter.age) && {
         value: fighter.age,
         label: 'Wiek',
@@ -91,6 +91,13 @@ function FighterDetailsPage() {
       hasValue(fighter.style) && {
         value: fighter.style,
         label: 'Styl',
+      },
+
+      hasValue(fighter.citizenship || fighter.nationality) && {
+        value: fighter.flag
+          ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
+          : fighter.citizenship || fighter.nationality,
+        label: 'Obywatelstwo',
       },
     ].filter(Boolean);
   }, [fighter]);
@@ -174,7 +181,8 @@ function FighterDetailsPage() {
           className="fighter-details__back"
           onClick={() => navigate('/fighters')}
         >
-          ← Wróć do wszystkich zawodników
+          <HiOutlineChevronLeft />
+           <span>Wróć do wszystkich zawodników</span>
         </button>
 
         <article className="fighter-details__hero">
@@ -223,18 +231,20 @@ function FighterDetailsPage() {
                   <button
                     key={`${item.src}-${index}`}
                     type="button"
-                    className={`fighter-details__media-item ${
-                      item.type === 'video'
+                    className={`fighter-details__media-item ${item.type === 'video'
                         ? 'fighter-details__media-item--video'
                         : ''
-                    }`}
+                      }`}
                     onClick={() => setActiveMediaIndex(index)}
                   >
                     {item.type === 'image' ? (
                       <img src={item.src} alt={item.title} />
                     ) : (
                       <>
-                        <span>▶</span>
+                        <div className="fighter-details__video-preview">
+                          <FaPlay />
+                        </div>
+
                         <strong>{item.title}</strong>
                       </>
                     )}
@@ -337,7 +347,7 @@ function FighterDetailsPage() {
                 onClick={showPrevMedia}
                 aria-label="Poprzednie media"
               >
-                ←
+                <FaChevronLeft />
               </button>
 
               <button
@@ -346,7 +356,7 @@ function FighterDetailsPage() {
                 onClick={showNextMedia}
                 aria-label="Następne media"
               >
-                →
+                <FaChevronRight />
               </button>
             </>
           )}
@@ -357,6 +367,8 @@ function FighterDetailsPage() {
           >
             {activeMedia.type === 'image' ? (
               <img src={activeMedia.src} alt={activeMedia.title} />
+            ) : isLocalVideo(activeMedia.src) ? (
+              <video src={activeMedia.src} controls autoPlay />
             ) : (
               <iframe
                 src={activeMedia.src}

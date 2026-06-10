@@ -28,14 +28,6 @@ function FighterProfiles() {
               label: fighter.recordDoubleLabel || 'Drugi rekord',
             },
 
-            hasValue(fighter.citizenship || fighter.nationality) && {
-              value:
-                fighter.flag
-                  ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
-                  : fighter.citizenship || fighter.nationality,
-              label: 'Obywatelstwo',
-            },
-
             hasValue(fighter.stats?.fights) && {
               value: fighter.stats.fights,
               label: 'Walki',
@@ -69,6 +61,14 @@ function FighterProfiles() {
             hasValue(fighter.style) && {
               value: fighter.style,
               label: 'Styl',
+            },
+
+            hasValue(fighter.citizenship || fighter.nationality) && {
+              value:
+                fighter.flag
+                  ? `${fighter.flag} ${fighter.citizenship || fighter.nationality}`
+                  : fighter.citizenship || fighter.nationality,
+              label: 'Obywatelstwo',
             },
           ].filter(Boolean);
 

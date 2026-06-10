@@ -34,6 +34,13 @@
     height: 50px;
     display: grid;
     place-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: contain;
+    }
   }
 
   &__brand-copy {
@@ -68,7 +75,7 @@
   }
 
   &__link {
-    padding: 8px 11px;
+    padding: 12px 11px;
     border-radius: 999px;
     color: $color-text-muted;
     font-size: 11px;
@@ -98,6 +105,27 @@
     min-width: 0;
   }
 
+  &__burger {
+    display: none;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid rgba(224, 190, 126, 0.18);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.045);
+    color: $color-gold;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__mobile {
+    display: none;
+  }
 
   @include media-down(1120px) {
     &__inner {
@@ -109,7 +137,6 @@
       display: none;
     }
   }
-
 
   @include media-down(900px) {
     &__actions .button {
@@ -123,13 +150,71 @@
       grid-template-columns: 1fr auto;
     }
 
-    &__nav {
+    &__nav,
+    &__actions {
       display: none;
+    }
+
+    &__burger {
+      display: grid;
     }
 
     &__brand-mark {
       width: 42px;
       height: 42px;
+    }
+
+    &__mobile {
+      position: fixed;
+      inset: 64px 0 auto 0;
+      display: block;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(4, 5, 8, 0.98), rgba(4, 5, 8, 0.94)),
+        rgba(4, 5, 8, 0.98);
+      border-bottom: 1px solid rgba(224, 190, 126, 0.16);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      pointer-events: none;
+      transition: 0.25s ease;
+
+      &--open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+
+    &__mobile-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    &__mobile-link {
+      padding: 16px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      color: $color-text;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+
+      &:hover,
+      &--active {
+        color: $color-gold;
+        border-color: rgba(224, 190, 126, 0.3);
+        background: rgba(224, 190, 126, 0.08);
+      }
+    }
+
+    &__mobile-nav .button {
+      justify-content: center;
+      margin-top: 6px;
     }
   }
 

@@ -184,18 +184,18 @@ function Contact() {
           </p>
 
           <div className="contact__details">
-            <a href="mailto:kontakt@fortisunion.pl" className="contact__link">
+            <a href="mailto:fortisunionco@gmail.com" className="contact__link">
               <span className="contact__icon">
                 <HiOutlineMail />
               </span>
-              <span>kontakt@fortisunion.pl</span>
+              <span>fortisunionco@gmail.com</span>
             </a>
 
-            <a href="tel:+48123456789" className="contact__link">
+            <a href="tel:+48660825459" className="contact__link">
               <span className="contact__icon">
                 <HiOutlinePhone />
               </span>
-              <span>+48 123 456 789</span>
+              <span>+48 660 825 459</span>
             </a>
 
             <a

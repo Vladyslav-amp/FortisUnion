@@ -27,10 +27,11 @@ function Footer() {
           </NavLink>
 
           <ul className="footer__company">
-            <li>Fortis Union Sp. z o.o.</li>
-            <li>NIP: 0000000000</li>
-            <li>REGON: 000000000</li>
-            <li>Gdańsk, Polska</li>
+            <li>FORTIS UNION SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</li>
+            <li>NIP: 5833560205</li>
+            <li>REGON: 543933843</li>
+            <li>KRS: 0001222499</li>
+            <li>UL.ZAWODZIE 20, 80-726 GDAŃSK</li>
           </ul>
         </div>
 
@@ -58,18 +59,16 @@ function Footer() {
 
           <ul className="footer__list">
             <li>
-              <a href="mailto:kontakt@ironlegacy.pl" className="footer__link">
-                kontakt@ironlegacy.pl
+              <a href="mailto:fortisunionco@gmail.com" className="footer__link">
+                fortisunionco@gmail.com
               </a>
             </li>
 
             <li>
-              <a href="tel:+48500000000" className="footer__link">
-                +48 500 000 000
+              <a href="tel:+48660825459" className="footer__link">
+                +48 660 825 459
               </a>
             </li>
-
-            <li>Gdańsk / Polska</li>
           </ul>
         </div>
       </div>

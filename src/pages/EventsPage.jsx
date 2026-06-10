@@ -1,4 +1,4 @@
-import PageHero from '../components/PageHero';
+import PageHero from '../components/PageHero/PageHero';
 import EventCards from '../components/EventCards';
 import Contact from '../components/Contact/Contact';
 

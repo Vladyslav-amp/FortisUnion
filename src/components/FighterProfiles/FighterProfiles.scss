@@ -2,7 +2,8 @@
 @use '../../styles/mixins' as *;
 
 .fighter-profiles {
-  @include section-spacing;
+  // @include section-spacing;
+  padding: 30px 0 64px 0;
 
   &__list {
     display: grid;
@@ -40,7 +41,7 @@
   }
 
   &__nickname {
-    color: $color-primary;
+    color: $color-gold;
     font-weight: 700;
   }
 

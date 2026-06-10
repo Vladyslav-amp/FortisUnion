@@ -24,6 +24,23 @@ function Hero() {
 
   return (
     <section className="hero" id="home">
+      <video
+        ref={(el) => {
+          if (el) el.playbackRate = 0.8;
+        }}
+        className="hero__video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src="/bg_hero.mp4" type="video/mp4" />
+      </video>
+
+      <div className="hero__overlay" />
+
       <div className="container hero__inner">
         <div className="hero__content">
           <h1 className="hero__title">
@@ -47,7 +64,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="hero__spotlight-card" aria-live="polite">
+          {/* <div className="hero__spotlight-card" aria-live="polite">
             <div className="hero__spotlight-top">
               <span>Fighter spotlight</span>
               <strong>0{activeFighter.id}</strong>
@@ -128,7 +145,7 @@ function Hero() {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
