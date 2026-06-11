@@ -21,14 +21,7 @@
   border-top: 1px solid rgba(238, 193, 58, 0.1);
   border-bottom: 1px solid rgba(238, 193, 58, 0.1);
 
-  &__hero {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 32px;
-    align-items: stretch;
-  }
-
-  &__content,
+  &__intro,
   &__image-wrap,
   &__values {
     border-radius: $radius-lg;
@@ -43,20 +36,52 @@
     box-shadow: $shadow-soft;
   }
 
-  &__content {
+  &__intro {
     padding: clamp(28px, 4vw, 46px);
   }
 
+  &__intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+    gap: 28px;
+    margin-top: 24px;
+    align-items: stretch;
+  }
+
+  &__media-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    gap: 28px;
+    margin-top: 28px;
+    align-items: stretch;
+  }
+
   &__image-wrap {
-    padding: 12px;
-    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
     overflow: hidden;
+    min-height: 360px;
+
+    background:
+      radial-gradient(
+        circle at center,
+        rgba(238, 193, 58, 0.1),
+        transparent 68%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0.024)
+      );
   }
 
   &__image {
     width: 100%;
     height: 100%;
-    min-height: 396px;
+    // max-height: 430px;
 
     object-fit: cover;
     object-position: center;
@@ -81,18 +106,15 @@
   }
 
   &__title {
-    max-width: 760px;
-
+    max-width: 980px;
     margin: 0;
 
-    font-size: clamp(28px, 3.4vw, 46px);
-    line-height: 1.08;
+    font-size: clamp(30px, 4vw, 54px);
+    line-height: 1.05;
   }
 
   &__lead {
-    max-width: 720px;
-
-    margin: 22px 0 0;
+    margin: 0;
 
     color: #f1f1f1;
 
@@ -101,8 +123,6 @@
   }
 
   &__text {
-    max-width: 720px;
-
     margin: 18px 0 0;
 
     color: #c9c9c9;
@@ -110,8 +130,6 @@
   }
 
   &__mission {
-    margin-top: 28px;
-
     padding: 22px 24px;
 
     border-radius: 22px;
@@ -142,7 +160,6 @@
   }
 
   &__values {
-    margin-top: 28px;
     padding: 28px;
 
     h3 {
@@ -159,7 +176,7 @@
 
   &__values-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 14px;
   }
 
@@ -168,18 +185,12 @@
     gap: 12px;
 
     padding: 16px;
-    min-height: 92px;
+    min-height: 50px;
 
     border-radius: 18px;
 
     background: rgba(255, 255, 255, 0.045);
     border: 1px solid rgba(224, 190, 126, 0.12);
-
-    span {
-      color: $color-gold;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
 
     p {
       margin: 0;
@@ -194,16 +205,17 @@
   }
 
   @include media-down(1000px) {
-    &__hero {
+    &__intro-grid,
+    &__media-row {
       grid-template-columns: 1fr;
     }
 
     &__image-wrap {
-      min-height: 320px;
+      min-height: auto;
     }
 
     &__image {
-      min-height: 296px;
+      max-height: none;
     }
 
     &__values-grid {
@@ -214,9 +226,37 @@
   @include media-down(700px) {
     padding: 72px 0;
 
-    &__content,
+    &__intro,
     &__values {
       padding: 24px;
+    }
+
+    &__intro-grid {
+      gap: 20px;
+    }
+
+    &__media-row {
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    &__image-wrap {
+      padding: 12px;
+      border-radius: 22px;
+    }
+
+    &__image {
+      width: 100%;
+      max-height: none;
+      border-radius: 18px;
+    }
+
+    &__title {
+      font-size: clamp(30px, 9vw, 42px);
+    }
+
+    &__lead {
+      font-size: 16px;
     }
 
     &__values-grid {
