@@ -11,6 +11,9 @@ const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
 const ivanFighter1 = '/fighters/Ivan/1.webp';
 
 const arturFighter1 = '/fighters/Artur/1.jpg';
+const eventArtur = '/fighters/Artur/event.mp4';
+const event1Artur = '/fighters/Artur/event1.mp4';
+const event2Artur = '/fighters/Artur/event2.mp4';
 
 const olegFighter1 = '/fighters/Oleg/1.webp';
 
@@ -28,9 +31,9 @@ export const fighters = [
     id: 1,
     name: 'Siergiej Szymański',
     nickname: 'Mistrz Muay Thai',
-    style: 'Muay Thai / Kickboxing',
-    record: '20-7',
+    style: 'Muay Thai',
     experience: '20+ lat',
+    age: '45 lat',
     image: sergeyTrener,
     citizenship: 'Republika Białoruś',
 
@@ -50,8 +53,12 @@ export const fighters = [
     },
 
     titles: [
-      'Mistrz Sportu w Muay Thai',
-      'Międzynarodowy Mistrz Sportu w Kickboxingu'
+      'Mistrz Sportu Republiki Białorusi',
+      'Mistrz Sportu Republiki Białorusi klasy międzynarodowej',
+      'Interkontynentalny mistrz świata zawodowców',
+      'Mistrz Europy',
+      '3-krotny mistrz Białorusi',
+      'Od 2010 roku pracuje jako trener'
     ],
 
     education: {
@@ -78,87 +85,62 @@ export const fighters = [
 
   {
     id: 2,
-    name: 'Aliaksei Dziarnou',
-    nickname: 'Technik',
-    style: 'Boks',
-    record: 'Brak danych',
-    height: '173',
-    reach: 'Brak danych',
-    weight: '75–80 kg',
-    experience: '267+ Walk',
-    image: alekseyFighter1,
+    name: 'Artur Felkner',
+    style: 'Puncher / Low Kick',
+    weight: '68 - 70 kg',
+
+    image: arturFighter1,
 
     shortStory:
-      'Mistrz Sportu Republiki Białorusi, mistrz Republiki Białorusi oraz bardzo doświadczony zawodnik z dorobkiem 267 walk w karierze.',
+      'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
 
     longStory:
-      'Aliaksei Dziarnou to białoruski bokser specjalizujący się w kategorii wagowej 75–80 kg. Posiada tytuł Mistrza Sportu Republiki Białorusi oraz tytuł Mistrza Republiki Białorusi. W swojej karierze stoczył 267 walk, wielokrotnie zwyciężał w międzynarodowych turniejach, między innymi w Estonii, Litwie i Tadżykistanie, a także brał udział w mistrzostwach świata i Europy. To zawodnik bardzo doświadczony, wyróżniający się wysoką kulturą bokserską.',
+      'Artur Felkner to polski zawodnik specjalizujący się w ofensywnym stylu opartym na mocnym uderzeniu oraz technikach low kick. Ma za sobą ponad 20 walk stoczonych w Tajlandii. Występował w renomowanych organizacjach, takich jak Muay Hardcore, Super Champ oraz Rajadamnern World Series. Trenował i reprezentował Phuket Fight Club, mierząc się z rywalami wysokiego poziomu. Jest także mistrzem stadionu Sinbi Boxing Stadium. To zawodnik widowiskowy, twardy i zdeterminowany, który chętnie podejmuje walkę w ofensywie.',
 
     quote:
-      'Boks to nie tylko siła, ale przede wszystkim technika, timing i doświadczenie.',
+      'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
 
     stats: {
-      ko: '0',
-      submissions: '0',
-      fights: '267'
+      fights: '24+'
     },
 
     titles: [
-      'Mistrz Sportu Republiki Białorusi',
-      'Mistrz Republiki Białorusi'
+      'Mistrz stadionu Sinbi Boxing Stadium'
     ],
 
     achievements: {
-      boxing: [
-        '267 walk w karierze',
-        'Wielokrotny zwycięzca międzynarodowych turniejów',
-        'Uczestnik mistrzostw świata',
-        'Uczestnik mistrzostw Europy',
-        'Zwycięstwa turniejowe w Estonii, Litwie, Tadżykistanie i innych krajach'
+      muayThai: [
+        'Ponad 20 walk w Tajlandii',
+        'Występy w organizacji Muay Hardcore',
+        'Występy w organizacji Super Champ',
+        'Występy w Rajadamnern World Series',
+        'Trenował i reprezentował Phuket Fight Club',
+        'Doświadczenie w walkach z rywalami wysokiego poziomu',
+        'Mistrz stadionu Sinbi Boxing Stadium'
       ]
     },
 
-    nationality: 'Republika Białorusi',
-    age: '29 lat',
+    nationality: 'Polska',
+    age: '31 lat',
 
-    gallery: [
-      alekseyFighter2,
-      alekseyFighter3,
-      alekseyFighter4
-    ],
+    // gallery: [
 
-    videos: [
-      {
-        title: 'Walka / highlights',
-        url: 'https://www.youtube.com/embed/-YkXwtOu7zs?start=4844'
-      },
+    // ],
 
-      {
-        title: 'Walka / highlights',
-        url: '/fighters/Aleksey/1.mp4'
-      },
+    // videos: [
+    //   {
 
-      {
-        title: 'Walka / highlights',
-        url: '/fighters/Aleksey/2.mp4'
-      },
-    ]
+    //   }
+    // ]
   },
 
   {
     id: 3,
     name: 'Tsemur Fatakhau',
-    nickname: 'Twardy',
-    style: 'Boks / Walki na gołe pięści',
-    record: '2–0',
+    style: 'Boks',
     recordLabel: 'Boks zawodowy',
-
-    recordDouble: '3–2',
-    recordDoubleLabel: 'Gołe pięści',
-    height: 'Brak danych',
-    reach: 'Brak danych',
+    record: '2 – 0',
     weight: '77 kg',
-    experience: '280+ walk',
     image: tsemurFighter1,
 
     shortStory:
@@ -171,8 +153,6 @@ export const fighters = [
       'Prawdziwe doświadczenie pokazuje się wtedy, gdy zmienia się formuła walki.',
 
     stats: {
-      ko: '0',
-      submissions: '0',
       fights: '280+'
     },
 
@@ -198,93 +178,22 @@ export const fighters = [
     nationality: 'Republika Białorusi',
     age: '31 lat',
 
-    gallery: [
-    ],
+    // gallery: [
+    // ],
 
-    videos: [
-      {
-        title: 'Trening / highlights',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
-    ]
+    // videos: [
+    //   {
+    //     title: 'Trening / highlights',
+    //     url: 'https://www.youtube.com/embed/VIDEO_ID'
+    //   }
+    // ]
   },
 
   {
     id: 4,
-    name: 'Artur Felkner',
-    nickname: 'Puncher',
-    style: 'Puncher / Low Kick',
-
-    record: '15–7–2',
-    recordLabel: 'Rekord',
-
-    height: null,
-    reach: null,
-    weight: null,
-
-    experience: '20+ walk',
-    image: arturFighter1,
-
-    shortStory:
-      'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
-
-    longStory:
-      'Artur Felkner to polski zawodnik specjalizujący się w ofensywnym stylu opartym na mocnym uderzeniu oraz technikach low kick. Posiada rekord 15–7–2 i ma za sobą ponad 20 walk stoczonych w Tajlandii. Występował w renomowanych organizacjach, takich jak Muay Hardcore, Super Champ oraz Rajadamnern World Series. Trenował i reprezentował Phuket Fight Club, mierząc się z rywalami wysokiego poziomu. Jest także mistrzem stadionu Sinbi Boxing Stadium. To zawodnik widowiskowy, twardy i zdeterminowany, który chętnie podejmuje walkę w ofensywie.',
-
-    quote:
-      'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
-
-    stats: {
-      ko: '0',
-      submissions: '0',
-      fights: '24+'
-    },
-
-    titles: [
-      'Mistrz stadionu Sinbi Boxing Stadium'
-    ],
-
-    achievements: {
-      muayThai: [
-        'Ponad 20 walk w Tajlandii',
-        'Występy w organizacji Muay Hardcore',
-        'Występy w organizacji Super Champ',
-        'Występy w Rajadamnern World Series',
-        'Trenował i reprezentował Phuket Fight Club',
-        'Doświadczenie w walkach z rywalami wysokiego poziomu',
-        'Mistrz stadionu Sinbi Boxing Stadium'
-      ]
-    },
-
-    nationality: 'Polska',
-    age: '31 lat',
-
-    gallery: [
-
-    ],
-
-    videos: [
-      {
-        title: 'Trening / highlights',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
-    ]
-  },
-
-  {
-    id: 5,
     name: 'Oleh Lakutin',
-    nickname: 'Universal',
-
     style: 'K-1 / Kickboxing',
-
-    record: 'Brak danych',
-
-    height: null,
-    reach: null,
     weight: 'do 90 kg',
-
-    experience: 'Wieloletnie doświadczenie w sportach walki',
     image: olegFighter1,
 
     shortStory:
@@ -296,16 +205,19 @@ export const fighters = [
     quote:
       'Wszechstronność daje przewagę niezależnie od formuły walki.',
 
+    titles: [
+      'Doświadczenie treningowe w boksie, K-1, judo i MMA',
+      'Praktyczna baza w dyscyplinach uderzanych i zapaśniczych',
+      'Budowanie uniwersalnej bazy zawodniczej (uderzenia + zapasy)',
+      'K-1: 4 zwycięstwa',
+      'Wysoki poziom przygotowania siłowego i kondycyjnego',
+      'Wieloletnie doświadczenie w treningu siłowym (powerlifting / kulturystyka)',
+      'Doświadczenie w treningu wytrzymałościowym, udział w dystansach maratońskich'
+    ],
+
     stats: {
-      ko: '0',
-      submissions: '0',
       fights: '0'
     },
-
-    titles: [
-      'Doświadczony zawodnik K-1 i kickboxingu',
-      'Praktyk sportów uderzanych oraz chwytanych'
-    ],
 
     achievements: {
       kickboxing: [
@@ -329,36 +241,25 @@ export const fighters = [
       ]
     },
 
-    nationality: 'Ukraina',
-    flag: '🇺🇦',
+    nationality: 'Republika Ukraina',
     age: '29 lat',
 
-    gallery: [
-    ],
+    // gallery: [
+    // ],
 
-    videos: [
-      {
-        title: 'Trening K-1',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
-    ]
+    // videos: [
+    //   {
+
+    //   }
+    // ]
   },
 
   {
-    id: 6,
+    id: 5,
     name: 'Aliaksandr Liatas',
-    nickname: 'Champion',
-
     style: 'K-1 / Muay Thai',
 
-    record: '5-3',
-    recordLabel: 'Rekord',
-
-    height: null,
-    reach: null,
     weight: '68–71 kg',
-
-    experience: '8 walk zawodowych i turniejowych',
     image: alexFighter1,
 
     shortStory:
@@ -371,21 +272,23 @@ export const fighters = [
       'Technika i regularność budują przewagę, zanim zabrzmi pierwszy gong.',
 
     stats: {
-      ko: '0',
-      submissions: '0',
-      fights: '8'
+      fights: '8+'
     },
 
     titles: [
-      '5-krotny Mistrz Republiki Białorusi w kickboxingu'
+      '5-krotny Mistrz Republiki Białorusi w kickboxingu',
+      'Zawodnik z potwierdzonym doświadczeniem startowym',
+      'Uczestnik walk i turniejów w formule kickboxingu',
+      'Doświadczenie w przygotowaniu do rywalizacji sportowe',
+      'Silna baza techniczna i praktyka w sportach uderzanych',
+      '8 walk zawodowych i turniejowych'
     ],
 
     achievements: {
       kickboxing: [
         '5-krotny Mistrz Republiki Białorusi w kickboxingu',
         'Uczestnik walk i turniejów w formule kickboxingu',
-        'Potwierdzone doświadczenie startowe',
-        'Doświadczenie w przygotowaniu do rywalizacji sportowej'
+        'Potwierdzone doświadczenie startowe'
       ],
 
       muayThai: [
@@ -394,38 +297,140 @@ export const fighters = [
       ]
     },
 
-    nationality: 'Białoruś',
-    flag: '🇧🇾',
+    nationality: 'Republika Białorusi',
     age: '27 lat',
 
+    // gallery: [
+    // ],
+
+    // videos: [
+    //   {
+    //     title: 'Walka / highlights',
+    //     url: 'https://www.youtube.com/embed/VIDEO_ID'
+    //   }
+    // ]
+  },
+
+  {
+    id: 6,
+    name: 'Aliaksei Dziarnou',
+    style: 'Boks',
+    height: '173',
+    weight: '75–80 kg',
+    image: alekseyFighter2,
+
+    shortStory:
+      'Mistrz Sportu Republiki Białorusi, mistrz Republiki Białorusi oraz bardzo doświadczony zawodnik z dorobkiem 267 walk w karierze.',
+
+    longStory:
+      'Aliaksei Dziarnou to białoruski bokser specjalizujący się w kategorii wagowej 75–80 kg. Posiada tytuł Mistrza Sportu Republiki Białorusi oraz tytuł Mistrza Republiki Białorusi. W swojej karierze stoczył 267 walk, wielokrotnie zwyciężał w międzynarodowych turniejach, między innymi w Estonii, Litwie i Tadżykistanie, a także brał udział w mistrzostwach świata i Europy. To zawodnik bardzo doświadczony, wyróżniający się wysoką kulturą bokserską.',
+
+    quote:
+      'Boks to nie tylko siła, ale przede wszystkim technika, timing i doświadczenie.',
+
+    stats: {
+      fights: '267+'
+    },
+
+    titles: [
+      'Mistrz Sportu Republiki Białorusi',
+      'Mistrz Republiki Białorusi',
+      'Wielokrotny zwycięzca turniejów międzynarodowych',
+      'Uczestnik mistrzostw świata i Europy'
+    ],
+
+    achievements: {
+      boxing: [
+        '267 walk w karierze',
+        'Wielokrotny zwycięzca międzynarodowych turniejów',
+        'Uczestnik mistrzostw świata',
+        'Uczestnik mistrzostw Europy',
+        'Zwycięstwa turniejowe w Estonii, Litwie, Tadżykistanie i innych krajach'
+      ]
+    },
+
+    nationality: 'Republika Białorusi',
+    age: '29 lat',
+
     gallery: [
+      alekseyFighter1,
+      alekseyFighter3,
+      alekseyFighter4
     ],
 
     videos: [
       {
         title: 'Walka / highlights',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
+        url: 'https://www.youtube.com/embed/-YkXwtOu7zs?start=4844'
+      },
+
+      {
+        title: 'Walka / highlights',
+        url: '/fighters/Aleksey/1.mp4'
+      },
+
+      {
+        title: 'Walka / highlights',
+        url: '/fighters/Aleksey/2.mp4'
+      },
     ]
   },
 
   {
     id: 7,
+    name: 'Ivan Akhmatov',
+    style: 'K-1 / Muay Thai',
+    weight: '80 kg',
+    image: ivanFighter1,
+
+    shortStory:
+      'Reprezentant Ukrainy oraz zawodnik pierwszego składu Fortis Union. Rozwija się w formułach K-1 i Muay Thai, regularnie uczestnicząc w przygotowaniach sportowych oraz budując doświadczenie potrzebne do rywalizacji na coraz wyższym poziomie.',
+
+    longStory:
+      'Reprezentant Fortis Union z Ukrainy. Na co dzień rozwija swoje umiejętności w formułach K-1 i Muay Thai, regularnie uczestnicząc w przygotowaniach sportowych. Charakteryzuje się dużą motywacją, zaangażowaniem oraz konsekwencją w treningu. Buduje doświadczenie ringowe i konsekwentnie pracuje nad dalszym rozwojem sportowym.',
+
+    quote:
+      'Każdy trening to kolejny krok do celu.',
+
+    stats: {
+      fights: '0',
+    },
+
+    nationality: 'Republika Ukraina',
+    age: '28 lat',
+
+    titles: [
+      'Zawodnik pierwszego składu Fortis Union'
+    ],
+
+    achievements: {
+      combatSports: [
+        'Zawodnik pierwszego składu Fortis Union',
+        'Profil sportowy w trakcie rozwoju',
+        'Regularne przygotowania w formule K-1 / Muay Thai',
+        'Ambitny zawodnik z dużą motywacją do startów',
+        'Solidna baza treningowa i gotowość do dalszego rozwoju'
+      ]
+    },
+
+    // gallery: [
+
+    // ],
+
+    // videos: [
+    //   {
+
+    //   }
+    // ]
+  },
+
+  {
+    id: 8,
     name: 'Yury Kryvulka',
-    nickname: null,
-
     style: 'MMA',
-
-    record: 'Brak danych',
-
-    recordDouble: '2-1',
-    recordDoubleLabel: 'Gołe pięści',
-
-    height: null,
-    reach: null,
+    record: '2-1',
     weight: '70 kg',
 
-    experience: 'Doświadczenie w walkach kontaktowych',
     image: yuryFighter1,
 
     shortStory:
@@ -437,15 +442,13 @@ export const fighters = [
     quote:
       'Każda walka to kolejny krok w rozwoju zawodnika.',
 
-    stats: {
-      ko: '0',
-      submissions: '0',
-      fights: '0'
-    },
-
     titles: [
       'Reprezentant pierwszego składu Fortis Union'
     ],
+
+    stats: {
+      fights: '0',
+    },
 
     achievements: {
       mma: [
@@ -455,44 +458,22 @@ export const fighters = [
       ],
 
       bareKnuckle: [
-        'Rekord walk na gołe pięści: 2-1'
+        'Walki na gołe pięści: 2 zwycięstwa'
       ]
     },
 
-    nationality: 'Białoruś',
-    flag: '🇧🇾',
+    nationality: 'Republika Białorusi',
     age: '32 lata',
 
-    gallery: [
+    // gallery: [
 
-    ],
+    // ],
 
-    videos: [
-      {
-        title: 'MMA / Highlights',
-        url: 'https://www.youtube.com/embed/VIDEO_ID'
-      }
-    ]
+    // videos: [
+    //   {
+    //   }
+    // ]
   }
-
-  // {
-  //   id: 5,
-  //   name: 'Ivan Akhmatov',
-
-  //   image: ivanFighter1,
-
-
-  //   gallery: [
-
-  //   ],
-
-  //   videos: [
-  //     {
-  //       title: 'Trening / highlights',
-  //       url: 'https://www.youtube.com/embed/VIDEO_ID'
-  //     }
-  //   ]
-  // },
 ];
 
 export const featuredFighter = fighters[0];
@@ -525,70 +506,91 @@ export const journeySteps = [
 export const events = [
   {
     id: 1,
-    date: '24 maja 2026',
-    title: 'Iron Legacy: Rising Platform',
-    location: 'Warszawa, Tor Główny',
-    description: 'Wieczór otwierający sezon, prezentacja rosteru, walki rankingowe i transmisja premium.',
-    status: 'Sprzedaż aktywna',
-    highlights: ['Prezentacja 4 gwiazd rosteru', 'Panel sponsorów', 'Aftermovie + media day'],
-  },
-  {
-    id: 2,
-    date: '19 lipca 2026',
-    title: 'Iron Legacy: Summer Trials',
-    location: 'Kraków, Arena PMMA',
-    description: 'Turniej PMMA z nowymi nazwiskami, scoutingiem i kwalifikacjami do kolejnej gali.',
-    status: 'Rejestracja zawodników',
-    highlights: ['Drabinka turniejowa', 'Rejestracja klubów', 'Streaming i backstage'],
-  },
-  {
-    id: 3,
-    date: '27 września 2026',
-    title: 'Iron Legacy: Main Season',
-    location: 'Wrocław, Event Hall',
-    description: 'Główne wydarzenie sezonu z mocnym contentem, panelem prasowym i strefą sponsorów.',
-    status: 'Soon',
-    highlights: ['Fight week content', 'Strefa partnerów', 'Seria blogów i zapowiedzi'],
-  },
+    date: '20 czerwca 2026',
+    dateISO: '2026-06-20',
+    title: 'Strike King 9',
+    fightCard: 'Mateusz Janik vs Artur Felker',
+    location: 'Kraków, Synerise Arena',
+    status: 'Potwierdzona walka',
+    image: arturFighter1,
+
+    description:
+      'Reprezentant Fortis Union Artur Felker zmierzy się z Mateuszem Janikiem w formule Muay Thai. Starcie dwóch doświadczonych zawodników zapowiada się jako jedno z najciekawszych zestawień wieczoru.',
+
+    longDescription:
+      `Podczas STRIKE KING 9 zobaczymy starcie dwóch zawodników, którzy mają bardzo konkretne cele. 
+      
+      Mateusz Janik wraca do ringu z ogromną motywacją, by udowodnić, że stać go na wielkie rzeczy i ponownie zaznaczyć swoją obecność na gali Strike King. 👊
+      
+      Artur Felkner ma już na swoim koncie efektowne zwycięstwo na gali Strike King i z pewnością będzie chciał potwierdzić, że świetnie czuje się na tej scenie.
+     
+      Dodatkowo walka odbędzie się w formule Muay Thai!
+      Większa dynamika, wykorzystanie kolan i łokci oraz nieustanna presja sprawiają, że emocje sięgają najwyższego poziomu.`,
+
+    // highlights: [
+    //   'Muay Thai Rules',
+    //   'Artur Felker reprezentuje Fortis Union',
+    //   'Pełna relacja foto i video',
+    //   'Kulisy przygotowań zawodnika',
+    // ],
+
+    // gallery: [
+    //   arturFighter1,
+    //   arturFighter1,
+    //   arturFighter1
+    // ],
+
+    videos: [
+      {
+        title: 'Backstage',
+        url: event1Artur
+      },
+
+      {
+        title: 'Przed walką',
+        url: event2Artur
+      }
+    ],
+  }
 ];
 
 export const mediaGallery = [
-  { id: 1, title: 'Fight camp diary', text: 'Dziennik przygotowań i klimat wysokiego poziomu.', image: logo },
-  { id: 2, title: 'Open workout', text: 'Treści pod social i partnerów marki.', image: logo },
-  { id: 3, title: 'Backstage stories', text: 'Materiały zakulisowe budujące przywiązanie fanów.', image: logo },
+  // { id: 1, title: 'Fight camp diary', text: 'Dziennik przygotowań i klimat wysokiego poziomu.', image: logo },
+  // { id: 2, title: 'Open workout', text: 'Treści pod social i partnerów marki.', image: logo },
+  // { id: 3, title: 'Backstage stories', text: 'Materiały zakulisowe budujące przywiązanie fanów.', image: logo },
 ];
 
 export const blogPosts = [
-  {
-    id: 1,
-    category: 'Analiza',
-    date: '10 kwietnia 2026',
-    title: 'Jak zbudować narrację zawodnika, żeby przyciągał sponsorów',
-    excerpt: 'Przykładowy wpis o tym, jak opakować historię fightera, aby zwiększać wartość medialną i sprzedażową.',
-    image: sergeyTrener,
-  },
-  {
-    id: 2,
-    category: 'Branding',
-    date: '3 kwietnia 2026',
-    title: 'Jak zaprojektować promocję zawodnika, żeby wyglądał jak gwiazda',
-    excerpt: 'Krótki opis wpisu blogowego. Możesz tu wrzucić analizy organizacyjne, harmonogram i komunikację eventu.',
-    image: placeholderImageAlt,
-  },
-  {
-    id: 3,
-    category: 'Media',
-    date: '28 marca 2026',
-    title: 'Backstage content: dlaczego widzowie chcą oglądać drogę, a nie tylko wynik',
-    excerpt: 'Przykładowy materiał o backstage, vlogach i kulisach przygotowań do eventu.',
-    image: placeholderImageThird,
-  },
-  {
-    id: 4,
-    category: 'Zawodnicy',
-    date: '21 marca 2026',
-    title: 'Jak promować czterech zawodników jednocześnie, nie rozmywając przekazu',
-    excerpt: 'Wpis pokazujący, jak prowadzić kilka osobnych archetypów fighterów w jednej silnej marce promotion.',
-    image: placeholderImageFourth,
-  },
+  // {
+  //   id: 1,
+  //   category: 'Analiza',
+  //   date: '10 kwietnia 2026',
+  //   title: 'Jak zbudować narrację zawodnika, żeby przyciągał sponsorów',
+  //   excerpt: 'Przykładowy wpis o tym, jak opakować historię fightera, aby zwiększać wartość medialną i sprzedażową.',
+  //   image: sergeyTrener,
+  // },
+  // {
+  //   id: 2,
+  //   category: 'Branding',
+  //   date: '3 kwietnia 2026',
+  //   title: 'Jak zaprojektować promocję zawodnika, żeby wyglądał jak gwiazda',
+  //   excerpt: 'Krótki opis wpisu blogowego. Możesz tu wrzucić analizy organizacyjne, harmonogram i komunikację eventu.',
+  //   image: placeholderImageAlt,
+  // },
+  // {
+  //   id: 3,
+  //   category: 'Media',
+  //   date: '28 marca 2026',
+  //   title: 'Backstage content: dlaczego widzowie chcą oglądać drogę, a nie tylko wynik',
+  //   excerpt: 'Przykładowy materiał o backstage, vlogach i kulisach przygotowań do eventu.',
+  //   image: placeholderImageThird,
+  // },
+  // {
+  //   id: 4,
+  //   category: 'Zawodnicy',
+  //   date: '21 marca 2026',
+  //   title: 'Jak promować czterech zawodników jednocześnie, nie rozmywając przekazu',
+  //   excerpt: 'Wpis pokazujący, jak prowadzić kilka osobnych archetypów fighterów w jednej silnej marce promotion.',
+  //   image: placeholderImageFourth,
+  // },
 ];

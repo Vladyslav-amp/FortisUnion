@@ -1,14 +1,14 @@
 import PageHero from '../components/PageHero/PageHero';
-import EventCards from '../components/EventCards';
+import EventCards from '../components/EventCards/EventCards';
 import Contact from '../components/Contact/Contact';
 
 function EventsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Turnieje"
-        title="Sekcja eventowa pod PMMA, zgłoszenia, partnerów i fight week"
-        description="Szablon nadaje się do gali, ligi, sezonu lub serii turniejów w różnych miastach."
+        eyebrow="Wydarzenia"
+        title="Gale, turnieje i wydarzenia sportowe Fortis Union"
+        description="Śledź nadchodzące wydarzenia, walki naszych zawodników, turnieje oraz projekty realizowane wspólnie z partnerami i organizacjami sportowymi."
       />
       <EventCards />
       <Contact />

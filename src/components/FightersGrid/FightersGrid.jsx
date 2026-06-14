@@ -30,13 +30,13 @@ function FightersGrid() {
                       className="fighters-grid__image"
                     />
 
-                    <span className="fighters-grid__index">
+                    {/* <span className="fighters-grid__index">
                       0{fighter.id}
-                    </span>
+                    </span> */}
 
-                    <div className="fighters-grid__overlay">
+                    {/* <div className="fighters-grid__overlay">
                       <strong>{fighter.record}</strong>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="fighters-grid__body">
@@ -54,19 +54,20 @@ function FightersGrid() {
 
                     <div className="fighters-grid__stats">
                       <div>
-                        <strong>{fighter.stats.ko}</strong>
-                        <span>KO/TKO</span>
-                      </div>
-
-                      <div>
-                        <strong>{fighter.stats.submissions}</strong>
-                        <span>Poddania</span>
+                        <strong>{fighter.age}</strong>
+                        <span>Wiek</span>
                       </div>
 
                       <div>
                         <strong>{fighter.stats.fights}</strong>
                         <span>Walki</span>
                       </div>
+                      
+                      {/* <div>
+                        <strong>{fighter.weight}</strong>
+                        <span>Waga</span>
+                      </div> */}
+
                     </div>
                   </div>
                 </article>

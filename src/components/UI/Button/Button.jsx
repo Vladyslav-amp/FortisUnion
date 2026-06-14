@@ -1,3 +1,4 @@
+import { button } from 'framer-motion/client';
 import './Button.scss';
 
 function Button({ label, href = '#', variant = 'primary' }) {

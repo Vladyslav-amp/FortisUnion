@@ -182,7 +182,7 @@ function FighterDetailsPage() {
           onClick={() => navigate('/fighters')}
         >
           <HiOutlineChevronLeft />
-           <span>Wróć do wszystkich zawodników</span>
+          <span>Wróć do wszystkich zawodników</span>
         </button>
 
         <article className="fighter-details__hero">
@@ -232,8 +232,8 @@ function FighterDetailsPage() {
                     key={`${item.src}-${index}`}
                     type="button"
                     className={`fighter-details__media-item ${item.type === 'video'
-                        ? 'fighter-details__media-item--video'
-                        : ''
+                      ? 'fighter-details__media-item--video'
+                      : ''
                       }`}
                     onClick={() => setActiveMediaIndex(index)}
                   >
@@ -289,9 +289,13 @@ function FighterDetailsPage() {
                           ? 'Kickboxing'
                           : category === 'boxing'
                             ? 'Boks'
-                            : category === 'bareKnuckle'
-                              ? 'Walki na gołe pięści'
-                              : category}
+                            : category === 'combatSports'
+                              ? 'Sporty Walki'
+                              : category === 'endurance'
+                                ? 'Kondycja'
+                                : category === 'bareKnuckle'
+                                  ? 'Walki na gołe pięści'
+                                  : category}
                     </h3>
 
                     <ul>

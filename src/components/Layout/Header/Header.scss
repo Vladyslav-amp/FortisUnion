@@ -18,6 +18,10 @@
     grid-template-columns: minmax(188px, 0.8fr) auto minmax(174px, 0.8fr);
     align-items: center;
     gap: clamp(8px, 1.6vw, 20px);
+
+    & div {
+      
+    }
   }
 
   &__brand {
