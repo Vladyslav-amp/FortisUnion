@@ -240,6 +240,10 @@
     & {
       padding-block: 32px;
     }
+
+    &__card {
+      min-height: 100dvh;
+    }
   }
 
   @include media-down(680px) {
