@@ -61,7 +61,7 @@
 
   &__media {
     position: relative;
-    max-height: 300px;
+    // max-height: 300px;
     overflow: hidden;
   }
 
@@ -243,7 +243,7 @@
     }
 
     &__card {
-      min-height: 100dvh;
+      min-height: 80dvh;
     }
   }
 
