@@ -1,14 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import {
+  FaArrowRight,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import Button from '../UI/Button/Button';
-import { fighters } from '../../data/siteData';
+import { fighters, events } from '../../data/siteData';
 import './Hero.scss';
+
+const parsePolishDate = (dateString) => {
+  const months = {
+    stycznia: 0,
+    lutego: 1,
+    marca: 2,
+    kwietnia: 3,
+    maja: 4,
+    czerwca: 5,
+    lipca: 6,
+    sierpnia: 7,
+    września: 8,
+    pazdziernika: 9,
+    października: 9,
+    listopada: 10,
+    grudnia: 11,
+  };
+
+  const [day, monthName, year] = dateString.split(' ');
+
+  return new Date(Number(year), months[monthName], Number(day));
+};
 
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showFightVideo, setShowFightVideo] = useState(false);
   const activeFighter = fighters[activeIndex];
   const navigate = useNavigate();
+
+  const nextEvent = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return [...events]
+      .filter((event) => parsePolishDate(event.date) >= today)
+      .sort((a, b) => parsePolishDate(a.date) - parsePolishDate(b.date))[0];
+  }, []);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -18,8 +55,18 @@ function Hero() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const goToFighter = () => {
-    navigate(`/fighters/${activeFighter.id}`);
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setShowFightVideo((current) => !current);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const goToNextEvent = () => {
+    if (nextEvent) {
+      navigate(`/events/${nextEvent.id}`);
+    }
   };
 
   return (
@@ -58,95 +105,58 @@ function Hero() {
           </div>
         </div>
 
-        <motion.div
-          className="hero__visual"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* <div className="hero__spotlight-card" aria-live="polite">
-            <div className="hero__spotlight-top">
-              <span>Fighter spotlight</span>
-              <strong>0{activeFighter.id}</strong>
+        {nextEvent && (
+          <motion.button
+            type="button"
+            className="hero__next-fight"
+            onClick={goToNextEvent}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.25 }}
+          >
+            <div className="hero__next-fight-media">
+              <img
+                src={nextEvent.image}
+                alt={nextEvent.fightCard || nextEvent.title}
+              />
+
+              {/* <span>{nextEvent.status}</span> */}
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.article
-                className="hero__featured-fighter"
-                key={activeFighter.id}
-                onClick={goToFighter}
-                role="button"
-                tabIndex={0}
-                style={{ cursor: 'pointer' }}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    goToFighter();
-                  }
-                }}
-                initial={{ opacity: 0, x: 28 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -28 }}
-                transition={{ duration: 0.38 }}
-              >
-                <img
-                  src={activeFighter.image}
-                  alt={activeFighter.name}
-                  className="hero__featured-image"
-                />
+            <div className="hero__next-fight-content">
+              <span className="hero__next-fight-eyebrow">
+                Następny pojedynek
+              </span>
 
-                <div className="hero__featured-overlay" />
+              <h2>{nextEvent.fightCard || nextEvent.title}</h2>
 
-                <div className="hero__featured-copy">
-                  <span>{activeFighter.style}</span>
-                  <h2>{activeFighter.name}</h2>
-                  <strong>“{activeFighter.nickname}”</strong>
-                  <p>{activeFighter.shortStory}</p>
+              {nextEvent.fightCard && (
+                <strong>{nextEvent.title}</strong>
+              )}
 
-                  <dl className="hero__featured-stats">
-                    <div>
-                      <dt>Rekord</dt>
-                      <dd>{activeFighter.record}</dd>
-                    </div>
+              <div className="hero__next-fight-divider" />
 
-                    <div>
-                      <dt>Wzrost</dt>
-                      <dd>{activeFighter.height}</dd>
-                    </div>
+              <div className="hero__next-fight-meta">
+                <span>
+                  <FaCalendarAlt />
+                  {nextEvent.date}
+                </span>
 
-                    <div>
-                      <dt>Waga</dt>
-                      <dd>{activeFighter.weight}</dd>
-                    </div>
+                <span>
+                  <FaMapMarkerAlt />
+                  {nextEvent.location}
+                </span>
+              </div>
 
-                    <div>
-                      <dt>Styl</dt>
-                      <dd>{activeFighter.style}</dd>
-                    </div>
-                  </dl>
-                </div>
-              </motion.article>
-            </AnimatePresence>
+              <div className="hero__next-fight-divider" />
 
-            <div
-              className="hero__fighter-tabs"
-              aria-label="Wybór zawodnika w hero"
-            >
-              {fighters.map((fighter, index) => (
-                <button
-                  className={`hero__fighter-tab${
-                    index === activeIndex ? ' hero__fighter-tab--active' : ''
-                  }`}
-                  type="button"
-                  key={fighter.id}
-                  onClick={() => setActiveIndex(index)}
-                >
-                  <img src={fighter.image} alt="" />
-                  <span>{fighter.name}</span>
-                </button>
-              ))}
+              <div className="hero__next-fight-cta">
+                <span>Zobacz szczegóły</span>
+                <FaArrowRight />
+              </div>
             </div>
-          </div> */}
-        </motion.div>
+          </motion.button>
+        )}
       </div>
     </section>
   );

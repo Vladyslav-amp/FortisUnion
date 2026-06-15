@@ -1,5 +1,7 @@
 const sergeyTrener = '/fighters/trener.webp';
 
+const fightersPromo = '/fortis_fighters.mp4';
+
 const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
 const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
 const alekseyFighter3 = '/fighters/Aleksey/3.jpg';
@@ -11,6 +13,7 @@ const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
 const ivanFighter1 = '/fighters/Ivan/1.webp';
 
 const arturFighter1 = '/fighters/Artur/1.jpg';
+const arturEvent = '/fighters/Artur/event-main.jpg';
 const eventArtur = '/fighters/Artur/event.mp4';
 const event1Artur = '/fighters/Artur/event1.mp4';
 const event2Artur = '/fighters/Artur/event2.mp4';
@@ -138,7 +141,7 @@ export const fighters = [
     name: 'Tsemur Fatakhau',
     style: 'Boks',
     recordLabel: 'Boks zawodowy',
-    record: '2 – 0',
+    record: '3 – 0',
     weight: '77 kg',
     image: tsemurFighter1,
 
@@ -427,7 +430,7 @@ export const fighters = [
     id: 8,
     name: 'Yury Kryvulka',
     style: 'MMA',
-    record: '2-1',
+    record: '3 - 0',
     weight: '70 kg',
 
     image: yuryFighter1,
@@ -511,7 +514,7 @@ export const events = [
     fightCard: 'Mateusz Janik vs Artur Felker',
     location: 'Kraków, Synerise Arena',
     status: 'Potwierdzona walka',
-    image: arturFighter1,
+    image: arturEvent,
 
     description:
       'Reprezentant Fortis Union Artur Felker zmierzy się z Mateuszem Janikiem w formule Muay Thai. Starcie dwóch doświadczonych zawodników zapowiada się jako jedno z najciekawszych zestawień wieczoru.',
@@ -554,9 +557,18 @@ export const events = [
 ];
 
 export const mediaGallery = [
-  // { id: 1, title: 'Fight camp diary', text: 'Dziennik przygotowań i klimat wysokiego poziomu.', image: logo },
-  // { id: 2, title: 'Open workout', text: 'Treści pod social i partnerów marki.', image: logo },
-  // { id: 3, title: 'Backstage stories', text: 'Materiały zakulisowe budujące przywiązanie fanów.', image: logo },
+  {
+    id: 1,
+    // title: 'Fight camp diary',
+    // text: 'Dziennik przygotowań i klimat wysokiego poziomu.',
+    videos: [
+      {
+        id: 1,
+        // title: 'Backstage',
+        url: fightersPromo,
+      },
+    ],
+  },
 ];
 
 export const blogPosts = [
