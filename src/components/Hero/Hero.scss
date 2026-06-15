@@ -25,9 +25,7 @@
     object-position: center;
 
     filter:
-      brightness(0.46)
-      contrast(1.12)
-      saturate(0.9);
+      brightness(0.46) contrast(1.12) saturate(0.9);
   }
 
   &__overlay {
@@ -36,17 +34,13 @@
     z-index: 1;
 
     background:
-      linear-gradient(
-        90deg,
+      linear-gradient(90deg,
         rgba(0, 0, 0, 0.96) 0%,
         rgba(0, 0, 0, 0.7) 42%,
-        rgba(0, 0, 0, 0.42) 100%
-      ),
-      radial-gradient(
-        circle at 16% 36%,
+        rgba(0, 0, 0, 0.42) 100%),
+      radial-gradient(circle at 16% 36%,
         rgba(238, 193, 58, 0.13),
-        transparent 42%
-      );
+        transparent 42%);
   }
 
   &__inner {
@@ -107,16 +101,12 @@
     border-radius: 32px;
 
     background:
-      radial-gradient(
-        circle at 84% 10%,
+      radial-gradient(circle at 84% 10%,
         rgba(238, 193, 58, 0.18),
-        transparent 42%
-      ),
-      linear-gradient(
-        145deg,
+        transparent 42%),
+      linear-gradient(145deg,
         rgba(255, 255, 255, 0.08),
-        rgba(255, 255, 255, 0.018)
-      );
+        rgba(255, 255, 255, 0.018));
 
     box-shadow:
       0 34px 90px rgba(0, 0, 0, 0.46),
@@ -139,12 +129,10 @@
       pointer-events: none;
 
       background:
-        linear-gradient(
-          115deg,
+        linear-gradient(115deg,
           transparent 0%,
           rgba(238, 193, 58, 0.08) 46%,
-          transparent 62%
-        );
+          transparent 62%);
 
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -202,18 +190,14 @@
       pointer-events: none;
 
       background:
-        linear-gradient(
-          90deg,
+        linear-gradient(90deg,
           transparent 0%,
           rgba(0, 0, 0, 0.16) 78%,
-          rgba(0, 0, 0, 0.48) 100%
-        ),
-        linear-gradient(
-          180deg,
+          rgba(0, 0, 0, 0.48) 100%),
+        linear-gradient(180deg,
           rgba(0, 0, 0, 0.06),
           transparent 42%,
-          rgba(0, 0, 0, 0.22)
-        );
+          rgba(0, 0, 0, 0.22));
     }
 
     span {
@@ -295,11 +279,9 @@
 
     margin: 24px 0;
 
-    background: linear-gradient(
-      90deg,
-      rgba(224, 190, 126, 0.42),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        rgba(224, 190, 126, 0.42),
+        transparent);
   }
 
   &__next-fight-meta {
@@ -404,6 +386,10 @@
   @include media-down(700px) {
     & {
       padding: 32px 0;
+    }
+
+    &__next-fight {
+      min-height: 100dvh;
     }
   }
 
