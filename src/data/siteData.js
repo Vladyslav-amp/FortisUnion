@@ -1,4 +1,4 @@
-const sergeyTrener = 'fighters/trener.webp';
+const sergeyTrener = '/fighters/trener.webp';
 
 const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
 const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
