@@ -4,6 +4,12 @@
 .page-hero {
   padding: 64px 0 0 0;
 
+   @include media-down(700px) {
+    & {
+      padding: 32px 0 0 0
+    }
+   }
+
   &__inner {
     @include card-surface;
     padding: 40px;

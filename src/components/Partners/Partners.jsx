@@ -14,21 +14,23 @@ function Partners() {
 
   return (
     <section className="partners" id="partners">
-      <div className="container partners__header">
-        <span className="partners__eyebrow">Partnerzy</span>
+      <div className="container">
+        <div className="partners__header">
+          <span className="partners__eyebrow">Partnerzy</span>
 
-        <h2 className="partners__title">
-          Marki i ludzie, którzy wspierają rozwój zawodników
-        </h2>
-      </div>
+          <h2 className="partners__title">
+            Marki i ludzie, którzy wspierają rozwój zawodników
+          </h2>
+        </div>
 
-      <div className="partners__slider" aria-label="Lista partnerów">
-        <div className="partners__track">
-          {repeatedPartners.map((partner, index) => (
-            <div className="partners__item" key={`${partner.name}-${index}`}>
-              <img src={partner.logo} alt={partner.name} />
-            </div>
-          ))}
+        <div className="partners__slider" aria-label="Lista partnerów">
+          <div className="partners__track">
+            {repeatedPartners.map((partner, index) => (
+              <div className="partners__item" key={`${partner.name}-${index}`}>
+                <img src={partner.logo} alt={partner.name} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

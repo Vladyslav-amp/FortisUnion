@@ -191,11 +191,11 @@ function Contact() {
               <span>fortisunionco@gmail.com</span>
             </a>
 
-            <a href="tel:+48660825459" className="contact__link">
+            <a href="tel:+48577778962" className="contact__link">
               <span className="contact__icon">
                 <HiOutlinePhone />
               </span>
-              <span>+48 660 825 459</span>
+              <span>+48 577 778 962</span>
             </a>
 
             <a

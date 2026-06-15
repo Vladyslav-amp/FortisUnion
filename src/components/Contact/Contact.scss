@@ -205,8 +205,13 @@
     }
   }
 
+  @include media-down(700px) {
+    & {
+      padding: 32px 0;
+    }
+  }
+
   @include media-down(600px) {
-    padding: 48px 0;
 
     &__inner {
       padding: 22px;

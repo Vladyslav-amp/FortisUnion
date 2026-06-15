@@ -28,6 +28,9 @@ function FightersGrid() {
                       src={fighter.image}
                       alt={fighter.name}
                       className="fighters-grid__image"
+                      style={{
+                        objectPosition: event.imagePosition || 'center top'
+                      }}
                     />
 
                     {/* <span className="fighters-grid__index">
@@ -62,7 +65,7 @@ function FightersGrid() {
                         <strong>{fighter.stats.fights}</strong>
                         <span>Walki</span>
                       </div>
-                      
+
                       {/* <div>
                         <strong>{fighter.weight}</strong>
                         <span>Waga</span>

@@ -65,11 +65,15 @@ function Footer() {
             </li>
 
             <li>
-              <a href="tel:+48660825459" className="footer__link">
-                +48 660 825 459
+              <a href="tel:+48577778962" className="footer__link">
+                +48 577 778 962
               </a>
             </li>
           </ul>
+        </div>
+
+        <div className="footer__column">
+          <p class="footer__copyright">© 2026 Fortis Union. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>

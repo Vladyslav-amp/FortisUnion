@@ -1,4 +1,4 @@
-const sergeyTrener = '/fighters/trener.png';
+const sergeyTrener = 'fighters/trener.webp';
 
 const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
 const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
@@ -90,7 +90,6 @@ export const fighters = [
     weight: '68 - 70 kg',
 
     image: arturFighter1,
-
     shortStory:
       'Polski zawodnik o ofensywnym stylu walki, dużej determinacji i bogatym doświadczeniu zdobytym między innymi w Tajlandii.',
 
@@ -380,7 +379,7 @@ export const fighters = [
     id: 7,
     name: 'Ivan Akhmatov',
     style: 'K-1 / Muay Thai',
-    weight: '80 kg',
+    weight: '94 kg',
     image: ivanFighter1,
 
     shortStory:
@@ -447,7 +446,7 @@ export const fighters = [
     ],
 
     stats: {
-      fights: '0',
+      fights: '25',
     },
 
     achievements: {
