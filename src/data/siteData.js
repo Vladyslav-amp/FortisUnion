@@ -103,7 +103,7 @@ export const fighters = [
       'Walka zaczyna się wtedy, gdy narzucasz rywalowi własne tempo.',
 
     stats: {
-      fights: '24+'
+      fights: '25+'
     },
 
     titles: [
@@ -140,8 +140,8 @@ export const fighters = [
     id: 3,
     name: 'Tsemur Fatakhau',
     style: 'Boks',
-    recordLabel: 'Boks zawodowy',
-    record: '3 – 0',
+    recordLabel: 'Walki zawodowe',
+    record: '5',
     weight: '77 kg',
     image: tsemurFighter1,
 
@@ -260,7 +260,8 @@ export const fighters = [
     id: 5,
     name: 'Aliaksandr Liatas',
     style: 'K-1 / Muay Thai',
-
+    recordLabel: 'Walki zawodowe',
+    record: '8',
     weight: '68–71 kg',
     image: alexFighter1,
 
@@ -274,7 +275,7 @@ export const fighters = [
       'Technika i regularność budują przewagę, zanim zabrzmi pierwszy gong.',
 
     stats: {
-      fights: '8+'
+      fights: '70+'
     },
 
     titles: [
@@ -317,6 +318,8 @@ export const fighters = [
     id: 6,
     name: 'Aliaksei Dziarnou',
     style: 'Boks',
+    recordLabel: 'Walki zawodowe',
+    record: '2',
     height: '173',
     weight: '75–80 kg',
     image: alekseyFighter2,
@@ -430,7 +433,8 @@ export const fighters = [
     id: 8,
     name: 'Yury Kryvulka',
     style: 'MMA',
-    record: '3 - 0',
+    recordLabel: 'Walki zawodowe',
+    record: '3',
     weight: '70 kg',
 
     image: yuryFighter1,
@@ -449,7 +453,7 @@ export const fighters = [
     ],
 
     stats: {
-      fights: '25',
+      fights: '25+',
     },
 
     achievements: {

@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FaArrowRight,
   FaCalendarAlt,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 import Button from '../UI/Button/Button';
-import { fighters, events } from '../../data/siteData';
+import { events } from '../../data/siteData';
 import './Hero.scss';
 
 const parsePolishDate = (dateString) => {
@@ -28,14 +29,11 @@ const parsePolishDate = (dateString) => {
   };
 
   const [day, monthName, year] = dateString.split(' ');
-
   return new Date(Number(year), months[monthName], Number(day));
 };
 
 function Hero() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [showFightVideo, setShowFightVideo] = useState(false);
-  const activeFighter = fighters[activeIndex];
+  const [showEventCard, setShowEventCard] = useState(true);
   const navigate = useNavigate();
 
   const nextEvent = useMemo(() => {
@@ -45,22 +43,6 @@ function Hero() {
     return [...events]
       .filter((event) => parsePolishDate(event.date) >= today)
       .sort((a, b) => parsePolishDate(a.date) - parsePolishDate(b.date))[0];
-  }, []);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % fighters.length);
-    }, 4200);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setShowFightVideo((current) => !current);
-    }, 4500);
-
-    return () => window.clearInterval(timer);
   }, []);
 
   const goToNextEvent = () => {
@@ -105,22 +87,38 @@ function Hero() {
           </div>
         </div>
 
-        {nextEvent && (
-          <motion.button
-            type="button"
+        {nextEvent && showEventCard && (
+          <motion.div
+            role="button"
+            tabIndex={0}
             className="hero__next-fight"
             onClick={goToNextEvent}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                goToNextEvent();
+              }
+            }}
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.25 }}
           >
+            <button
+              type="button"
+              className="hero__close-event"
+              aria-label="Zamknij kartę wydarzenia"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowEventCard(false);
+              }}
+            >
+              <IoClose />
+            </button>
+
             <div className="hero__next-fight-media">
               <img
                 src={nextEvent.image}
                 alt={nextEvent.fightCard || nextEvent.title}
               />
-
-              {/* <span>{nextEvent.status}</span> */}
             </div>
 
             <div className="hero__next-fight-content">
@@ -130,9 +128,7 @@ function Hero() {
 
               <h2>{nextEvent.fightCard || nextEvent.title}</h2>
 
-              {nextEvent.fightCard && (
-                <strong>{nextEvent.title}</strong>
-              )}
+              {nextEvent.fightCard && <strong>{nextEvent.title}</strong>}
 
               <div className="hero__next-fight-divider" />
 
@@ -155,7 +151,7 @@ function Hero() {
                 <FaArrowRight />
               </div>
             </div>
-          </motion.button>
+          </motion.div>
         )}
       </div>
     </section>

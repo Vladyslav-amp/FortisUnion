@@ -61,8 +61,9 @@
 
   &__media {
     position: relative;
-    // max-height: 300px;
     overflow: hidden;
+    max-height: 400px;
+    height: 100%;
   }
 
   &__media::after {
@@ -214,7 +215,6 @@
     }
   }
 
-  // TABLET - KARUZELA
   @include media-down(1180px) {
     &__list {
       display: flex;
@@ -236,7 +236,6 @@
     }
   }
 
-  // MOBILE
   @include media-down(700px) {
     & {
       padding-block: 32px;

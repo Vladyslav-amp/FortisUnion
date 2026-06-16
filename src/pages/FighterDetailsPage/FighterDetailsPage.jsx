@@ -60,7 +60,7 @@ function FighterDetailsPage() {
 
       hasValue(fighter.stats?.fights) && {
         value: fighter.stats.fights,
-        label: 'Walki',
+        label: 'Walki amatorskie',
       },
 
       hasValue(fighter.age) && {
