@@ -27,7 +27,11 @@ function Partners() {
           <div className="partners__track">
             {repeatedPartners.map((partner, index) => (
               <div className="partners__item" key={`${partner.name}-${index}`}>
-                <img src={partner.logo} alt={partner.name} />
+                <img
+                  className="partners__logo"
+                  src={partner.logo}
+                  alt={partner.name}
+                />
               </div>
             ))}
           </div>

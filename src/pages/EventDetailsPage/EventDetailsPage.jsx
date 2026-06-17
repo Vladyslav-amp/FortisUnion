@@ -104,16 +104,16 @@ function EventDetailsPage() {
   if (!event) {
     return (
       <main className="event-details">
-        <div className="container">
-          <h1>Wydarzenie nie istnieje</h1>
+        <div className="container event-details__container">
+          <h1 className="event-details__not-found-title">Wydarzenie nie istnieje</h1>
 
           <button
             type="button"
             className="event-details__back"
             onClick={() => navigate('/events')}
           >
-            <HiOutlineChevronLeft />
-            <span>Wróć do wydarzeń</span>
+            <HiOutlineChevronLeft className="event-details__back-icon" />
+            <span className="event-details__back-text">Wróć do wydarzeń</span>
           </button>
         </div>
       </main>
@@ -122,14 +122,14 @@ function EventDetailsPage() {
 
   return (
     <main className="event-details">
-      <div className="container">
+      <div className="container event-details__container">
         <button
           type="button"
           className="event-details__back"
           onClick={() => navigate('/events')}
         >
-          <HiOutlineChevronLeft />
-          <span>Wróć do wydarzeń</span>
+          <HiOutlineChevronLeft className="event-details__back-icon" />
+          <span className="event-details__back-text">Wróć do wydarzeń</span>
         </button>
 
         <section className="event-details__hero">
@@ -140,49 +140,43 @@ function EventDetailsPage() {
               className="event-details__image"
             />
 
-            <div className="event-details__status">
-              {event.status}
-            </div>
+            <div className="event-details__status">{event.status}</div>
           </div>
 
           <div className="event-details__content">
-            <span className="event-details__eyebrow">
-              Fortis Union Event
-            </span>
+            <span className="event-details__eyebrow">Fortis Union Event</span>
 
-            <h1 className="event-details__title">
-              {event.title}
-            </h1>
+            <h1 className="event-details__title">{event.title}</h1>
 
             <div className="event-details__meta">
-              <span>
-                <FaCalendarAlt />
+              <span className="event-details__meta-item">
+                <FaCalendarAlt className="event-details__meta-icon" />
                 {event.date}
               </span>
 
-              <span>
-                <FaMapMarkerAlt />
+              <span className="event-details__meta-item">
+                <FaMapMarkerAlt className="event-details__meta-icon" />
                 {event.location}
               </span>
             </div>
 
-            <p className="event-details__lead">
-              {event.description}
-            </p>
+            <p className="event-details__lead">{event.description}</p>
 
             {event.longDescription && (
-              <p className="event-details__text">
-                {event.longDescription}
-              </p>
+              <p className="event-details__text">{event.longDescription}</p>
             )}
 
             {event.highlights?.length > 0 && (
               <div className="event-details__section">
-                <h2>Najważniejsze punkty wydarzenia</h2>
+                <h2 className="event-details__section-title">
+                  Najważniejsze punkty wydarzenia
+                </h2>
 
-                <ul>
+                <ul className="event-details__list">
                   {event.highlights.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li className="event-details__list-item" key={item}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -205,11 +199,13 @@ function EventDetailsPage() {
             </div>
 
             <div className="event-details__video-content">
-              <span>Video</span>
+              <span className="event-details__video-label">Video</span>
 
-              <h2>{mainVideo.title || 'Przed walką'}</h2>
+              <h2 className="event-details__video-title">
+                {mainVideo.title || 'Przed walką'}
+              </h2>
 
-              <p>
+              <p className="event-details__video-text">
                 Materiał promocyjny związany z wydarzeniem, przygotowaniami
                 zawodnika oraz nadchodzącym pojedynkiem.
               </p>
@@ -227,7 +223,7 @@ function EventDetailsPage() {
                   }
                 }}
               >
-                <FaPlay />
+                <FaPlay className="event-details__video-button-icon" />
                 Otwórz w pełnym ekranie
               </button>
             </div>
@@ -237,11 +233,13 @@ function EventDetailsPage() {
         {extraVideo?.url && (
           <section className="event-details__video-section event-details__video-section--reverse">
             <div className="event-details__video-content">
-              <span>Backstage</span>
+              <span className="event-details__video-label">Backstage</span>
 
-              <h2>{extraVideo.title || 'Drugi materiał wideo'}</h2>
+              <h2 className="event-details__video-title">
+                {extraVideo.title || 'Drugi materiał wideo'}
+              </h2>
 
-              <p>
+              <p className="event-details__video-text">
                 Dodatkowy materiał pokazujący kulisy, atmosferę wydarzenia lub
                 przygotowania reprezentanta Fortis Union.
               </p>
@@ -259,7 +257,7 @@ function EventDetailsPage() {
                   }
                 }}
               >
-                <FaPlay />
+                <FaPlay className="event-details__video-button-icon" />
                 Otwórz w pełnym ekranie
               </button>
             </div>
@@ -281,8 +279,10 @@ function EventDetailsPage() {
         {event.gallery?.length > 0 && (
           <section className="event-details__media-section">
             <div className="event-details__section-heading">
-              <span>Galeria</span>
-              <h2>Zdjęcia zawodnika</h2>
+              <span className="event-details__section-label">Galeria</span>
+              <h2 className="event-details__section-heading-title">
+                Zdjęcia zawodnika
+              </h2>
             </div>
 
             <div className="event-details__media-strip">
@@ -301,6 +301,7 @@ function EventDetailsPage() {
                     <img
                       src={image}
                       alt={`${event.title} — zdjęcie ${index + 1}`}
+                      className="event-details__media-image"
                     />
                   </button>
                 );
@@ -329,7 +330,7 @@ function EventDetailsPage() {
                 onClick={showPrevMedia}
                 aria-label="Poprzednie media"
               >
-                <FaChevronLeft />
+                <FaChevronLeft className="event-details__lightbox-arrow-icon" />
               </button>
 
               <button
@@ -338,7 +339,7 @@ function EventDetailsPage() {
                 onClick={showNextMedia}
                 aria-label="Następne media"
               >
-                <FaChevronRight />
+                <FaChevronRight className="event-details__lightbox-arrow-icon" />
               </button>
             </>
           )}
@@ -348,21 +349,34 @@ function EventDetailsPage() {
             onClick={(clickEvent) => clickEvent.stopPropagation()}
           >
             {activeMedia.type === 'image' ? (
-              <img src={activeMedia.src} alt={activeMedia.title} />
+              <img
+                src={activeMedia.src}
+                alt={activeMedia.title}
+                className="event-details__lightbox-image"
+              />
             ) : isLocalVideo(activeMedia.src) ? (
-              <video src={activeMedia.src} controls autoPlay playsInline />
+              <video
+                src={activeMedia.src}
+                controls
+                autoPlay
+                playsInline
+                className="event-details__lightbox-video"
+              />
             ) : (
               <iframe
                 src={activeMedia.src}
                 title={activeMedia.title}
+                className="event-details__lightbox-frame"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             )}
 
             <div className="event-details__lightbox-caption">
-              <strong>{activeMedia.title}</strong>
-              <span>
+              <strong className="event-details__lightbox-title">
+                {activeMedia.title}
+              </strong>
+              <span className="event-details__lightbox-counter">
                 {activeMediaIndex + 1} / {mediaItems.length}
               </span>
             </div>

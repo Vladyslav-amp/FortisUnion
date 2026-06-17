@@ -45,13 +45,13 @@ function EventCards() {
                 </h2>
 
                 <div className="event-cards__meta">
-                  <span>
-                    <FaCalendarAlt />
+                  <span className="event-cards__meta-item">
+                    <FaCalendarAlt className="event-cards__meta-icon" />
                     {event.date}
                   </span>
 
-                  <span>
-                    <FaMapMarkerAlt />
+                  <span className="event-cards__meta-item">
+                    <FaMapMarkerAlt className="event-cards__meta-icon" />
                     {event.location}
                   </span>
                 </div>
@@ -66,17 +66,17 @@ function EventCards() {
                       Highlights
                     </span>
 
-                    <ul>
+                    <ul className="event-cards__highlights-list">
                       {event.highlights.map((item, index) => {
                         const Icon = icons[index % icons.length];
 
                         return (
-                          <li key={item}>
+                          <li className="event-cards__highlight" key={item}>
                             <div className="event-cards__highlight-icon">
-                              <Icon />
+                              <Icon className="event-cards__highlight-svg" />
                             </div>
 
-                            <p>{item}</p>
+                            <p className="event-cards__highlight-text">{item}</p>
                           </li>
                         );
                       })}
@@ -88,7 +88,9 @@ function EventCards() {
                   to={`/events/${event.id}`}
                   className="event-cards__button"
                 >
-                  <span>Zobacz wydarzenie</span>
+                  <span className="event-cards__button-text">
+                    Zobacz wydarzenie
+                  </span>
 
                   <FaArrowRight className="event-cards__button-arrow" />
                 </Link>

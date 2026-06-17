@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 import SectionHeading from '../Layout/SectionHeading/SectionHeading';
 import { mediaGallery } from '../../data/siteData';
 import './MediaGallery.scss';
@@ -14,6 +15,10 @@ function MediaGallery() {
       text: item.text,
     }))
   );
+
+  const closeModal = () => {
+    setActiveVideo(null);
+  };
 
   return (
     <section className="media-gallery">
@@ -45,11 +50,16 @@ function MediaGallery() {
 
               <div className="media-gallery__overlay">
                 <span className="media-gallery__play">
-                  <FaPlay />
+                  <FaPlay className="media-gallery__play-icon" />
                 </span>
 
-                <h3 className="media-gallery__title">{video.groupTitle}</h3>
-                <p className="media-gallery__text">{video.title}</p>
+                <h3 className="media-gallery__title">
+                  {video.groupTitle}
+                </h3>
+
+                <p className="media-gallery__text">
+                  {video.title}
+                </p>
               </div>
             </button>
           ))}
@@ -59,19 +69,20 @@ function MediaGallery() {
       {activeVideo && (
         <div
           className="media-gallery__modal"
-          onClick={() => setActiveVideo(null)}
+          onClick={closeModal}
         >
           <button
             type="button"
             className="media-gallery__close"
-            onClick={() => setActiveVideo(null)}
+            onClick={closeModal}
+            aria-label="Zamknij wideo"
           >
-            ×
+            <span className="media-gallery__close-text">×</span>
           </button>
 
           <div
             className="media-gallery__player"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
             <video
               controls

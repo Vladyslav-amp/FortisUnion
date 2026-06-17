@@ -4,12 +4,6 @@
 .fighter-profiles {
   padding: 30px 0 64px;
 
-   @include media-down(700px) {
-    & {
-      padding: 30px 0 32px;
-    }
-   }
-
   &__list {
     display: grid;
     gap: 24px;
@@ -61,8 +55,8 @@
     max-width: calc(100% - 32px);
     padding: 8px 12px;
     border-radius: 999px;
-    background: rgba(8, 8, 8, 0.78);
     border: 1px solid rgba(224, 190, 126, 0.24);
+    background: rgba(8, 8, 8, 0.78);
     color: $color-gold;
     font-size: 11px;
     font-weight: 800;
@@ -78,8 +72,8 @@
   &__headline {
     display: flex;
     align-items: center;
-    gap: 14px;
     flex-wrap: wrap;
+    gap: 14px;
   }
 
   &__name {
@@ -104,34 +98,34 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
     margin-top: 24px;
+  }
 
-    div {
-      min-height: 94px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      border-radius: $radius-sm;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid $color-border;
-    }
+  &__info-item {
+    display: flex;
+    flex-direction: column;
+    min-height: 94px;
+    padding: 16px;
+    border-radius: $radius-sm;
+    border: 1px solid $color-border;
+    background: rgba(255, 255, 255, 0.04);
+  }
 
-    strong {
-      display: block;
-      margin-bottom: 8px;
-      color: $color-gold;
-      font-size: 22px;
-      line-height: 1.1;
-      word-break: break-word;
-    }
+  &__info-value {
+    display: block;
+    margin-bottom: 8px;
+    color: $color-gold;
+    font-size: 22px;
+    line-height: 1.1;
+    word-break: break-word;
+  }
 
-    span {
-      margin-top: auto;
-      color: $color-text-muted;
-      font-size: 12px;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+  &__info-label {
+    margin-top: auto;
+    color: $color-text-muted;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   @include media-down(980px) {
@@ -150,7 +144,7 @@
   }
 
   @include media-down(700px) {
-    // padding: 24px 0 48px;
+    padding: 30px 0 32px;
 
     &__list {
       gap: 18px;
@@ -175,7 +169,6 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      // padding: 10px;
     }
 
     &__card:hover &__image {
@@ -216,20 +209,20 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
       margin-top: 18px;
+    }
 
-      div {
-        min-height: 78px;
-        padding: 13px;
-        border-radius: 16px;
-      }
+    &__info-item {
+      min-height: 78px;
+      padding: 13px;
+      border-radius: 16px;
+    }
 
-      strong {
-        font-size: 18px;
-      }
+    &__info-value {
+      font-size: 18px;
+    }
 
-      span {
-        font-size: 10px;
-      }
+    &__info-label {
+      font-size: 10px;
     }
 
     &__style-badge {
@@ -255,14 +248,14 @@
 
     &__info-grid {
       grid-template-columns: 1fr 1fr;
+    }
 
-      div {
-        min-height: 72px;
-      }
+    &__info-item {
+      min-height: 72px;
+    }
 
-      strong {
-        font-size: 17px;
-      }
+    &__info-value {
+      font-size: 17px;
     }
   }
 }

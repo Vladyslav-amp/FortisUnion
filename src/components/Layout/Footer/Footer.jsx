@@ -15,23 +15,37 @@ function Footer() {
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__column footer__column--brand">
-          <NavLink to="/" className="footer__brand" aria-label="Fortis Union - strona główna">
+          <NavLink
+            to="/"
+            className="footer__brand"
+            aria-label="Fortis Union - strona główna"
+          >
             <span className="footer__brand-mark">
-              <img src={logo} alt="Fortis Union" />
+              <img
+                className="footer__brand-image"
+                src={logo}
+                alt="Fortis Union"
+              />
             </span>
 
             <span className="footer__brand-copy">
-              <strong>Fortis Union</strong>
-              <span>Promocja zawodników</span>
+              <strong className="footer__brand-name">Fortis Union</strong>
+              <span className="footer__brand-description">
+                Promocja zawodników
+              </span>
             </span>
           </NavLink>
 
           <ul className="footer__company">
-            <li>FORTIS UNION SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</li>
-            <li>NIP: 5833560205</li>
-            <li>REGON: 543933843</li>
-            <li>KRS: 0001222499</li>
-            <li>UL.ZAWODZIE 20, 80-726 GDAŃSK</li>
+            <li className="footer__company-item">
+              FORTIS UNION SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+            </li>
+            <li className="footer__company-item">NIP: 5833560205</li>
+            <li className="footer__company-item">REGON: 543933843</li>
+            <li className="footer__company-item">KRS: 0001222499</li>
+            <li className="footer__company-item">
+              UL.ZAWODZIE 20, 80-726 GDAŃSK
+            </li>
           </ul>
         </div>
 
@@ -40,7 +54,7 @@ function Footer() {
 
           <ul className="footer__list">
             {menuItems.map((item) => (
-              <li key={item.to}>
+              <li className="footer__item" key={item.to}>
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
@@ -58,13 +72,13 @@ function Footer() {
           <div className="footer__title">Kontakt</div>
 
           <ul className="footer__list">
-            <li>
+            <li className="footer__item">
               <a href="mailto:fortisunionco@gmail.com" className="footer__link">
                 fortisunionco@gmail.com
               </a>
             </li>
 
-            <li>
+            <li className="footer__item">
               <a href="tel:+48577778962" className="footer__link">
                 +48 577 778 962
               </a>
@@ -73,7 +87,9 @@ function Footer() {
         </div>
 
         <div className="footer__column">
-          <p class="footer__copyright">© 2026 Fortis Union. Wszelkie prawa zastrzeżone.</p>
+          <p className="footer__copyright">
+            © 2026 Fortis Union. Wszelkie prawa zastrzeżone.
+          </p>
         </div>
       </div>
     </footer>

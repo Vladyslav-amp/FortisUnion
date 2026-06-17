@@ -121,9 +121,17 @@ function FighterProfiles() {
                 {infoItems.length > 0 && (
                   <div className="fighter-profiles__info-grid">
                     {infoItems.map((item) => (
-                      <div key={`${item.label}-${item.value}`}>
-                        <strong>{item.value}</strong>
-                        <span>{item.label}</span>
+                      <div
+                        className="fighter-profiles__info-item"
+                        key={`${item.label}-${item.value}`}
+                      >
+                        <strong className="fighter-profiles__info-value">
+                          {item.value}
+                        </strong>
+
+                        <span className="fighter-profiles__info-label">
+                          {item.label}
+                        </span>
                       </div>
                     ))}
                   </div>

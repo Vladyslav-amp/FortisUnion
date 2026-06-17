@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero/PageHero';
-import BlogList from '../components/BlogList';
+import BlogList from '../components/BlogList/BlogList';
 import Contact from '../components/Contact/Contact';
 
 function BlogPage() {

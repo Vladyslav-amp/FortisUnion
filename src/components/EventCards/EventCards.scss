@@ -3,7 +3,6 @@
 
 .event-cards {
   padding: 30px 0;
-  
 
   &__grid {
     display: grid;
@@ -14,7 +13,6 @@
   &__card {
     position: relative;
     overflow: hidden;
-    // max-height: 700px;
 
     display: grid;
     grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
@@ -57,10 +55,10 @@
       box-shadow:
         0 34px 100px rgba(0, 0, 0, 0.62),
         0 0 46px rgba(238, 193, 58, 0.09);
+    }
 
-      &::before {
-        opacity: 1;
-      }
+    &:hover::before {
+      opacity: 1;
     }
   }
 
@@ -72,16 +70,16 @@
     background:
       radial-gradient(circle at center, rgba(238, 193, 58, 0.12), transparent 55%),
       #070707;
-  }
 
-  &__image-panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.22) 82%, rgba(0, 0, 0, 0.55) 100%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 42%, rgba(0, 0, 0, 0.28));
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.22) 82%, rgba(0, 0, 0, 0.55) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 42%, rgba(0, 0, 0, 0.28));
+    }
   }
 
   &__image {
@@ -152,6 +150,18 @@
     text-transform: uppercase;
   }
 
+  &__subtitle {
+    max-width: 760px;
+    margin: 16px 0 0;
+
+    color: #f6f1e8;
+
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
   &__meta {
     display: flex;
     flex-wrap: wrap;
@@ -161,30 +171,30 @@
     padding-bottom: 26px;
 
     border-bottom: 1px solid rgba(224, 190, 126, 0.18);
+  }
 
-    span {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
+  &__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-      padding: 10px 14px;
+    padding: 10px 14px;
 
-      border-radius: 10px;
-      border: 1px solid rgba(224, 190, 126, 0.24);
+    border-radius: 10px;
+    border: 1px solid rgba(224, 190, 126, 0.24);
 
-      background: rgba(224, 190, 126, 0.06);
-      color: #f7f7f7;
+    background: rgba(224, 190, 126, 0.06);
+    color: #f7f7f7;
 
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 
-      svg {
-        color: $color-gold;
-        flex-shrink: 0;
-      }
-    }
+  &__meta-icon {
+    color: $color-gold;
+    flex-shrink: 0;
   }
 
   &__description {
@@ -214,7 +224,7 @@
     text-transform: uppercase;
   }
 
-  &__highlights ul {
+  &__highlights-list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
@@ -226,18 +236,11 @@
     list-style: none;
   }
 
-  &__highlights li {
+  &__highlight {
     display: grid;
     grid-template-columns: 54px 1fr;
     gap: 14px;
     align-items: center;
-
-    p {
-      margin: 0;
-      color: #eeeeee;
-      line-height: 1.45;
-      font-weight: 700;
-    }
   }
 
   &__highlight-icon {
@@ -250,12 +253,19 @@
     border-radius: 12px;
     border: 1px solid rgba(224, 190, 126, 0.28);
     background: rgba(224, 190, 126, 0.06);
+  }
 
-    svg {
-      color: $color-gold;
-      width: 20px;
-      height: 20px;
-    }
+  &__highlight-svg {
+    width: 20px;
+    height: 20px;
+    color: $color-gold;
+  }
+
+  &__highlight-text {
+    margin: 0;
+    color: #eeeeee;
+    line-height: 1.45;
+    font-weight: 700;
   }
 
   &__button {
@@ -289,6 +299,10 @@
       color: #000;
       transform: translateY(-2px);
     }
+  }
+
+  &__button-text {
+    min-width: 0;
   }
 
   &__button-arrow {
@@ -369,11 +383,11 @@
       gap: 10px;
       margin-top: 20px;
       padding-bottom: 20px;
+    }
 
-      span {
-        width: 100%;
-        font-size: 11px;
-      }
+    &__meta-item {
+      width: 100%;
+      font-size: 11px;
     }
 
     &__description {
@@ -386,7 +400,7 @@
       margin-top: 28px;
     }
 
-    &__highlights li {
+    &__highlight {
       grid-template-columns: 46px 1fr;
     }
 

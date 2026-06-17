@@ -2,10 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .blog-list {
-  // @include section-spacing;
-  // padding: 30px 0 0 0;
-
-  
   &__grid {
     display: grid;
     gap: 24px;
@@ -13,9 +9,11 @@
 
   &__card {
     @include card-surface;
+
     display: grid;
     grid-template-columns: 320px 1fr;
     overflow: hidden;
+    cursor: pointer;
   }
 
   &__image {
@@ -32,6 +30,9 @@
   &__meta {
     display: flex;
     gap: 20px;
+  }
+
+  &__meta-item {
     color: $color-gold;
     font-weight: 700;
   }

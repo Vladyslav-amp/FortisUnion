@@ -2,32 +2,30 @@ const sergeyTrener = '/fighters/trener.webp';
 
 const fightersPromo = '/fortis_fighters.mp4';
 
-const alekseyFighter1 = '/fighters/Aleksey/1.jpg';
-const alekseyFighter2 = '/fighters/Aleksey/2.jpg';
-const alekseyFighter3 = '/fighters/Aleksey/3.jpg';
-const alekseyFighter4 = '/fighters/Aleksey/4.jpg';
+const alekseyFighter1 = '/fighters/Aleksey/1.webp';
+const alekseyFighter2 = '/fighters/Aleksey/2.webp';
+const alekseyFighter3 = '/fighters/Aleksey/3.webp';
+const alekseyFighter4 = '/fighters/Aleksey/4.webp';
 const alekseyFighter5 = '/fighters/Aleksey/1.mp4';
 
-const tsemurFighter1 = '/fighters/Tsemur/1.jpg';
+const tsemurFighter1 = '/fighters/Tsemur/1.webp';
 
 const ivanFighter1 = '/fighters/Ivan/1.webp';
 
-const arturFighter1 = '/fighters/Artur/1.jpg';
-const arturEvent = '/fighters/Artur/event-main.jpg';
+const arturFighter1 = '/fighters/Artur/1.webp';
+const arturEvent = '/fighters/Artur/event-main.webp';
 const eventArtur = '/fighters/Artur/event.mp4';
 const event1Artur = '/fighters/Artur/event1.mp4';
 const event2Artur = '/fighters/Artur/event2.mp4';
 
 const olegFighter1 = '/fighters/Oleg/1.webp';
 
-const alexFighter1 = '/fighters/Alex/1.jpg';
+const alexFighter1 = '/fighters/Alex/1.webp';
 
-const yuryFighter1 = '/fighters/Yury/1.jpg';
+const yuryFighter1 = '/fighters/Yury/1.webp';
 
 const logo = '/logo.png';
-const placeholderImageAlt = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80';
-const placeholderImageThird = 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80';
-const placeholderImageFourth = 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1200&q=80';
+
 
 export const fighters = [
   {
@@ -583,29 +581,5 @@ export const blogPosts = [
   //   title: 'Jak zbudować narrację zawodnika, żeby przyciągał sponsorów',
   //   excerpt: 'Przykładowy wpis o tym, jak opakować historię fightera, aby zwiększać wartość medialną i sprzedażową.',
   //   image: sergeyTrener,
-  // },
-  // {
-  //   id: 2,
-  //   category: 'Branding',
-  //   date: '3 kwietnia 2026',
-  //   title: 'Jak zaprojektować promocję zawodnika, żeby wyglądał jak gwiazda',
-  //   excerpt: 'Krótki opis wpisu blogowego. Możesz tu wrzucić analizy organizacyjne, harmonogram i komunikację eventu.',
-  //   image: placeholderImageAlt,
-  // },
-  // {
-  //   id: 3,
-  //   category: 'Media',
-  //   date: '28 marca 2026',
-  //   title: 'Backstage content: dlaczego widzowie chcą oglądać drogę, a nie tylko wynik',
-  //   excerpt: 'Przykładowy materiał o backstage, vlogach i kulisach przygotowań do eventu.',
-  //   image: placeholderImageThird,
-  // },
-  // {
-  //   id: 4,
-  //   category: 'Zawodnicy',
-  //   date: '21 marca 2026',
-  //   title: 'Jak promować czterech zawodników jednocześnie, nie rozmywając przekazu',
-  //   excerpt: 'Wpis pokazujący, jak prowadzić kilka osobnych archetypów fighterów w jednej silnej marce promotion.',
-  //   image: placeholderImageFourth,
-  // },
+  // }
 ];

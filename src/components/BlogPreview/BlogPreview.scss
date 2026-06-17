@@ -1,8 +1,4 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .blog-preview {
-  @include section-spacing;
   background:
     radial-gradient(circle at 15% 15%,
       rgba(238, 193, 58, 0.08),
@@ -10,9 +6,6 @@
     linear-gradient(135deg,
       #060606 0%,
       #15120a 100%);
-
-  // border-top: 1px solid rgba(238, 193, 58, 0.08);
-
 
   &__grid {
     display: grid;
@@ -22,9 +15,10 @@
 
   &__card {
     @include card-surface;
-    overflow: hidden;
+
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     height: 100%;
   }
 
@@ -35,10 +29,10 @@
   }
 
   &__body {
-    padding: 24px;
     display: flex;
-    flex-direction: column;
     flex: 1;
+    flex-direction: column;
+    padding: 24px;
   }
 
   &__category {
@@ -48,28 +42,32 @@
 
   &__title {
     margin: 12px 0;
+    overflow: hidden;
+
     font-size: 28px;
 
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-line-clamp: 3;
   }
 
   &__excerpt {
+    overflow: hidden;
+
     color: $color-text-muted;
     line-height: 1.8;
+
     display: -webkit-box;
-    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-line-clamp: 4;
   }
 
   &__link {
     display: inline-flex;
     margin-top: auto;
-    font-weight: 700;
+
     color: $color-gold;
+    font-weight: 700;
   }
 
   @include media-down(980px) {

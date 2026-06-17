@@ -1,5 +1,5 @@
 import './AboutUs.scss';
-import aboutImage from '../../../public/about.jpg';
+import aboutImage from '../../../public/about.webp';
 
 const values = [
   ['Siła', 'charakter, odwaga i determinacja'],
@@ -13,38 +13,46 @@ const values = [
 function AboutUs() {
   return (
     <section className="about-us" id="about">
-      <div className="container">
-        <div className="section-heading__title">O nas</div>
+      <div className="container about-us__container">
+        <div className="section-heading__title about-us__section-title">O nas</div>
 
         <div className="about-us__intro">
-          <span className="about-us__eyebrow">
-            Kim jesteśmy
-          </span>
+          <span className="about-us__eyebrow">Kim jesteśmy</span>
 
           <h2 className="about-us__title">
-            Fortis Union to projekt sportowy skupiający zawodników, trenerów i partnerów związanych ze sportami walki.
+            Fortis Union to projekt sportowy skupiający zawodników, trenerów i
+            partnerów związanych ze sportami walki.
           </h2>
 
           <div className="about-us__intro-grid">
-            <div>
+            <div className="about-us__description">
               <p className="about-us__lead">
-                Tworzymy środowisko, w którym talent, ciężka praca i charakter przekładają się na realny rozwój sportowy oraz budowę silnej marki.
+                Tworzymy środowisko, w którym talent, ciężka praca i charakter
+                przekładają się na realny rozwój sportowy oraz budowę silnej
+                marki.
               </p>
 
               <p className="about-us__text">
-                Łączymy doświadczenie zdobywane na sali treningowej z nowoczesnym podejściem do promocji zawodników i współpracy biznesowej. Nasz zespół tworzą reprezentanci boksu, kickboxingu, Muay Thai oraz MMA.
+                Łączymy doświadczenie zdobywane na sali treningowej z nowoczesnym
+                podejściem do promocji zawodników i współpracy biznesowej. Nasz
+                zespół tworzą reprezentanci boksu, kickboxingu, Muay Thai oraz
+                MMA.
               </p>
 
               <p className="about-us__text">
-                Projekt powstał z myślą o budowaniu czegoś więcej niż drużyny — tworzymy przestrzeń dla rozwoju sportowego, medialnego i partnerskiego.
+                Projekt powstał z myślą o budowaniu czegoś więcej niż drużyny —
+                tworzymy przestrzeń dla rozwoju sportowego, medialnego i
+                partnerskiego.
               </p>
             </div>
 
             <div className="about-us__mission">
-              <h3>Misja</h3>
+              <h3 className="about-us__mission-title">Misja</h3>
 
-              <p>
-                Budować silną społeczność sportów walki, wspierać rozwój zawodników oraz tworzyć wartościowe relacje z partnerami opartymi na autentyczności, ambicji i profesjonalizmie.
+              <p className="about-us__mission-text">
+                Budować silną społeczność sportów walki, wspierać rozwój
+                zawodników oraz tworzyć wartościowe relacje z partnerami opartymi
+                na autentyczności, ambicji i profesjonalizmie.
               </p>
             </div>
           </div>
@@ -60,18 +68,14 @@ function AboutUs() {
           </div>
 
           <div className="about-us__values">
-            <h3>Nasze wartości</h3>
+            <h3 className="about-us__values-title">Nasze wartości</h3>
 
             <div className="about-us__values-grid">
               {values.map(([title, text]) => (
-                <div
-                  className="about-us__value"
-                  key={title}
-                >
-                  <p>
-                    <strong>{title}</strong>
-                    {' '}
-                    — {text}
+                <div className="about-us__value" key={title}>
+                  <p className="about-us__value-text">
+                    <strong className="about-us__value-title">{title}</strong>{' '}
+                    - {text}
                   </p>
                 </div>
               ))}

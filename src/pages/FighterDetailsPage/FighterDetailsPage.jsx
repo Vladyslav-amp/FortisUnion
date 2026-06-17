@@ -162,10 +162,14 @@ function FighterDetailsPage() {
   if (!fighter) {
     return (
       <section className="fighter-details">
-        <div className="container">
-          <h1>Zawodnik nie istnieje</h1>
+        <div className="container fighter-details__container">
+          <h1 className="fighter-details__not-found-title">Zawodnik nie istnieje</h1>
 
-          <button type="button" onClick={() => navigate('/fighters')}>
+          <button
+            type="button"
+            className="fighter-details__not-found-button"
+            onClick={() => navigate('/fighters')}
+          >
             Wróć do zawodników
           </button>
         </div>
@@ -175,14 +179,14 @@ function FighterDetailsPage() {
 
   return (
     <section className="fighter-details">
-      <div className="container">
+      <div className="container fighter-details__container">
         <button
           type="button"
           className="fighter-details__back"
           onClick={() => navigate('/fighters')}
         >
-          <HiOutlineChevronLeft />
-          <span>Wróć do wszystkich zawodników</span>
+          <HiOutlineChevronLeft className="fighter-details__back-icon" />
+          <span className="fighter-details__back-text">Wróć do wszystkich zawodników</span>
         </button>
 
         <article className="fighter-details__hero">
@@ -238,14 +242,18 @@ function FighterDetailsPage() {
                     onClick={() => setActiveMediaIndex(index)}
                   >
                     {item.type === 'image' ? (
-                      <img src={item.src} alt={item.title} />
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="fighter-details__media-image"
+                      />
                     ) : (
                       <>
                         <div className="fighter-details__video-preview">
-                          <FaPlay />
+                          <FaPlay className="fighter-details__video-icon" />
                         </div>
 
-                        <strong>{item.title}</strong>
+                        <strong className="fighter-details__media-title">{item.title}</strong>
                       </>
                     )}
                   </button>
@@ -256,9 +264,9 @@ function FighterDetailsPage() {
             {infoItems.length > 0 && (
               <div className="fighter-details__info-grid">
                 {infoItems.map((item) => (
-                  <div key={`${item.label}-${item.value}`}>
-                    <strong>{item.value}</strong>
-                    <span>{item.label}</span>
+                  <div className="fighter-details__info-card" key={`${item.label}-${item.value}`}>
+                    <strong className="fighter-details__info-value">{item.value}</strong>
+                    <span className="fighter-details__info-label">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -266,11 +274,11 @@ function FighterDetailsPage() {
 
             {fighter.titles?.length > 0 && (
               <div className="fighter-details__section">
-                <h2>Tytuły i stopnie sportowe</h2>
+                <h2 className="fighter-details__section-title">Tytuły i stopnie sportowe</h2>
 
-                <ul>
+                <ul className="fighter-details__list">
                   {fighter.titles.map((title) => (
-                    <li key={title}>{title}</li>
+                    <li className="fighter-details__list-item" key={title}>{title}</li>
                   ))}
                 </ul>
               </div>
@@ -278,11 +286,11 @@ function FighterDetailsPage() {
 
             {fighter.achievements && (
               <div className="fighter-details__section">
-                <h2>Najważniejsze osiągnięcia</h2>
+                <h2 className="fighter-details__section-title">Najważniejsze osiągnięcia</h2>
 
                 {Object.entries(fighter.achievements).map(([category, items]) => (
-                  <div key={category}>
-                    <h3>
+                  <div className="fighter-details__achievement" key={category}>
+                    <h3 className="fighter-details__achievement-title">
                       {category === 'muayThai'
                         ? 'Muay Thai'
                         : category === 'kickboxing'
@@ -298,9 +306,9 @@ function FighterDetailsPage() {
                                   : category}
                     </h3>
 
-                    <ul>
+                    <ul className="fighter-details__list">
                       {items.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li className="fighter-details__list-item" key={item}>{item}</li>
                       ))}
                     </ul>
                   </div>
@@ -310,13 +318,15 @@ function FighterDetailsPage() {
 
             {fighter.education && (
               <div className="fighter-details__section">
-                <h2>Wykształcenie</h2>
+                <h2 className="fighter-details__section-title">Wykształcenie</h2>
 
-                <p>
-                  <strong>{fighter.education.university}</strong>
-                  <br />
+                <p className="fighter-details__education">
+                  <strong className="fighter-details__education-university">
+                    {fighter.education.university}
+                  </strong>
+                  <br className="fighter-details__education-break" />
                   {fighter.education.faculty}
-                  <br />
+                  <br className="fighter-details__education-break" />
                   Rok ukończenia: {fighter.education.graduationYear}
                 </p>
               </div>
@@ -324,8 +334,8 @@ function FighterDetailsPage() {
 
             {hasValue(fighter.shortStory) && (
               <div className="fighter-details__section">
-                <h2>O profilu</h2>
-                <p>{fighter.shortStory}</p>
+                <h2 className="fighter-details__section-title">O profilu</h2>
+                <p className="fighter-details__section-text">{fighter.shortStory}</p>
               </div>
             )}
           </div>
@@ -351,7 +361,7 @@ function FighterDetailsPage() {
                 onClick={showPrevMedia}
                 aria-label="Poprzednie media"
               >
-                <FaChevronLeft />
+                <FaChevronLeft className="fighter-details__lightbox-arrow-icon" />
               </button>
 
               <button
@@ -360,7 +370,7 @@ function FighterDetailsPage() {
                 onClick={showNextMedia}
                 aria-label="Następne media"
               >
-                <FaChevronRight />
+                <FaChevronRight className="fighter-details__lightbox-arrow-icon" />
               </button>
             </>
           )}
@@ -370,21 +380,31 @@ function FighterDetailsPage() {
             onClick={(event) => event.stopPropagation()}
           >
             {activeMedia.type === 'image' ? (
-              <img src={activeMedia.src} alt={activeMedia.title} />
+              <img
+                src={activeMedia.src}
+                alt={activeMedia.title}
+                className="fighter-details__lightbox-image"
+              />
             ) : isLocalVideo(activeMedia.src) ? (
-              <video src={activeMedia.src} controls autoPlay />
+              <video
+                src={activeMedia.src}
+                className="fighter-details__lightbox-video"
+                controls
+                autoPlay
+              />
             ) : (
               <iframe
                 src={activeMedia.src}
                 title={activeMedia.title}
+                className="fighter-details__lightbox-frame"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             )}
 
             <div className="fighter-details__lightbox-caption">
-              <strong>{activeMedia.title}</strong>
-              <span>
+              <strong className="fighter-details__lightbox-title">{activeMedia.title}</strong>
+              <span className="fighter-details__lightbox-counter">
                 {activeMediaIndex + 1} / {mediaItems.length}
               </span>
             </div>

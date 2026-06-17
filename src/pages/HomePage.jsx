@@ -15,7 +15,7 @@ function HomePage() {
       <Hero />
       <Partners />
       <FightersGrid />
-       <MediaGallery />
+      <MediaGallery />
       <FighterSpotlight />
       <PromoHighlights />
       <AboutUs />

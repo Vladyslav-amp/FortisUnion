@@ -34,6 +34,10 @@ function Header() {
     }
   };
 
+  const handleBurgerClick = () => {
+    setIsMenuOpen((current) => !current);
+  };
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname, location.hash]);
@@ -56,12 +60,18 @@ function Header() {
           onClick={handleLogoClick}
         >
           <span className="header__brand-mark">
-            <img src={logo} alt="Fortis Union" />
+            <img
+              className="header__brand-image"
+              src={logo}
+              alt="Fortis Union"
+            />
           </span>
 
           <span className="header__brand-copy">
-            <strong>Fortis Union</strong>
-            <span>Promocja zawodników</span>
+            <strong className="header__brand-title">Fortis Union</strong>
+            <span className="header__brand-subtitle">
+              Promocja zawodników
+            </span>
           </span>
         </NavLink>
 
@@ -86,11 +96,15 @@ function Header() {
         <button
           type="button"
           className="header__burger"
-          onClick={() => setIsMenuOpen((current) => !current)}
+          onClick={handleBurgerClick}
           aria-label={isMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <HiOutlineX /> : <HiOutlineMenuAlt3 />}
+          {isMenuOpen ? (
+            <HiOutlineX className="header__burger-icon" />
+          ) : (
+            <HiOutlineMenuAlt3 className="header__burger-icon" />
+          )}
         </button>
       </div>
 
@@ -103,8 +117,7 @@ function Header() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `header__mobile-link${
-                  isActive ? ' header__mobile-link--active' : ''
+                `header__mobile-link${isActive ? ' header__mobile-link--active' : ''
                 }`
               }
               onClick={closeMenu}
@@ -113,7 +126,9 @@ function Header() {
             </NavLink>
           ))}
 
-          <Button href="#contact" label="Kontakt" variant="secondary" />
+          <div className="header__mobile-action">
+            <Button href="#contact" label="Kontakt" variant="secondary" />
+          </div>
         </nav>
       </div>
     </header>

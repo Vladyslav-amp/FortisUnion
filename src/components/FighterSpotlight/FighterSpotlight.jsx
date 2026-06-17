@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../Layout/SectionHeading/SectionHeading';
-import Badge from '../UI/Badge';
+import Badge from '../UI/Badge/Badge';
 import { fighters } from '../../data/siteData';
 import './FighterSpotlight.scss';
 
@@ -19,16 +19,17 @@ function FighterSpotlight() {
 
   return (
     <section className="fighter-spotlight">
-      <div className="container">
-        <div className="section-heading__title">Poznaj Trenera</div>
+      <div className="container fighter-spotlight__container">
+        <div className="fighter-spotlight__heading">Poznaj Trenera</div>
+
         <div
           className="fighter-spotlight__grid"
           onClick={goToFighter}
           role="button"
           tabIndex={0}
-          style={{ cursor: 'pointer' }}
           onKeyDown={(event) => {
             if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
               goToFighter();
             }
           }}
@@ -47,9 +48,9 @@ function FighterSpotlight() {
               description={featuredFighter.longStory}
             />
 
-            <div className="fighter-spotlight__quote">
+            <blockquote className="fighter-spotlight__quote">
               “{featuredFighter.quote}”
-            </div>
+            </blockquote>
 
             <div className="fighter-spotlight__badges">
               <Badge value={featuredFighter.experience} label="Doświadczenie" />

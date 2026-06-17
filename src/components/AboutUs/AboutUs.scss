@@ -3,7 +3,8 @@
 
 .about-us {
   padding: 64px 0;
-
+  border-top: 1px solid rgba(238, 193, 58, 0.1);
+  border-bottom: 1px solid rgba(238, 193, 58, 0.1);
   background:
     radial-gradient(circle at 100% 10%,
       rgba(238, 193, 58, 0.1),
@@ -11,28 +12,16 @@
     radial-gradient(circle at 10% 100%,
       rgba(238, 193, 58, 0.08),
       transparent 34%),
-    linear-gradient(
-      135deg,
-      #100e08 0%,
-      #080809 48%,
-      #050506 100%
-    );
-
-  border-top: 1px solid rgba(238, 193, 58, 0.1);
-  border-bottom: 1px solid rgba(238, 193, 58, 0.1);
+    linear-gradient(135deg, #100e08 0%, #080809 48%, #050506 100%);
 
   &__intro,
   &__image-wrap,
   &__values {
-    border-radius: $radius-lg;
     border: 1px solid rgba(224, 190, 126, 0.18);
-
-    background: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.07),
-      rgba(255, 255, 255, 0.024)
-    );
-
+    border-radius: $radius-lg;
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0.024));
     box-shadow: $shadow-soft;
   }
 
@@ -40,138 +29,111 @@
     padding: clamp(28px, 4vw, 46px);
   }
 
-  &__intro-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-    gap: 28px;
-    margin-top: 24px;
-    align-items: stretch;
-  }
-
-  &__media-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
-    gap: 28px;
-    margin-top: 28px;
-    align-items: stretch;
-  }
-
-  &__image-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px;
-    overflow: hidden;
-    min-height: 360px;
-
-    background:
-      radial-gradient(
-        circle at center,
-        rgba(238, 193, 58, 0.1),
-        transparent 68%
-      ),
-      linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.07),
-        rgba(255, 255, 255, 0.024)
-      );
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    // max-height: 430px;
-
-    object-fit: cover;
-    object-position: center;
-
-    border-radius: 24px;
-    display: block;
-
-    filter: saturate(0.95) contrast(1.05);
-  }
-
   &__eyebrow {
     display: block;
     margin-bottom: 12px;
-
     color: $color-gold;
-
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-
     font-size: 12px;
     font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
   &__title {
     max-width: 980px;
     margin: 0;
-
     font-size: clamp(30px, 4vw, 54px);
     line-height: 1.05;
   }
 
+  &__intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 24px;
+  }
+
   &__lead {
     margin: 0;
-
     color: #f1f1f1;
-
     font-size: 18px;
     line-height: 1.65;
   }
 
   &__text {
     margin: 18px 0 0;
-
     color: #c9c9c9;
     line-height: 1.7;
   }
 
   &__mission {
     padding: 22px 24px;
-
-    border-radius: 22px;
     border: 1px solid rgba(224, 190, 126, 0.22);
     border-left: 4px solid $color-gold;
-
+    border-radius: 22px;
     background: rgba(238, 193, 58, 0.08);
+  }
 
-    h3 {
-      margin: 0 0 10px;
+  &__mission-title {
+    margin: 0 0 10px;
+    color: $color-gold;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 
-      color: $color-gold;
+  &__mission-text {
+    margin: 0;
+    color: #f0f0f0;
+    font-weight: 600;
+    line-height: 1.65;
+  }
 
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+  &__media-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 28px;
+  }
 
-      font-size: 16px;
-    }
+  &__image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    padding: 8px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at center,
+        rgba(238, 193, 58, 0.1),
+        transparent 68%),
+      linear-gradient(145deg,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0.024));
+  }
 
-    p {
-      margin: 0;
-
-      color: #f0f0f0;
-
-      line-height: 1.65;
-      font-weight: 600;
-    }
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.95) contrast(1.05);
   }
 
   &__values {
     padding: 28px;
+  }
 
-    h3 {
-      margin: 0 0 18px;
-
-      color: $color-gold;
-
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-
-      font-size: 18px;
-    }
+  &__values-title {
+    margin: 0 0 18px;
+    color: $color-gold;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   &__values-grid {
@@ -183,28 +145,26 @@
   &__value {
     display: flex;
     gap: 12px;
-
-    padding: 16px;
     min-height: 50px;
-
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.045);
+    padding: 16px;
     border: 1px solid rgba(224, 190, 126, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.045);
+  }
 
-    p {
-      margin: 0;
-      color: #c9c9c9;
-      line-height: 1.55;
-    }
+  &__value-text {
+    margin: 0;
+    color: #c9c9c9;
+    line-height: 1.55;
+  }
 
-    strong {
-      color: #fff;
-      text-transform: uppercase;
-    }
+  &__value-title {
+    color: #fff;
+    text-transform: uppercase;
   }
 
   @include media-down(1000px) {
+
     &__intro-grid,
     &__media-row {
       grid-template-columns: 1fr;

@@ -59,8 +59,7 @@ function EventsPreview() {
 
             return (
               <article
-                className={`events-preview__card ${isPast ? 'events-preview__card--past' : ''
-                  }`}
+                className={`events-preview__card${isPast ? ' events-preview__card--past' : ''}`}
                 key={event.id}
               >
                 <div className="events-preview__image-wrap">
@@ -80,8 +79,10 @@ function EventsPreview() {
                     </span>
 
                     <span className="events-preview__date">
-                      <FaCalendarAlt />
-                      {event.date}
+                      <FaCalendarAlt className="events-preview__date-icon" />
+                      <span className="events-preview__date-text">
+                        {event.date}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -95,11 +96,15 @@ function EventsPreview() {
                     {event.title}
                   </h3>
 
-                  <h2>{event.fightCard}</h2>
+                  <h2 className="events-preview__fight-card">
+                    {event.fightCard}
+                  </h2>
 
                   <p className="events-preview__location">
-                    <FaMapMarkerAlt />
-                    {event.location}
+                    <FaMapMarkerAlt className="events-preview__location-icon" />
+                    <span className="events-preview__location-text">
+                      {event.location}
+                    </span>
                   </p>
 
                   <p className="events-preview__copy">

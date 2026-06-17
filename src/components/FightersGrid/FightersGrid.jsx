@@ -6,7 +6,7 @@ import './FightersGrid.scss';
 function FightersGrid() {
   return (
     <section className="fighters-grid" id="fighters">
-      <div className="container">
+      <div className="container fighters-grid__container">
         <SectionHeading
           eyebrow="Zawodnicy"
           title="Poznaj sportowców, którzy budują swoją przyszłość."
@@ -29,17 +29,9 @@ function FightersGrid() {
                       alt={fighter.name}
                       className="fighters-grid__image"
                       style={{
-                        objectPosition: event.imagePosition || 'center top'
+                        objectPosition: fighter.imagePosition || 'center top',
                       }}
                     />
-
-                    {/* <span className="fighters-grid__index">
-                      0{fighter.id}
-                    </span> */}
-
-                    {/* <div className="fighters-grid__overlay">
-                      <strong>{fighter.record}</strong>
-                    </div> */}
                   </div>
 
                   <div className="fighters-grid__body">
@@ -56,21 +48,23 @@ function FightersGrid() {
                     </p>
 
                     <div className="fighters-grid__stats">
-                      <div>
-                        <strong>{fighter.age}</strong>
-                        <span>Wiek</span>
+                      <div className="fighters-grid__stat">
+                        <strong className="fighters-grid__stat-value">
+                          {fighter.age}
+                        </strong>
+                        <span className="fighters-grid__stat-label">
+                          Wiek
+                        </span>
                       </div>
 
-                      <div>
-                        <strong>{fighter.stats.fights}</strong>
-                        <span>Walki</span>
+                      <div className="fighters-grid__stat">
+                        <strong className="fighters-grid__stat-value">
+                          {fighter.stats.fights}
+                        </strong>
+                        <span className="fighters-grid__stat-label">
+                          Walki
+                        </span>
                       </div>
-
-                      {/* <div>
-                        <strong>{fighter.weight}</strong>
-                        <span>Waga</span>
-                      </div> */}
-
                     </div>
                   </div>
                 </article>

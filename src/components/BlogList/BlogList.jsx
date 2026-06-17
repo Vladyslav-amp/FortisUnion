@@ -15,7 +15,6 @@ function BlogList() {
             onClick={() => navigate(`/blog/${post.id}`)}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer' }}
             onKeyDown={(event) => {
               if (event.key === 'Enter' || event.key === ' ') {
                 navigate(`/blog/${post.id}`);
@@ -30,8 +29,8 @@ function BlogList() {
 
             <div className="blog-list__content">
               <div className="blog-list__meta">
-                <span>{post.category}</span>
-                <span>{post.date}</span>
+                <span className="blog-list__meta-item">{post.category}</span>
+                <span className="blog-list__meta-item">{post.date}</span>
               </div>
 
               <h2 className="blog-list__title">

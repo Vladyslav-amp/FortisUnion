@@ -93,8 +93,9 @@ function Hero() {
             tabIndex={0}
             className="hero__next-fight"
             onClick={goToNextEvent}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
                 goToNextEvent();
               }
             }}
@@ -106,16 +107,17 @@ function Hero() {
               type="button"
               className="hero__close-event"
               aria-label="Zamknij kartę wydarzenia"
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={(event) => {
+                event.stopPropagation();
                 setShowEventCard(false);
               }}
             >
-              <IoClose />
+              <IoClose className="hero__close-event-icon" />
             </button>
 
             <div className="hero__next-fight-media">
               <img
+                className="hero__next-fight-image"
                 src={nextEvent.image}
                 alt={nextEvent.fightCard || nextEvent.title}
               />
@@ -126,20 +128,26 @@ function Hero() {
                 Następny pojedynek
               </span>
 
-              <h2>{nextEvent.fightCard || nextEvent.title}</h2>
+              <h2 className="hero__next-fight-title">
+                {nextEvent.fightCard || nextEvent.title}
+              </h2>
 
-              {nextEvent.fightCard && <strong>{nextEvent.title}</strong>}
+              {nextEvent.fightCard && (
+                <strong className="hero__next-fight-name">
+                  {nextEvent.title}
+                </strong>
+              )}
 
               <div className="hero__next-fight-divider" />
 
               <div className="hero__next-fight-meta">
-                <span>
-                  <FaCalendarAlt />
+                <span className="hero__next-fight-meta-item">
+                  <FaCalendarAlt className="hero__next-fight-meta-icon" />
                   {nextEvent.date}
                 </span>
 
-                <span>
-                  <FaMapMarkerAlt />
+                <span className="hero__next-fight-meta-item">
+                  <FaMapMarkerAlt className="hero__next-fight-meta-icon" />
                   {nextEvent.location}
                 </span>
               </div>
@@ -147,8 +155,10 @@ function Hero() {
               <div className="hero__next-fight-divider" />
 
               <div className="hero__next-fight-cta">
-                <span>Zobacz szczegóły</span>
-                <FaArrowRight />
+                <span className="hero__next-fight-cta-text">
+                  Zobacz szczegóły
+                </span>
+                <FaArrowRight className="hero__next-fight-cta-icon" />
               </div>
             </div>
           </motion.div>

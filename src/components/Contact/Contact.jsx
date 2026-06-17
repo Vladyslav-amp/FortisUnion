@@ -186,16 +186,16 @@ function Contact() {
           <div className="contact__details">
             <a href="mailto:fortisunionco@gmail.com" className="contact__link">
               <span className="contact__icon">
-                <HiOutlineMail />
+                <HiOutlineMail className="contact__icon-svg" />
               </span>
-              <span>fortisunionco@gmail.com</span>
+              <span className="contact__link-text">fortisunionco@gmail.com</span>
             </a>
 
             <a href="tel:+48577778962" className="contact__link">
               <span className="contact__icon">
-                <HiOutlinePhone />
+                <HiOutlinePhone className="contact__icon-svg" />
               </span>
-              <span>+48 577 778 962</span>
+              <span className="contact__link-text">+48 577 778 962</span>
             </a>
 
             <a
@@ -205,9 +205,9 @@ function Contact() {
               rel="noreferrer"
             >
               <span className="contact__icon">
-                <FaInstagram />
+                <FaInstagram className="contact__icon-svg" />
               </span>
-              <span>fortisunion</span>
+              <span className="contact__link-text">fortisunion</span>
             </a>
 
             <a
@@ -217,9 +217,9 @@ function Contact() {
               rel="noreferrer"
             >
               <span className="contact__icon">
-                <FaYoutube />
+                <FaYoutube className="contact__icon-svg" />
               </span>
-              <span>Fortis Union</span>
+              <span className="contact__link-text">Fortis Union</span>
             </a>
           </div>
         </div>
