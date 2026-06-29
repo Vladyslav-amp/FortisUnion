@@ -487,6 +487,8 @@ export const fighters = [
     name: 'Timur Nikulin',
     nickname: '',
     style: 'Boks',
+    recordLabel: 'Walki zawodowe',
+    record: '33',
     weight: '79–84 kg',
 
     image: timurFighter,
