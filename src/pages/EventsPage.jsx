@@ -6,7 +6,6 @@ function EventsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Wydarzenia"
         title="Gale, turnieje i wydarzenia sportowe Fortis Union"
         description="Śledź nadchodzące wydarzenia, walki naszych zawodników, turnieje oraz projekty realizowane wspólnie z partnerami i organizacjami sportowymi."
       />

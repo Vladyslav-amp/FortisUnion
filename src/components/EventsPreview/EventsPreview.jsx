@@ -47,9 +47,7 @@ function EventsPreview() {
     <section className="events-preview" id="events">
       <div className="container">
         <SectionHeading
-          eyebrow="Fortis Union Events"
-          title="Gale, turnieje i wydarzenia sportów walki"
-          description="Poznaj nadchodzące wydarzenia, starty zawodników oraz projekty realizowane przez Fortis Union."
+          eyebrow="Gale, turnieje i wydarzenia sportów walki"
         />
 
         <div className="events-preview__list">

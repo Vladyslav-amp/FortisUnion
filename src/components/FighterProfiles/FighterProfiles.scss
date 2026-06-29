@@ -11,7 +11,11 @@
 
   &__card {
     @include card-surface;
-
+    background:
+      linear-gradient(135deg,
+        #2B2B2B 0%,
+        #242424 50%,
+        #202020 100%);
     display: grid;
     grid-template-columns: 340px 1fr;
     overflow: hidden;

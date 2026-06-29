@@ -1,8 +1,8 @@
 @use '../../../styles/variables' as *;
 
 .section-heading {
-  max-width: 780px;
   margin-bottom: 44px;
+  text-align: center;
 
   &--center {
     margin-inline: auto;
@@ -12,16 +12,16 @@
   &__eyebrow {
     margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
     color: $color-gold;
-    font-size: 13px;
+    font-size: clamp(24px, 6.4vw, 40px);
+    font-family: $font-display;
     font-weight: 900;
   }
 
   &__title {
     margin: 0 0 16px;
     font-family: $font-display;
-    font-size: clamp(24px, 6.4vw, 42px);
+    font-size: clamp(24px, 6.4vw, 40px);
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: -0.035em;

@@ -24,6 +24,9 @@ const alexFighter1 = '/fighters/Alex/1.webp';
 
 const yuryFighter1 = '/fighters/Yury/1.webp';
 
+
+const timurFighter = '/fighters/Timur/1.webp';
+
 const logo = '/logo.png';
 
 
@@ -476,6 +479,60 @@ export const fighters = [
     // videos: [
     //   {
     //   }
+    // ]
+  },
+
+  {
+    id: 9,
+    name: 'Timur Nikulin',
+    nickname: '',
+    style: 'Boks',
+    weight: '79–84 kg',
+
+    image: timurFighter,
+
+    shortStory:
+      'Doświadczony pięściarz z Uzbekistanu, były mistrz Hype Reality, Hardcore Boxing oraz REN TV Fight Club.',
+
+    longStory:
+      'Timur Nikulin to zawodowy pięściarz reprezentujący Uzbekistan. Jest byłym mistrzem organizacji Hype Reality (2022), Hardcore Boxing (2023) oraz REN TV Fight Club (2024). Na swoim koncie ma ponad 33 stoczone pojedynki i należy do najbardziej rozpoznawalnych zawodników sceny bokserskiej oraz walk pokazowych w Europie Wschodniej.',
+
+    quote:
+      'Nie walczę dla słów. Walczę po zwycięstwo.',
+
+    titles: [
+      'Mistrz Hype Reality (2022)',
+      'Mistrz Hardcore Boxing (2023)',
+      'Mistrz REN TV Fight Club (2024)',
+    ],
+
+    stats: {
+      fights: '33+',
+    },
+
+    achievements: {
+      boxing: [
+        'Mistrz Hype Reality (2022)',
+        'Mistrz Hardcore Boxing (2023)',
+        'Mistrz REN TV Fight Club (2024)',
+        'Ponad 33 stoczone walki'
+      ]
+    },
+
+    nationality: 'Uzbekistan',
+    age: '31 lat',
+
+    // gallery: [
+    //   timur1,
+    //   timur2,
+    //   timur3,
+    // ],
+
+    // videos: [
+    //   {
+    //     title: 'Najlepsze akcje Timura Nikulina',
+    //     url: timurHighlight,
+    //   },
     // ]
   }
 ];

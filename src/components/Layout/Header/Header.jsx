@@ -69,9 +69,6 @@ function Header() {
 
           <span className="header__brand-copy">
             <strong className="header__brand-title">Fortis Union</strong>
-            <span className="header__brand-subtitle">
-              Promocja zawodników
-            </span>
           </span>
         </NavLink>
 

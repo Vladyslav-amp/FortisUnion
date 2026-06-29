@@ -8,7 +8,7 @@
 @mixin card-surface {
   background: rgba(16, 19, 29, 0.92);
   border: 1px solid $color-border;
-  box-shadow: $shadow-soft;
+  // box-shadow: $shadow-soft;
   border-radius: $radius-md;
 }
 

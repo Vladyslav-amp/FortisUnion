@@ -20,7 +20,7 @@ function FighterSpotlight() {
   return (
     <section className="fighter-spotlight">
       <div className="container fighter-spotlight__container">
-        <div className="fighter-spotlight__heading">Poznaj Trenera</div>
+        {/* <div className="fighter-spotlight__heading">Poznaj Trenera</div> */}
 
         <div
           className="fighter-spotlight__grid"

@@ -2,6 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .blog-list {
+  padding-bottom: 32px;
   &__grid {
     display: grid;
     gap: 24px;

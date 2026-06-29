@@ -1,86 +1,92 @@
 import './AboutUs.scss';
-import aboutImage from '../../../public/about.webp';
+import founderImage from '../../../public/about.webp';
+import Artsemi from '/founder/Artsemi.webp';
+import Aleh from '/founder/Aleh.webp';
+import SectionHeading from '../Layout/SectionHeading/SectionHeading';
 
-const values = [
-  ['Siła', 'charakter, odwaga i determinacja'],
-  ['Dyscyplina', 'konsekwencja w codziennej pracy'],
-  ['Jedność', 'drużyna i wspólny cel'],
-  ['Profesjonalizm', 'wysoki standard działania'],
-  ['Wizerunek', 'rozpoznawalna marka sportowa'],
-  ['Rozwój', 'sportowy, medialny i biznesowy'],
+const founders = [
+  {
+    id: 1,
+    name: 'Aleh Khamitsevich',
+    role: 'Prezes zarządu Fortis Union',
+    image: Aleh,
+  },
+  {
+    id: 2,
+    name: 'Artsemi Davydzenka',
+    role: 'Współwłaściciel Fortis Union',
+    image: Artsemi,
+  },
+  // {
+  //   id: 3,
+  //   name: 'Shadi',
+  //   role: 'Dyrektor sportowy',
+  //   image: founderImage,
+  // },
 ];
 
 function AboutUs() {
   return (
     <section className="about-us" id="about">
-      <div className="container about-us__container">
-        <div className="section-heading__title about-us__section-title">O nas</div>
+      <div className="container">
+        {/* <SectionHeading eyebrow="O Nas" /> */}
 
-        <div className="about-us__intro">
-          <span className="about-us__eyebrow">Kim jesteśmy</span>
+        <div className="about-us__hero">
+          <div className="about-us__content">
+            <h1 className="about-us__text-title">
+              Kim jesteśmy
+            </h1>
 
-          <h2 className="about-us__title">
-            Fortis Union to projekt sportowy skupiający zawodników, trenerów i
-            partnerów związanych ze sportami walki.
-          </h2>
+            <p className="about-us__text">
+              <span className="about-us__text--gold">Fortis Union</span> to projekt sportowy skupiający zawodników, trenerów i
+              partnerów związanych ze sportami walki.
+            </p>
 
-          <div className="about-us__intro-grid">
-            <div className="about-us__description">
-              <p className="about-us__lead">
-                Tworzymy środowisko, w którym talent, ciężka praca i charakter
-                przekładają się na realny rozwój sportowy oraz budowę silnej
-                marki.
-              </p>
+            <p className="about-us__text">
+              Tworzymy środowisko, w którym talent, ciężka praca i charakter
+              przekładają się na realny rozwój sportowy oraz budowę silnej
+              marki.
+            </p>
 
-              <p className="about-us__text">
-                Łączymy doświadczenie zdobywane na sali treningowej z nowoczesnym
-                podejściem do promocji zawodników i współpracy biznesowej. Nasz
-                zespół tworzą reprezentanci boksu, kickboxingu, Muay Thai oraz
-                MMA.
-              </p>
+            <p className="about-us__text">
+              Łączymy doświadczenie zdobywane na sali treningowej z nowoczesnym
+              podejściem do promocji zawodników i współpracy biznesowej. Nasz
+              zespół tworzą reprezentanci boksu, kickboxingu, Muay Thai oraz
+              MMA.
+            </p>
 
-              <p className="about-us__text">
-                Projekt powstał z myślą o budowaniu czegoś więcej niż drużyny —
-                tworzymy przestrzeń dla rozwoju sportowego, medialnego i
-                partnerskiego.
-              </p>
-            </div>
+          </div>
 
-            <div className="about-us__mission">
-              <h3 className="about-us__mission-title">Misja</h3>
-
-              <p className="about-us__mission-text">
-                Budować silną społeczność sportów walki, wspierać rozwój
-                zawodników oraz tworzyć wartościowe relacje z partnerami opartymi
-                na autentyczności, ambicji i profesjonalizmie.
-              </p>
-            </div>
+          <div className="about-us__hero-image">
+            <img src={founderImage} alt="Fortis Union MMA" />
           </div>
         </div>
 
-        <div className="about-us__media-row">
-          <div className="about-us__image-wrap">
-            <img
-              className="about-us__image"
-              src={aboutImage}
-              alt="Fortis Union"
-            />
-          </div>
+        <div className="about-us__founders-heading">
+          <span className="about-us__line"></span>
 
-          <div className="about-us__values">
-            <h3 className="about-us__values-title">Nasze wartości</h3>
+          <h2 className="about-us__founders-title">
+            ZAŁOŻYCIELE
+          </h2>
 
-            <div className="about-us__values-grid">
-              {values.map(([title, text]) => (
-                <div className="about-us__value" key={title}>
-                  <p className="about-us__value-text">
-                    <strong className="about-us__value-title">{title}</strong>{' '}
-                    - {text}
-                  </p>
-                </div>
-              ))}
+          <span className="about-us__line"></span>
+        </div>
+
+        <div className="about-us__founders">
+          {founders.map(founder => (
+            <div className="about-us__card" key={founder.id}>
+
+              <img
+                src={founder.image}
+                alt={founder.name}
+                className="about-us__card-image"
+              />
+              <div className="about-us__overlay">
+                <h3>{founder.name}</h3>
+                <p>{founder.role}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

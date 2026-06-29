@@ -1,4 +1,5 @@
 import './Partners.scss';
+import SectionHeading from '../Layout/SectionHeading/SectionHeading';
 
 const partners = [
   { name: 'Partner 1', logo: '/logo.png' },
@@ -15,13 +16,10 @@ function Partners() {
   return (
     <section className="partners" id="partners">
       <div className="container">
-        <div className="partners__header">
-          <span className="partners__eyebrow">Partnerzy</span>
-
-          <h2 className="partners__title">
-            Marki i ludzie, którzy wspierają rozwój zawodników
-          </h2>
-        </div>
+        <SectionHeading
+          eyebrow="Partnerzy"
+          title="Marki i ludzie, którzy wspierają rozwój zawodników."
+        />
 
         <div className="partners__slider" aria-label="Lista partnerów">
           <div className="partners__track">

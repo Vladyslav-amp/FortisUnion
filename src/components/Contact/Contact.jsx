@@ -172,8 +172,6 @@ function Contact() {
     <section className="contact" id="contact">
       <div className="container contact__inner">
         <div className="contact__content">
-          <span className="contact__eyebrow">Kontakt</span>
-
           <h2 className="contact__title">
             Chcesz wypromować zawodnika albo zbudować mocniejszy wizerunek przed walką?
           </h2>
