@@ -52,11 +52,11 @@ function FighterSpotlight() {
               “{featuredFighter.quote}”
             </blockquote>
 
-            <div className="fighter-spotlight__badges">
+            {/* <div className="fighter-spotlight__badges">
               <Badge value={featuredFighter.experience} label="Doświadczenie" />
               <Badge value="20" label="Przygotowanych Zawodników" />
               <Badge value="100" label="Walk Pod Opieką" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import './AboutUs.scss';
-import founderImage from '../../../public/about.webp';
+import founderImage from '../../../public/logo.png';
 import Artsemi from '/founder/Artsemi.webp';
 import Aleh from '/founder/Aleh.webp';
 import SectionHeading from '../Layout/SectionHeading/SectionHeading';

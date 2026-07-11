@@ -58,29 +58,29 @@
     background: rgba(224, 190, 126, 0.06);
     color: $color-text;
     font-family: $font-display;
-    font-size: clamp(24px, 3vw, 38px);
+    font-size: clamp(24px, 3vw, 30px);
     line-height: 1.12;
     text-transform: uppercase;
   }
 
-  &__badges {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  // &__badges {
+  //   display: grid;
+  //   grid-template-columns: repeat(3, 1fr);
+  //   gap: 16px;
 
-    & .badge {
-      background-color: #2A2A2A;
-    }
-  }
+  //   & .badge {
+  //     background-color: #2A2A2A;
+  //   }
+  // }
 
   @include media-down(980px) {
     &__grid {
       grid-template-columns: 1fr;
     }
 
-    &__badges {
-      grid-template-columns: 1fr;
-    }
+    // &__badges {
+    //   grid-template-columns: 1fr;
+    // }
   }
 
   @include media-down(700px) {
