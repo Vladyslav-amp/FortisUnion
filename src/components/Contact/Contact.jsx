@@ -189,13 +189,6 @@ function Contact() {
               <span className="contact__link-text">fortisunionco@gmail.com</span>
             </a>
 
-            <a href="tel:+48577778962" className="contact__link">
-              <span className="contact__icon">
-                <HiOutlinePhone className="contact__icon-svg" />
-              </span>
-              <span className="contact__link-text">+48 577 778 962</span>
-            </a>
-
             <a
               href="https://www.instagram.com/fortis.union?igsh=enk5Z3dpdmVhdGFt"
               className="contact__link"

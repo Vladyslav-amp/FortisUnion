@@ -77,12 +77,6 @@ function Footer() {
                 fortisunionco@gmail.com
               </a>
             </li>
-
-            <li className="footer__item">
-              <a href="tel:+48577778962" className="footer__link">
-                +48 577 778 962
-              </a>
-            </li>
           </ul>
         </div>
 
