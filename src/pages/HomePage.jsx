@@ -5,14 +5,14 @@ import MediaGallery from '../components/MediaGallery/MediaGallery';
 // import BlogPreview from '../components/BlogPreview/BlogPreview';
 import Contact from '../components/Contact/Contact';
 import AboutUs from '../components/AboutUs/AboutUs';
-import Partners from '../components/Partners/Partners';
+// import Partners from '../components/Partners/Partners';
 import Event from '../components/EventsPreview/EventsPreview';
 
 function HomePage() {
   return (
     <>
       <Hero />
-      <Partners />
+      {/* <Partners /> */}
       <FightersGrid />
       <MediaGallery />
       <FighterSpotlight />

@@ -1,6 +1,6 @@
 import './AboutUs.scss';
 import founderImage from '../../../public/logo.png';
-import Artsemi from '/founder/Artsemi.webp';
+// import Artsemi from '/founder/Artsemi.webp';
 import Aleh from '/founder/Aleh.webp';
 import SectionHeading from '../Layout/SectionHeading/SectionHeading';
 
@@ -11,12 +11,12 @@ const founders = [
     role: 'Prezes zarządu Fortis Union',
     image: Aleh,
   },
-  {
-    id: 2,
-    name: 'Artsemi Davydzenka',
-    role: 'Współwłaściciel Fortis Union',
-    image: Artsemi,
-  },
+  // {
+  //   id: 2,
+  //   name: 'Artsemi Davydzenka',
+  //   role: 'Współwłaściciel Fortis Union',
+  //   image: Artsemi,
+  // },
   // {
   //   id: 3,
   //   name: 'Shadi',

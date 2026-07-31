@@ -36,7 +36,6 @@ function FightersGrid() {
         <SectionHeading
           eyebrow="Zawodnicy"
           title="Poznaj sportowców, którzy budują swoją przyszłość."
-          description="Od pierwszych zwycięstw po największe wyzwania - pokazujemy ludzi stojących za wynikami."
         />
 
         <div className="fighters-grid__controls">
