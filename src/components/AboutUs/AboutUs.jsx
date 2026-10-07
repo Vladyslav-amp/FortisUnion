@@ -61,33 +61,6 @@ function AboutUs() {
             <img src={founderImage} alt="Fortis Union MMA" />
           </div>
         </div>
-
-        <div className="about-us__founders-heading">
-          <span className="about-us__line"></span>
-
-          <h2 className="about-us__founders-title">
-            ZAŁOŻYCIELE
-          </h2>
-
-          <span className="about-us__line"></span>
-        </div>
-
-        <div className="about-us__founders">
-          {founders.map(founder => (
-            <div className="about-us__card" key={founder.id}>
-
-              <img
-                src={founder.image}
-                alt={founder.name}
-                className="about-us__card-image"
-              />
-              <div className="about-us__overlay">
-                <h3>{founder.name}</h3>
-                <p>{founder.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
